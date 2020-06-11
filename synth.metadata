@@ -3,8 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "sso://devrel/cloud/libraries/python/python-os-config",
-        "sha": "143b9270390ff38775e2fbcd2288e8bfe4a82797"
+        "remote": "https://github.com/googleapis/python-os-config.git",
+        "sha": "d0b15448e34bc1a4b633ebd9c88dfdad2f3a1db6"
       }
     },
     {

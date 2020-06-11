@@ -15,7 +15,6 @@
 # limitations under the License.
 #
 
-
 from google.cloud.osconfig_v1.services.os_config_service.client import (
     OsConfigServiceClient,
 )

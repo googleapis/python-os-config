@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 
+import os
 from unittest import mock
 
 import grpc
@@ -25,6 +26,7 @@ from google import auth
 from google.api_core import client_options
 from google.api_core import grpc_helpers
 from google.auth import credentials
+from google.auth.exceptions import MutualTLSChannelError
 from google.cloud.osconfig_v1.services.os_config_service import OsConfigServiceClient
 from google.cloud.osconfig_v1.services.os_config_service import pagers
 from google.cloud.osconfig_v1.services.os_config_service import transports
@@ -87,6 +89,14 @@ def test_os_config_service_client_from_service_account_file():
         assert client._transport._host == "osconfig.googleapis.com:443"
 
 
+def test_os_config_service_client_get_transport_class():
+    transport = OsConfigServiceClient.get_transport_class()
+    assert transport == transports.OsConfigServiceGrpcTransport
+
+    transport = OsConfigServiceClient.get_transport_class("grpc")
+    assert transport == transports.OsConfigServiceGrpcTransport
+
+
 def test_os_config_service_client_client_options():
     # Check that if channel is provided we won't create a new one.
     with mock.patch(
@@ -98,19 +108,14 @@ def test_os_config_service_client_client_options():
         client = OsConfigServiceClient(transport=transport)
         gtc.assert_not_called()
 
-    # Check mTLS is not triggered with empty client options.
-    options = client_options.ClientOptions()
+    # Check that if channel is provided via str we will create a new one.
     with mock.patch(
         "google.cloud.osconfig_v1.services.os_config_service.OsConfigServiceClient.get_transport_class"
     ) as gtc:
-        transport = gtc.return_value = mock.MagicMock()
-        client = OsConfigServiceClient(client_options=options)
-        transport.assert_called_once_with(
-            credentials=None, host=client.DEFAULT_ENDPOINT
-        )
+        client = OsConfigServiceClient(transport="grpc")
+        gtc.assert_called()
 
-    # Check mTLS is not triggered if api_endpoint is provided but
-    # client_cert_source is None.
+    # Check the case api_endpoint is provided.
     options = client_options.ClientOptions(api_endpoint="squid.clam.whelk")
     with mock.patch(
         "google.cloud.osconfig_v1.services.os_config_service.transports.OsConfigServiceGrpcTransport.__init__"
@@ -118,13 +123,45 @@ def test_os_config_service_client_client_options():
         grpc_transport.return_value = None
         client = OsConfigServiceClient(client_options=options)
         grpc_transport.assert_called_once_with(
-            api_mtls_endpoint=None,
+            api_mtls_endpoint="squid.clam.whelk",
             client_cert_source=None,
             credentials=None,
             host="squid.clam.whelk",
         )
 
-    # Check mTLS is triggered if client_cert_source is provided.
+    # Check the case api_endpoint is not provided and GOOGLE_API_USE_MTLS is
+    # "never".
+    os.environ["GOOGLE_API_USE_MTLS"] = "never"
+    with mock.patch(
+        "google.cloud.osconfig_v1.services.os_config_service.transports.OsConfigServiceGrpcTransport.__init__"
+    ) as grpc_transport:
+        grpc_transport.return_value = None
+        client = OsConfigServiceClient()
+        grpc_transport.assert_called_once_with(
+            api_mtls_endpoint=client.DEFAULT_ENDPOINT,
+            client_cert_source=None,
+            credentials=None,
+            host=client.DEFAULT_ENDPOINT,
+        )
+
+    # Check the case api_endpoint is not provided and GOOGLE_API_USE_MTLS is
+    # "always".
+    os.environ["GOOGLE_API_USE_MTLS"] = "always"
+    with mock.patch(
+        "google.cloud.osconfig_v1.services.os_config_service.transports.OsConfigServiceGrpcTransport.__init__"
+    ) as grpc_transport:
+        grpc_transport.return_value = None
+        client = OsConfigServiceClient()
+        grpc_transport.assert_called_once_with(
+            api_mtls_endpoint=client.DEFAULT_MTLS_ENDPOINT,
+            client_cert_source=None,
+            credentials=None,
+            host=client.DEFAULT_MTLS_ENDPOINT,
+        )
+
+    # Check the case api_endpoint is not provided, GOOGLE_API_USE_MTLS is
+    # "auto", and client_cert_source is provided.
+    os.environ["GOOGLE_API_USE_MTLS"] = "auto"
     options = client_options.ClientOptions(
         client_cert_source=client_cert_source_callback
     )
@@ -137,24 +174,54 @@ def test_os_config_service_client_client_options():
             api_mtls_endpoint=client.DEFAULT_MTLS_ENDPOINT,
             client_cert_source=client_cert_source_callback,
             credentials=None,
-            host=client.DEFAULT_ENDPOINT,
+            host=client.DEFAULT_MTLS_ENDPOINT,
         )
 
-    # Check mTLS is triggered if api_endpoint and client_cert_source are provided.
-    options = client_options.ClientOptions(
-        api_endpoint="squid.clam.whelk", client_cert_source=client_cert_source_callback
-    )
+    # Check the case api_endpoint is not provided, GOOGLE_API_USE_MTLS is
+    # "auto", and default_client_cert_source is provided.
+    os.environ["GOOGLE_API_USE_MTLS"] = "auto"
     with mock.patch(
         "google.cloud.osconfig_v1.services.os_config_service.transports.OsConfigServiceGrpcTransport.__init__"
     ) as grpc_transport:
-        grpc_transport.return_value = None
-        client = OsConfigServiceClient(client_options=options)
-        grpc_transport.assert_called_once_with(
-            api_mtls_endpoint="squid.clam.whelk",
-            client_cert_source=client_cert_source_callback,
-            credentials=None,
-            host="squid.clam.whelk",
-        )
+        with mock.patch(
+            "google.auth.transport.mtls.has_default_client_cert_source",
+            return_value=True,
+        ):
+            grpc_transport.return_value = None
+            client = OsConfigServiceClient()
+            grpc_transport.assert_called_once_with(
+                api_mtls_endpoint=client.DEFAULT_MTLS_ENDPOINT,
+                client_cert_source=None,
+                credentials=None,
+                host=client.DEFAULT_MTLS_ENDPOINT,
+            )
+
+    # Check the case api_endpoint is not provided, GOOGLE_API_USE_MTLS is
+    # "auto", but client_cert_source and default_client_cert_source are None.
+    os.environ["GOOGLE_API_USE_MTLS"] = "auto"
+    with mock.patch(
+        "google.cloud.osconfig_v1.services.os_config_service.transports.OsConfigServiceGrpcTransport.__init__"
+    ) as grpc_transport:
+        with mock.patch(
+            "google.auth.transport.mtls.has_default_client_cert_source",
+            return_value=False,
+        ):
+            grpc_transport.return_value = None
+            client = OsConfigServiceClient()
+            grpc_transport.assert_called_once_with(
+                api_mtls_endpoint=client.DEFAULT_ENDPOINT,
+                client_cert_source=None,
+                credentials=None,
+                host=client.DEFAULT_ENDPOINT,
+            )
+
+    # Check the case api_endpoint is not provided and GOOGLE_API_USE_MTLS has
+    # unsupported value.
+    os.environ["GOOGLE_API_USE_MTLS"] = "Unsupported"
+    with pytest.raises(MutualTLSChannelError):
+        client = OsConfigServiceClient()
+
+    del os.environ["GOOGLE_API_USE_MTLS"]
 
 
 def test_os_config_service_client_client_options_from_dict():
@@ -166,7 +233,7 @@ def test_os_config_service_client_client_options_from_dict():
             client_options={"api_endpoint": "squid.clam.whelk"}
         )
         grpc_transport.assert_called_once_with(
-            api_mtls_endpoint=None,
+            api_mtls_endpoint="squid.clam.whelk",
             client_cert_source=None,
             credentials=None,
             host="squid.clam.whelk",
@@ -219,6 +286,32 @@ def test_execute_patch_job(transport: str = "grpc"):
     assert response.patch_deployment == "patch_deployment_value"
 
 
+def test_execute_patch_job_field_headers():
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+
+    # Any value that is part of the HTTP/1.1 URI should be sent as
+    # a field header. Set these to a non-empty value.
+    request = patch_jobs.ExecutePatchJobRequest()
+    request.parent = "parent/value"
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client._transport.execute_patch_job), "__call__"
+    ) as call:
+        call.return_value = patch_jobs.PatchJob()
+
+        client.execute_patch_job(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls) == 1
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == request
+
+    # Establish that the field header was sent.
+    _, _, kw = call.mock_calls[0]
+    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+
+
 def test_get_patch_job(transport: str = "grpc"):
     client = OsConfigServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport
@@ -268,11 +361,13 @@ def test_get_patch_job_field_headers():
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
-    request = patch_jobs.GetPatchJobRequest(name="name/value")
+    request = patch_jobs.GetPatchJobRequest()
+    request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.get_patch_job), "__call__") as call:
         call.return_value = patch_jobs.PatchJob()
+
         client.get_patch_job(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -295,7 +390,7 @@ def test_get_patch_job_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = client.get_patch_job(name="name_value")
+        client.get_patch_job(name="name_value")
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -359,6 +454,32 @@ def test_cancel_patch_job(transport: str = "grpc"):
     assert response.patch_deployment == "patch_deployment_value"
 
 
+def test_cancel_patch_job_field_headers():
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+
+    # Any value that is part of the HTTP/1.1 URI should be sent as
+    # a field header. Set these to a non-empty value.
+    request = patch_jobs.CancelPatchJobRequest()
+    request.name = "name/value"
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client._transport.cancel_patch_job), "__call__"
+    ) as call:
+        call.return_value = patch_jobs.PatchJob()
+
+        client.cancel_patch_job(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls) == 1
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == request
+
+    # Establish that the field header was sent.
+    _, _, kw = call.mock_calls[0]
+    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+
+
 def test_list_patch_jobs(transport: str = "grpc"):
     client = OsConfigServiceClient(
         credentials=credentials.AnonymousCredentials(), transport=transport
@@ -393,11 +514,13 @@ def test_list_patch_jobs_field_headers():
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
-    request = patch_jobs.ListPatchJobsRequest(parent="parent/value")
+    request = patch_jobs.ListPatchJobsRequest()
+    request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client._transport.list_patch_jobs), "__call__") as call:
         call.return_value = patch_jobs.ListPatchJobsResponse()
+
         client.list_patch_jobs(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -420,7 +543,7 @@ def test_list_patch_jobs_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = client.list_patch_jobs(parent="parent_value")
+        client.list_patch_jobs(parent="parent_value")
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -532,13 +655,15 @@ def test_list_patch_job_instance_details_field_headers():
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
-    request = patch_jobs.ListPatchJobInstanceDetailsRequest(parent="parent/value")
+    request = patch_jobs.ListPatchJobInstanceDetailsRequest()
+    request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
         type(client._transport.list_patch_job_instance_details), "__call__"
     ) as call:
         call.return_value = patch_jobs.ListPatchJobInstanceDetailsResponse()
+
         client.list_patch_job_instance_details(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -563,7 +688,7 @@ def test_list_patch_job_instance_details_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = client.list_patch_job_instance_details(parent="parent_value")
+        client.list_patch_job_instance_details(parent="parent_value")
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -689,6 +814,32 @@ def test_create_patch_deployment(transport: str = "grpc"):
     assert response.description == "description_value"
 
 
+def test_create_patch_deployment_field_headers():
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+
+    # Any value that is part of the HTTP/1.1 URI should be sent as
+    # a field header. Set these to a non-empty value.
+    request = patch_deployments.CreatePatchDeploymentRequest()
+    request.parent = "parent/value"
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client._transport.create_patch_deployment), "__call__"
+    ) as call:
+        call.return_value = patch_deployments.PatchDeployment()
+
+        client.create_patch_deployment(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls) == 1
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == request
+
+    # Establish that the field header was sent.
+    _, _, kw = call.mock_calls[0]
+    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+
+
 def test_create_patch_deployment_flattened():
     client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
 
@@ -701,7 +852,7 @@ def test_create_patch_deployment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = client.create_patch_deployment(
+        client.create_patch_deployment(
             parent="parent_value",
             patch_deployment=patch_deployments.PatchDeployment(name="name_value"),
             patch_deployment_id="patch_deployment_id_value",
@@ -769,13 +920,15 @@ def test_get_patch_deployment_field_headers():
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
-    request = patch_deployments.GetPatchDeploymentRequest(name="name/value")
+    request = patch_deployments.GetPatchDeploymentRequest()
+    request.name = "name/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
         type(client._transport.get_patch_deployment), "__call__"
     ) as call:
         call.return_value = patch_deployments.PatchDeployment()
+
         client.get_patch_deployment(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -800,7 +953,7 @@ def test_get_patch_deployment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = client.get_patch_deployment(name="name_value")
+        client.get_patch_deployment(name="name_value")
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -856,13 +1009,15 @@ def test_list_patch_deployments_field_headers():
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
-    request = patch_deployments.ListPatchDeploymentsRequest(parent="parent/value")
+    request = patch_deployments.ListPatchDeploymentsRequest()
+    request.parent = "parent/value"
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
         type(client._transport.list_patch_deployments), "__call__"
     ) as call:
         call.return_value = patch_deployments.ListPatchDeploymentsResponse()
+
         client.list_patch_deployments(request)
 
         # Establish that the underlying gRPC stub method was called.
@@ -887,7 +1042,7 @@ def test_list_patch_deployments_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = client.list_patch_deployments(parent="parent_value")
+        client.list_patch_deployments(parent="parent_value")
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1009,6 +1164,32 @@ def test_delete_patch_deployment(transport: str = "grpc"):
     assert response is None
 
 
+def test_delete_patch_deployment_field_headers():
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+
+    # Any value that is part of the HTTP/1.1 URI should be sent as
+    # a field header. Set these to a non-empty value.
+    request = patch_deployments.DeletePatchDeploymentRequest()
+    request.name = "name/value"
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client._transport.delete_patch_deployment), "__call__"
+    ) as call:
+        call.return_value = None
+
+        client.delete_patch_deployment(request)
+
+        # Establish that the underlying gRPC stub method was called.
+        assert len(call.mock_calls) == 1
+        _, args, _ = call.mock_calls[0]
+        assert args[0] == request
+
+    # Establish that the field header was sent.
+    _, _, kw = call.mock_calls[0]
+    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+
+
 def test_delete_patch_deployment_flattened():
     client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
 
@@ -1021,7 +1202,7 @@ def test_delete_patch_deployment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = client.delete_patch_deployment(name="name_value")
+        client.delete_patch_deployment(name="name_value")
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1101,13 +1282,23 @@ def test_os_config_service_auth_adc():
         )
 
 
+def test_os_config_service_transport_auth_adc():
+    # If credentials and host are not provided, the transport class should use
+    # ADC credentials.
+    with mock.patch.object(auth, "default") as adc:
+        adc.return_value = (credentials.AnonymousCredentials(), None)
+        transports.OsConfigServiceGrpcTransport(host="squid.clam.whelk")
+        adc.assert_called_once_with(
+            scopes=("https://www.googleapis.com/auth/cloud-platform",)
+        )
+
+
 def test_os_config_service_host_no_port():
     client = OsConfigServiceClient(
         credentials=credentials.AnonymousCredentials(),
         client_options=client_options.ClientOptions(
             api_endpoint="osconfig.googleapis.com"
         ),
-        transport="grpc",
     )
     assert client._transport._host == "osconfig.googleapis.com:443"
 
@@ -1118,7 +1309,6 @@ def test_os_config_service_host_with_port():
         client_options=client_options.ClientOptions(
             api_endpoint="osconfig.googleapis.com:8000"
         ),
-        transport="grpc",
     )
     assert client._transport._host == "osconfig.googleapis.com:8000"
 
