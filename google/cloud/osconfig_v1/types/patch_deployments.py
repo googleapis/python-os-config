@@ -94,18 +94,18 @@ class PatchDeployment(proto.Message):
     name = proto.Field(proto.STRING, number=1)
     description = proto.Field(proto.STRING, number=2)
     instance_filter = proto.Field(
-        proto.MESSAGE, number=3, message=patch_jobs.PatchInstanceFilter
+        proto.MESSAGE, number=3, message=patch_jobs.PatchInstanceFilter,
     )
-    patch_config = proto.Field(proto.MESSAGE, number=4, message=patch_jobs.PatchConfig)
-    duration = proto.Field(proto.MESSAGE, number=5, message=gp_duration.Duration)
-    one_time_schedule = proto.Field(proto.MESSAGE, number=6, message="OneTimeSchedule")
+    patch_config = proto.Field(proto.MESSAGE, number=4, message=patch_jobs.PatchConfig,)
+    duration = proto.Field(proto.MESSAGE, number=5, message=gp_duration.Duration,)
+    one_time_schedule = proto.Field(proto.MESSAGE, number=6, message="OneTimeSchedule",)
     recurring_schedule = proto.Field(
-        proto.MESSAGE, number=7, message="RecurringSchedule"
+        proto.MESSAGE, number=7, message="RecurringSchedule",
     )
-    create_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp)
-    update_time = proto.Field(proto.MESSAGE, number=9, message=timestamp.Timestamp)
+    create_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp,)
+    update_time = proto.Field(proto.MESSAGE, number=9, message=timestamp.Timestamp,)
     last_execute_time = proto.Field(
-        proto.MESSAGE, number=10, message=timestamp.Timestamp
+        proto.MESSAGE, number=10, message=timestamp.Timestamp,
     )
 
 
@@ -119,7 +119,7 @@ class OneTimeSchedule(proto.Message):
             time.
     """
 
-    execute_time = proto.Field(proto.MESSAGE, number=1, message=timestamp.Timestamp)
+    execute_time = proto.Field(proto.MESSAGE, number=1, message=timestamp.Timestamp,)
 
 
 class RecurringSchedule(proto.Message):
@@ -161,18 +161,18 @@ class RecurringSchedule(proto.Message):
         WEEKLY = 1
         MONTHLY = 2
 
-    time_zone = proto.Field(proto.MESSAGE, number=1, message=datetime.TimeZone)
-    start_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp)
-    end_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp)
-    time_of_day = proto.Field(proto.MESSAGE, number=4, message=timeofday.TimeOfDay)
-    frequency = proto.Field(proto.ENUM, number=5, enum=Frequency)
-    weekly = proto.Field(proto.MESSAGE, number=6, message="WeeklySchedule")
-    monthly = proto.Field(proto.MESSAGE, number=7, message="MonthlySchedule")
+    time_zone = proto.Field(proto.MESSAGE, number=1, message=datetime.TimeZone,)
+    start_time = proto.Field(proto.MESSAGE, number=2, message=timestamp.Timestamp,)
+    end_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
+    time_of_day = proto.Field(proto.MESSAGE, number=4, message=timeofday.TimeOfDay,)
+    frequency = proto.Field(proto.ENUM, number=5, enum=Frequency,)
+    weekly = proto.Field(proto.MESSAGE, number=6, message="WeeklySchedule",)
+    monthly = proto.Field(proto.MESSAGE, number=7, message="MonthlySchedule",)
     last_execute_time = proto.Field(
-        proto.MESSAGE, number=9, message=timestamp.Timestamp
+        proto.MESSAGE, number=9, message=timestamp.Timestamp,
     )
     next_execute_time = proto.Field(
-        proto.MESSAGE, number=10, message=timestamp.Timestamp
+        proto.MESSAGE, number=10, message=timestamp.Timestamp,
     )
 
 
@@ -184,7 +184,7 @@ class WeeklySchedule(proto.Message):
             Required. Day of the week.
     """
 
-    day_of_week = proto.Field(proto.ENUM, number=1, enum=dayofweek.DayOfWeek)
+    day_of_week = proto.Field(proto.ENUM, number=1, enum=dayofweek.DayOfWeek,)
 
 
 class MonthlySchedule(proto.Message):
@@ -204,7 +204,7 @@ class MonthlySchedule(proto.Message):
             not run in February, April, June, etc.
     """
 
-    week_day_of_month = proto.Field(proto.MESSAGE, number=1, message="WeekDayOfMonth")
+    week_day_of_month = proto.Field(proto.MESSAGE, number=1, message="WeekDayOfMonth",)
     month_day = proto.Field(proto.INT32, number=2)
 
 
@@ -222,7 +222,7 @@ class WeekDayOfMonth(proto.Message):
     """
 
     week_ordinal = proto.Field(proto.INT32, number=1)
-    day_of_week = proto.Field(proto.ENUM, number=2, enum=dayofweek.DayOfWeek)
+    day_of_week = proto.Field(proto.ENUM, number=2, enum=dayofweek.DayOfWeek,)
 
 
 class CreatePatchDeploymentRequest(proto.Message):
@@ -248,7 +248,7 @@ class CreatePatchDeploymentRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
     patch_deployment_id = proto.Field(proto.STRING, number=2)
-    patch_deployment = proto.Field(proto.MESSAGE, number=3, message=PatchDeployment)
+    patch_deployment = proto.Field(proto.MESSAGE, number=3, message=PatchDeployment,)
 
 
 class GetPatchDeploymentRequest(proto.Message):
@@ -301,7 +301,7 @@ class ListPatchDeploymentsResponse(proto.Message):
         return self
 
     patch_deployments = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=PatchDeployment
+        proto.MESSAGE, number=1, message=PatchDeployment,
     )
     next_page_token = proto.Field(proto.STRING, number=2)
 

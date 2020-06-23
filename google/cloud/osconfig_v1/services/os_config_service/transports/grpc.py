@@ -163,7 +163,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # have one.
         if not hasattr(self, "_grpc_channel"):
             self._grpc_channel = self.create_channel(
-                self._host, credentials=self._credentials
+                self._host, credentials=self._credentials,
             )
 
         # Return the channel from cache.
@@ -171,7 +171,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def execute_patch_job(
-        self
+        self,
     ) -> Callable[[patch_jobs.ExecutePatchJobRequest], patch_jobs.PatchJob]:
         r"""Return a callable for the execute patch job method over gRPC.
 
@@ -198,7 +198,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def get_patch_job(
-        self
+        self,
     ) -> Callable[[patch_jobs.GetPatchJobRequest], patch_jobs.PatchJob]:
         r"""Return a callable for the get patch job method over gRPC.
 
@@ -226,7 +226,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def cancel_patch_job(
-        self
+        self,
     ) -> Callable[[patch_jobs.CancelPatchJobRequest], patch_jobs.PatchJob]:
         r"""Return a callable for the cancel patch job method over gRPC.
 
@@ -253,7 +253,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def list_patch_jobs(
-        self
+        self,
     ) -> Callable[[patch_jobs.ListPatchJobsRequest], patch_jobs.ListPatchJobsResponse]:
         r"""Return a callable for the list patch jobs method over gRPC.
 
@@ -279,7 +279,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def list_patch_job_instance_details(
-        self
+        self,
     ) -> Callable[
         [patch_jobs.ListPatchJobInstanceDetailsRequest],
         patch_jobs.ListPatchJobInstanceDetailsResponse,
@@ -311,7 +311,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def create_patch_deployment(
-        self
+        self,
     ) -> Callable[
         [patch_deployments.CreatePatchDeploymentRequest],
         patch_deployments.PatchDeployment,
@@ -340,7 +340,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def get_patch_deployment(
-        self
+        self,
     ) -> Callable[
         [patch_deployments.GetPatchDeploymentRequest], patch_deployments.PatchDeployment
     ]:
@@ -368,7 +368,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def list_patch_deployments(
-        self
+        self,
     ) -> Callable[
         [patch_deployments.ListPatchDeploymentsRequest],
         patch_deployments.ListPatchDeploymentsResponse,
@@ -397,7 +397,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
 
     @property
     def delete_patch_deployment(
-        self
+        self,
     ) -> Callable[[patch_deployments.DeletePatchDeploymentRequest], empty.Empty]:
         r"""Return a callable for the delete patch deployment method over gRPC.
 

@@ -63,7 +63,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def execute_patch_job(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.ExecutePatchJobRequest],
         typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
@@ -72,7 +72,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def get_patch_job(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.GetPatchJobRequest],
         typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
@@ -81,7 +81,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def cancel_patch_job(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.CancelPatchJobRequest],
         typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
@@ -90,7 +90,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def list_patch_jobs(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.ListPatchJobsRequest],
         typing.Union[
@@ -102,7 +102,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def list_patch_job_instance_details(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.ListPatchJobInstanceDetailsRequest],
         typing.Union[
@@ -114,7 +114,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def create_patch_deployment(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.CreatePatchDeploymentRequest],
         typing.Union[
@@ -126,7 +126,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def get_patch_deployment(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.GetPatchDeploymentRequest],
         typing.Union[
@@ -138,7 +138,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def list_patch_deployments(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.ListPatchDeploymentsRequest],
         typing.Union[
@@ -150,7 +150,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def delete_patch_deployment(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.DeletePatchDeploymentRequest],
         typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],

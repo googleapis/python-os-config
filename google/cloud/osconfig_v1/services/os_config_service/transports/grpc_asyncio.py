@@ -161,7 +161,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
         # have one.
         if not hasattr(self, "_grpc_channel"):
             self._grpc_channel = self.create_channel(
-                self._host, credentials=self._credentials
+                self._host, credentials=self._credentials,
             )
 
         # Return the channel from cache.
@@ -169,7 +169,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def execute_patch_job(
-        self
+        self,
     ) -> Callable[[patch_jobs.ExecutePatchJobRequest], Awaitable[patch_jobs.PatchJob]]:
         r"""Return a callable for the execute patch job method over gRPC.
 
@@ -196,7 +196,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def get_patch_job(
-        self
+        self,
     ) -> Callable[[patch_jobs.GetPatchJobRequest], Awaitable[patch_jobs.PatchJob]]:
         r"""Return a callable for the get patch job method over gRPC.
 
@@ -224,7 +224,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def cancel_patch_job(
-        self
+        self,
     ) -> Callable[[patch_jobs.CancelPatchJobRequest], Awaitable[patch_jobs.PatchJob]]:
         r"""Return a callable for the cancel patch job method over gRPC.
 
@@ -251,7 +251,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def list_patch_jobs(
-        self
+        self,
     ) -> Callable[
         [patch_jobs.ListPatchJobsRequest], Awaitable[patch_jobs.ListPatchJobsResponse]
     ]:
@@ -279,7 +279,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def list_patch_job_instance_details(
-        self
+        self,
     ) -> Callable[
         [patch_jobs.ListPatchJobInstanceDetailsRequest],
         Awaitable[patch_jobs.ListPatchJobInstanceDetailsResponse],
@@ -311,7 +311,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def create_patch_deployment(
-        self
+        self,
     ) -> Callable[
         [patch_deployments.CreatePatchDeploymentRequest],
         Awaitable[patch_deployments.PatchDeployment],
@@ -340,7 +340,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def get_patch_deployment(
-        self
+        self,
     ) -> Callable[
         [patch_deployments.GetPatchDeploymentRequest],
         Awaitable[patch_deployments.PatchDeployment],
@@ -369,7 +369,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def list_patch_deployments(
-        self
+        self,
     ) -> Callable[
         [patch_deployments.ListPatchDeploymentsRequest],
         Awaitable[patch_deployments.ListPatchDeploymentsResponse],
@@ -398,7 +398,7 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
 
     @property
     def delete_patch_deployment(
-        self
+        self,
     ) -> Callable[
         [patch_deployments.DeletePatchDeploymentRequest], Awaitable[empty.Empty]
     ]:
