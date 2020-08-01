@@ -25,12 +25,12 @@ from .grpc_asyncio import OsConfigServiceGrpcAsyncIOTransport
 
 # Compile a registry of transports.
 _transport_registry = OrderedDict()  # type: Dict[str, Type[OsConfigServiceTransport]]
-_transport_registry['grpc'] = OsConfigServiceGrpcTransport
-_transport_registry['grpc_asyncio'] = OsConfigServiceGrpcAsyncIOTransport
+_transport_registry["grpc"] = OsConfigServiceGrpcTransport
+_transport_registry["grpc_asyncio"] = OsConfigServiceGrpcAsyncIOTransport
 
 
 __all__ = (
-    'OsConfigServiceTransport',
-    'OsConfigServiceGrpcTransport',
-    'OsConfigServiceGrpcAsyncIOTransport',
+    "OsConfigServiceTransport",
+    "OsConfigServiceGrpcTransport",
+    "OsConfigServiceGrpcAsyncIOTransport",
 )
