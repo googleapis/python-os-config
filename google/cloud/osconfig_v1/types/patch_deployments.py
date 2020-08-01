@@ -82,7 +82,7 @@ class PatchDeployment(proto.Message):
         update_time (~.timestamp.Timestamp):
             Output only. Time the patch deployment was last updated.
             Timestamp is in
-            `RFC3339 <"https://www.ietf.org/rfc/rfc3339.txt>`__ text
+            `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`__ text
             format.
         last_execute_time (~.timestamp.Timestamp):
             Output only. The last time a patch job was started by this
