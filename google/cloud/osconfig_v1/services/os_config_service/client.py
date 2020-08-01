@@ -218,19 +218,27 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # instance provides an extensibility point for unusual situations.
         if isinstance(transport, OsConfigServiceTransport):
             # transport is a OsConfigServiceTransport instance.
-            if credentials:
+            if credentials or client_options.credentials_file:
                 raise ValueError(
                     "When providing a transport instance, "
                     "provide its credentials directly."
+                )
+            if client_options.scopes:
+                raise ValueError(
+                    "When providing a transport instance, "
+                    "provide its scopes directly."
                 )
             self._transport = transport
         else:
             Transport = type(self).get_transport_class(transport)
             self._transport = Transport(
                 credentials=credentials,
+                credentials_file=client_options.credentials_file,
                 host=client_options.api_endpoint,
+                scopes=client_options.scopes,
                 api_mtls_endpoint=client_options.api_endpoint,
                 client_cert_source=client_options.client_cert_source,
+                quota_project_id=client_options.quota_project_id,
             )
 
     def execute_patch_job(
@@ -271,15 +279,16 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         """
         # Create or coerce a protobuf request object.
 
-        request = patch_jobs.ExecutePatchJobRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_jobs.ExecutePatchJobRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_jobs.ExecutePatchJobRequest):
+            request = patch_jobs.ExecutePatchJobRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.execute_patch_job,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.execute_patch_job]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -340,27 +349,29 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = patch_jobs.GetPatchJobRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_jobs.GetPatchJobRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_jobs.GetPatchJobRequest):
+            request = patch_jobs.GetPatchJobRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.get_patch_job,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.get_patch_job]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -411,15 +422,16 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         """
         # Create or coerce a protobuf request object.
 
-        request = patch_jobs.CancelPatchJobRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_jobs.CancelPatchJobRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_jobs.CancelPatchJobRequest):
+            request = patch_jobs.CancelPatchJobRequest(request)
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.cancel_patch_job,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.cancel_patch_job]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -472,27 +484,29 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent]):
+        has_flattened_params = any([parent])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = patch_jobs.ListPatchJobsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_jobs.ListPatchJobsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_jobs.ListPatchJobsRequest):
+            request = patch_jobs.ListPatchJobsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
+            if parent is not None:
+                request.parent = parent
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.list_patch_jobs,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.list_patch_jobs]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -506,7 +520,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchJobsPager(
-            method=rpc, request=request, response=response
+            method=rpc, request=request, response=response, metadata=metadata
         )
 
         # Done; return the response.
@@ -552,27 +566,31 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent]):
+        has_flattened_params = any([parent])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = patch_jobs.ListPatchJobInstanceDetailsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_jobs.ListPatchJobInstanceDetailsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_jobs.ListPatchJobInstanceDetailsRequest):
+            request = patch_jobs.ListPatchJobInstanceDetailsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
+            if parent is not None:
+                request.parent = parent
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.list_patch_job_instance_details,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[
+            self._transport.list_patch_job_instance_details
+        ]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -586,7 +604,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchJobInstanceDetailsPager(
-            method=rpc, request=request, response=response
+            method=rpc, request=request, response=response, metadata=metadata
         )
 
         # Done; return the response.
@@ -631,7 +649,6 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 -  Must be between 1-63 characters.
                 -  Must end with a number or a letter.
                 -  Must be unique within the project.
-
                 This corresponds to the ``patch_deployment_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -655,31 +672,33 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent, patch_deployment, patch_deployment_id]):
+        has_flattened_params = any([parent, patch_deployment, patch_deployment_id])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = patch_deployments.CreatePatchDeploymentRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_deployments.CreatePatchDeploymentRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_deployments.CreatePatchDeploymentRequest):
+            request = patch_deployments.CreatePatchDeploymentRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
-        if patch_deployment is not None:
-            request.patch_deployment = patch_deployment
-        if patch_deployment_id is not None:
-            request.patch_deployment_id = patch_deployment_id
+            if parent is not None:
+                request.parent = parent
+            if patch_deployment is not None:
+                request.patch_deployment = patch_deployment
+            if patch_deployment_id is not None:
+                request.patch_deployment_id = patch_deployment_id
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.create_patch_deployment,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.create_patch_deployment]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -734,27 +753,29 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = patch_deployments.GetPatchDeploymentRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_deployments.GetPatchDeploymentRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_deployments.GetPatchDeploymentRequest):
+            request = patch_deployments.GetPatchDeploymentRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.get_patch_deployment,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.get_patch_deployment]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -808,27 +829,29 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([parent]):
+        has_flattened_params = any([parent])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = patch_deployments.ListPatchDeploymentsRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_deployments.ListPatchDeploymentsRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_deployments.ListPatchDeploymentsRequest):
+            request = patch_deployments.ListPatchDeploymentsRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if parent is not None:
-            request.parent = parent
+            if parent is not None:
+                request.parent = parent
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.list_patch_deployments,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.list_patch_deployments]
 
         # Certain fields should be provided within the metadata header;
         # add these here.
@@ -842,7 +865,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchDeploymentsPager(
-            method=rpc, request=request, response=response
+            method=rpc, request=request, response=response, metadata=metadata
         )
 
         # Done; return the response.
@@ -879,27 +902,29 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([name]):
+        has_flattened_params = any([name])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
             )
 
-        request = patch_deployments.DeletePatchDeploymentRequest(request)
+        # Minor optimization to avoid making a copy if the user passes
+        # in a patch_deployments.DeletePatchDeploymentRequest.
+        # There's no risk of modifying the input as we've already verified
+        # there are no flattened fields.
+        if not isinstance(request, patch_deployments.DeletePatchDeploymentRequest):
+            request = patch_deployments.DeletePatchDeploymentRequest(request)
 
-        # If we have keyword arguments corresponding to fields on the
-        # request, apply these.
+            # If we have keyword arguments corresponding to fields on the
+            # request, apply these.
 
-        if name is not None:
-            request.name = name
+            if name is not None:
+                request.name = name
 
         # Wrap the RPC method; this adds retry and timeout information,
         # and friendly error handling.
-        rpc = gapic_v1.method.wrap_method(
-            self._transport.delete_patch_deployment,
-            default_timeout=None,
-            client_info=_client_info,
-        )
+        rpc = self._transport._wrapped_methods[self._transport.delete_patch_deployment]
 
         # Certain fields should be provided within the metadata header;
         # add these here.

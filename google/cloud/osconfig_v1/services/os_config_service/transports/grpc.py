@@ -55,9 +55,12 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         *,
         host: str = "osconfig.googleapis.com",
         credentials: credentials.Credentials = None,
+        credentials_file: str = None,
+        scopes: Sequence[str] = None,
         channel: grpc.Channel = None,
         api_mtls_endpoint: str = None,
-        client_cert_source: Callable[[], Tuple[bytes, bytes]] = None
+        client_cert_source: Callable[[], Tuple[bytes, bytes]] = None,
+        quota_project_id: Optional[str] = None
     ) -> None:
         """Instantiate the transport.
 
@@ -69,6 +72,11 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
                 are specified, the client will attempt to ascertain the
                 credentials from the environment.
                 This argument is ignored if ``channel`` is provided.
+            credentials_file (Optional[str]): A file with credentials that can
+                be loaded with :func:`google.auth.load_credentials_from_file`.
+                This argument is ignored if ``channel`` is provided.
+            scopes (Optional(Sequence[str])): A list of scopes. This argument is
+                ignored if ``channel`` is provided.
             channel (Optional[grpc.Channel]): A ``Channel`` instance through
                 which to make calls.
             api_mtls_endpoint (Optional[str]): The mutual TLS endpoint. If
@@ -79,10 +87,14 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
                 callback to provide client SSL certificate bytes and private key
                 bytes, both in PEM format. It is ignored if ``api_mtls_endpoint``
                 is None.
+            quota_project_id (Optional[str]): An optional project to use for billing
+                and quota.
 
         Raises:
-            google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
-                creation failed for any reason.
+          google.auth.exceptions.MutualTLSChannelError: If mutual TLS transport
+              creation failed for any reason.
+          google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
+              and ``credentials_file`` are passed.
         """
         if channel:
             # Sanity check: Ensure that channel and credentials are not both
@@ -99,7 +111,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
             )
 
             if credentials is None:
-                credentials, _ = auth.default(scopes=self.AUTH_SCOPES)
+                credentials, _ = auth.default(
+                    scopes=self.AUTH_SCOPES, quota_project_id=quota_project_id
+                )
 
             # Create SSL credentials with client_cert_source or application
             # default SSL credentials.
@@ -115,20 +129,31 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
             self._grpc_channel = type(self).create_channel(
                 host,
                 credentials=credentials,
+                credentials_file=credentials_file,
                 ssl_credentials=ssl_credentials,
-                scopes=self.AUTH_SCOPES,
+                scopes=scopes or self.AUTH_SCOPES,
+                quota_project_id=quota_project_id,
             )
 
-        # Run the base constructor.
-        super().__init__(host=host, credentials=credentials)
         self._stubs = {}  # type: Dict[str, Callable]
+
+        # Run the base constructor.
+        super().__init__(
+            host=host,
+            credentials=credentials,
+            credentials_file=credentials_file,
+            scopes=scopes or self.AUTH_SCOPES,
+            quota_project_id=quota_project_id,
+        )
 
     @classmethod
     def create_channel(
         cls,
         host: str = "osconfig.googleapis.com",
         credentials: credentials.Credentials = None,
+        credentials_file: str = None,
         scopes: Optional[Sequence[str]] = None,
+        quota_project_id: Optional[str] = None,
         **kwargs
     ) -> grpc.Channel:
         """Create and return a gRPC channel object.
@@ -139,17 +164,31 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
                 credentials identify this application to the service. If
                 none are specified, the client will attempt to ascertain
                 the credentials from the environment.
+            credentials_file (Optional[str]): A file with credentials that can
+                be loaded with :func:`google.auth.load_credentials_from_file`.
+                This argument is mutually exclusive with credentials.
             scopes (Optional[Sequence[str]]): A optional list of scopes needed for this
                 service. These are only used when credentials are not specified and
                 are passed to :func:`google.auth.default`.
+            quota_project_id (Optional[str]): An optional project to use for billing
+                and quota.
             kwargs (Optional[dict]): Keyword arguments, which are passed to the
                 channel creation.
         Returns:
             grpc.Channel: A gRPC channel object.
+
+        Raises:
+            google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
+              and ``credentials_file`` are passed.
         """
         scopes = scopes or cls.AUTH_SCOPES
         return grpc_helpers.create_channel(
-            host, credentials=credentials, scopes=scopes, **kwargs
+            host,
+            credentials=credentials,
+            credentials_file=credentials_file,
+            scopes=scopes,
+            quota_project_id=quota_project_id,
+            **kwargs
         )
 
     @property
