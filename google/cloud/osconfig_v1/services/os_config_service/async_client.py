@@ -374,7 +374,7 @@ class OsConfigServiceAsyncClient:
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchJobsAsyncPager(
-            method=rpc, request=request, response=response
+            method=rpc, request=request, response=response, metadata=metadata
         )
 
         # Done; return the response.
@@ -454,7 +454,7 @@ class OsConfigServiceAsyncClient:
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchJobInstanceDetailsAsyncPager(
-            method=rpc, request=request, response=response
+            method=rpc, request=request, response=response, metadata=metadata
         )
 
         # Done; return the response.
@@ -710,7 +710,7 @@ class OsConfigServiceAsyncClient:
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchDeploymentsAsyncPager(
-            method=rpc, request=request, response=response
+            method=rpc, request=request, response=response, metadata=metadata
         )
 
         # Done; return the response.
