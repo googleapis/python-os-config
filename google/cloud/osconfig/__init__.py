@@ -15,23 +15,13 @@
 # limitations under the License.
 #
 
-from google.cloud.osconfig_v1.services.os_config_service.async_client import (
-    OsConfigServiceAsyncClient,
-)
-from google.cloud.osconfig_v1.services.os_config_service.client import (
-    OsConfigServiceClient,
-)
-from google.cloud.osconfig_v1.types.patch_deployments import (
-    CreatePatchDeploymentRequest,
-)
-from google.cloud.osconfig_v1.types.patch_deployments import (
-    DeletePatchDeploymentRequest,
-)
+from google.cloud.osconfig_v1.services.os_config_service.async_client import OsConfigServiceAsyncClient
+from google.cloud.osconfig_v1.services.os_config_service.client import OsConfigServiceClient
+from google.cloud.osconfig_v1.types.patch_deployments import CreatePatchDeploymentRequest
+from google.cloud.osconfig_v1.types.patch_deployments import DeletePatchDeploymentRequest
 from google.cloud.osconfig_v1.types.patch_deployments import GetPatchDeploymentRequest
 from google.cloud.osconfig_v1.types.patch_deployments import ListPatchDeploymentsRequest
-from google.cloud.osconfig_v1.types.patch_deployments import (
-    ListPatchDeploymentsResponse,
-)
+from google.cloud.osconfig_v1.types.patch_deployments import ListPatchDeploymentsResponse
 from google.cloud.osconfig_v1.types.patch_deployments import MonthlySchedule
 from google.cloud.osconfig_v1.types.patch_deployments import OneTimeSchedule
 from google.cloud.osconfig_v1.types.patch_deployments import PatchDeployment
@@ -48,9 +38,7 @@ from google.cloud.osconfig_v1.types.patch_jobs import GetPatchJobRequest
 from google.cloud.osconfig_v1.types.patch_jobs import GooSettings
 from google.cloud.osconfig_v1.types.patch_jobs import Instance
 from google.cloud.osconfig_v1.types.patch_jobs import ListPatchJobInstanceDetailsRequest
-from google.cloud.osconfig_v1.types.patch_jobs import (
-    ListPatchJobInstanceDetailsResponse,
-)
+from google.cloud.osconfig_v1.types.patch_jobs import ListPatchJobInstanceDetailsResponse
 from google.cloud.osconfig_v1.types.patch_jobs import ListPatchJobsRequest
 from google.cloud.osconfig_v1.types.patch_jobs import ListPatchJobsResponse
 from google.cloud.osconfig_v1.types.patch_jobs import PatchConfig
@@ -62,37 +50,37 @@ from google.cloud.osconfig_v1.types.patch_jobs import YumSettings
 from google.cloud.osconfig_v1.types.patch_jobs import ZypperSettings
 
 __all__ = (
-    "AptSettings",
-    "CancelPatchJobRequest",
-    "CreatePatchDeploymentRequest",
-    "DeletePatchDeploymentRequest",
-    "ExecStep",
-    "ExecStepConfig",
-    "ExecutePatchJobRequest",
-    "GcsObject",
-    "GetPatchDeploymentRequest",
-    "GetPatchJobRequest",
-    "GooSettings",
-    "Instance",
-    "ListPatchDeploymentsRequest",
-    "ListPatchDeploymentsResponse",
-    "ListPatchJobInstanceDetailsRequest",
-    "ListPatchJobInstanceDetailsResponse",
-    "ListPatchJobsRequest",
-    "ListPatchJobsResponse",
-    "MonthlySchedule",
-    "OneTimeSchedule",
-    "OsConfigServiceAsyncClient",
-    "OsConfigServiceClient",
-    "PatchConfig",
-    "PatchDeployment",
-    "PatchInstanceFilter",
-    "PatchJob",
-    "PatchJobInstanceDetails",
-    "RecurringSchedule",
-    "WeekDayOfMonth",
-    "WeeklySchedule",
-    "WindowsUpdateSettings",
-    "YumSettings",
-    "ZypperSettings",
+    'AptSettings',
+    'CancelPatchJobRequest',
+    'CreatePatchDeploymentRequest',
+    'DeletePatchDeploymentRequest',
+    'ExecStep',
+    'ExecStepConfig',
+    'ExecutePatchJobRequest',
+    'GcsObject',
+    'GetPatchDeploymentRequest',
+    'GetPatchJobRequest',
+    'GooSettings',
+    'Instance',
+    'ListPatchDeploymentsRequest',
+    'ListPatchDeploymentsResponse',
+    'ListPatchJobInstanceDetailsRequest',
+    'ListPatchJobInstanceDetailsResponse',
+    'ListPatchJobsRequest',
+    'ListPatchJobsResponse',
+    'MonthlySchedule',
+    'OneTimeSchedule',
+    'OsConfigServiceAsyncClient',
+    'OsConfigServiceClient',
+    'PatchConfig',
+    'PatchDeployment',
+    'PatchInstanceFilter',
+    'PatchJob',
+    'PatchJobInstanceDetails',
+    'RecurringSchedule',
+    'WeekDayOfMonth',
+    'WeeklySchedule',
+    'WindowsUpdateSettings',
+    'YumSettings',
+    'ZypperSettings',
 )

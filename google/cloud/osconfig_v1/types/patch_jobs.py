@@ -23,28 +23,28 @@ from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package="google.cloud.osconfig.v1",
+    package='google.cloud.osconfig.v1',
     manifest={
-        "ExecutePatchJobRequest",
-        "GetPatchJobRequest",
-        "ListPatchJobInstanceDetailsRequest",
-        "ListPatchJobInstanceDetailsResponse",
-        "PatchJobInstanceDetails",
-        "ListPatchJobsRequest",
-        "ListPatchJobsResponse",
-        "PatchJob",
-        "PatchConfig",
-        "Instance",
-        "CancelPatchJobRequest",
-        "AptSettings",
-        "YumSettings",
-        "GooSettings",
-        "ZypperSettings",
-        "WindowsUpdateSettings",
-        "ExecStep",
-        "ExecStepConfig",
-        "GcsObject",
-        "PatchInstanceFilter",
+        'ExecutePatchJobRequest',
+        'GetPatchJobRequest',
+        'ListPatchJobInstanceDetailsRequest',
+        'ListPatchJobInstanceDetailsResponse',
+        'PatchJobInstanceDetails',
+        'ListPatchJobsRequest',
+        'ListPatchJobsResponse',
+        'PatchJob',
+        'PatchConfig',
+        'Instance',
+        'CancelPatchJobRequest',
+        'AptSettings',
+        'YumSettings',
+        'GooSettings',
+        'ZypperSettings',
+        'WindowsUpdateSettings',
+        'ExecStep',
+        'ExecStepConfig',
+        'GcsObject',
+        'PatchInstanceFilter',
     },
 )
 
@@ -83,13 +83,17 @@ class ExecutePatchJobRequest(proto.Message):
 
     description = proto.Field(proto.STRING, number=2)
 
-    instance_filter = proto.Field(
-        proto.MESSAGE, number=7, message="PatchInstanceFilter",
+    instance_filter = proto.Field(proto.MESSAGE, number=7,
+        message='PatchInstanceFilter',
     )
 
-    patch_config = proto.Field(proto.MESSAGE, number=4, message="PatchConfig",)
+    patch_config = proto.Field(proto.MESSAGE, number=4,
+        message='PatchConfig',
+    )
 
-    duration = proto.Field(proto.MESSAGE, number=5, message=gp_duration.Duration,)
+    duration = proto.Field(proto.MESSAGE, number=5,
+        message=gp_duration.Duration,
+    )
 
     dry_run = proto.Field(proto.BOOL, number=6)
 
@@ -154,8 +158,8 @@ class ListPatchJobInstanceDetailsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    patch_job_instance_details = proto.RepeatedField(
-        proto.MESSAGE, number=1, message="PatchJobInstanceDetails",
+    patch_job_instance_details = proto.RepeatedField(proto.MESSAGE, number=1,
+        message='PatchJobInstanceDetails',
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -188,7 +192,9 @@ class PatchJobInstanceDetails(proto.Message):
 
     instance_system_id = proto.Field(proto.STRING, number=2)
 
-    state = proto.Field(proto.ENUM, number=3, enum="Instance.PatchState",)
+    state = proto.Field(proto.ENUM, number=3,
+        enum='Instance.PatchState',
+    )
 
     failure_reason = proto.Field(proto.STRING, number=4)
 
@@ -238,7 +244,9 @@ class ListPatchJobsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    patch_jobs = proto.RepeatedField(proto.MESSAGE, number=1, message="PatchJob",)
+    patch_jobs = proto.RepeatedField(proto.MESSAGE, number=1,
+        message='PatchJob',
+    )
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -293,7 +301,6 @@ class PatchJob(proto.Message):
             Output only. Name of the patch deployment
             that created this patch job.
     """
-
     class State(proto.Enum):
         r"""Enumeration of the various states a patch job passes through
         as it executes.
@@ -392,22 +399,32 @@ class PatchJob(proto.Message):
 
     description = proto.Field(proto.STRING, number=2)
 
-    create_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
-
-    update_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
-
-    state = proto.Field(proto.ENUM, number=5, enum=State,)
-
-    instance_filter = proto.Field(
-        proto.MESSAGE, number=13, message="PatchInstanceFilter",
+    create_time = proto.Field(proto.MESSAGE, number=3,
+        message=timestamp.Timestamp,
     )
 
-    patch_config = proto.Field(proto.MESSAGE, number=7, message="PatchConfig",)
+    update_time = proto.Field(proto.MESSAGE, number=4,
+        message=timestamp.Timestamp,
+    )
 
-    duration = proto.Field(proto.MESSAGE, number=8, message=gp_duration.Duration,)
+    state = proto.Field(proto.ENUM, number=5,
+        enum=State,
+    )
 
-    instance_details_summary = proto.Field(
-        proto.MESSAGE, number=9, message=InstanceDetailsSummary,
+    instance_filter = proto.Field(proto.MESSAGE, number=13,
+        message='PatchInstanceFilter',
+    )
+
+    patch_config = proto.Field(proto.MESSAGE, number=7,
+        message='PatchConfig',
+    )
+
+    duration = proto.Field(proto.MESSAGE, number=8,
+        message=gp_duration.Duration,
+    )
+
+    instance_details_summary = proto.Field(proto.MESSAGE, number=9,
+        message=InstanceDetailsSummary,
     )
 
     dry_run = proto.Field(proto.BOOL, number=10)
@@ -446,7 +463,6 @@ class PatchConfig(proto.Message):
         post_step (~.gco_patch_jobs.ExecStep):
             The ``ExecStep`` to run after the patch update.
     """
-
     class RebootConfig(proto.Enum):
         r"""Post-patch reboot settings."""
         REBOOT_CONFIG_UNSPECIFIED = 0
@@ -454,28 +470,41 @@ class PatchConfig(proto.Message):
         ALWAYS = 2
         NEVER = 3
 
-    reboot_config = proto.Field(proto.ENUM, number=1, enum=RebootConfig,)
-
-    apt = proto.Field(proto.MESSAGE, number=3, message="AptSettings",)
-
-    yum = proto.Field(proto.MESSAGE, number=4, message="YumSettings",)
-
-    goo = proto.Field(proto.MESSAGE, number=5, message="GooSettings",)
-
-    zypper = proto.Field(proto.MESSAGE, number=6, message="ZypperSettings",)
-
-    windows_update = proto.Field(
-        proto.MESSAGE, number=7, message="WindowsUpdateSettings",
+    reboot_config = proto.Field(proto.ENUM, number=1,
+        enum=RebootConfig,
     )
 
-    pre_step = proto.Field(proto.MESSAGE, number=8, message="ExecStep",)
+    apt = proto.Field(proto.MESSAGE, number=3,
+        message='AptSettings',
+    )
 
-    post_step = proto.Field(proto.MESSAGE, number=9, message="ExecStep",)
+    yum = proto.Field(proto.MESSAGE, number=4,
+        message='YumSettings',
+    )
+
+    goo = proto.Field(proto.MESSAGE, number=5,
+        message='GooSettings',
+    )
+
+    zypper = proto.Field(proto.MESSAGE, number=6,
+        message='ZypperSettings',
+    )
+
+    windows_update = proto.Field(proto.MESSAGE, number=7,
+        message='WindowsUpdateSettings',
+    )
+
+    pre_step = proto.Field(proto.MESSAGE, number=8,
+        message='ExecStep',
+    )
+
+    post_step = proto.Field(proto.MESSAGE, number=9,
+        message='ExecStep',
+    )
 
 
 class Instance(proto.Message):
     r"""Namespace for instance state enums."""
-
     class PatchState(proto.Enum):
         r"""Patch state of an instance."""
         PATCH_STATE_UNSPECIFIED = 0
@@ -528,14 +557,15 @@ class AptSettings(proto.Message):
             specified with any other patch configuration
             fields.
     """
-
     class Type(proto.Enum):
         r"""Apt patch type."""
         TYPE_UNSPECIFIED = 0
         DIST = 1
         UPGRADE = 2
 
-    type = proto.Field(proto.ENUM, number=1, enum=Type,)
+    type = proto.Field(proto.ENUM, number=1,
+        enum=Type,
+    )
 
     excludes = proto.RepeatedField(proto.STRING, number=2)
 
@@ -634,7 +664,6 @@ class WindowsUpdateSettings(proto.Message):
             field must not be used with other patch
             configurations.
     """
-
     class Classification(proto.Enum):
         r"""Microsoft Windows update classifications as defined in [1]
         https://support.microsoft.com/en-us/help/824684/description-of-the-standard-terminology-that-is-used-to-describe-micro
@@ -650,7 +679,9 @@ class WindowsUpdateSettings(proto.Message):
         UPDATE_ROLLUP = 8
         UPDATE = 9
 
-    classifications = proto.RepeatedField(proto.ENUM, number=1, enum=Classification,)
+    classifications = proto.RepeatedField(proto.ENUM, number=1,
+        enum=Classification,
+    )
 
     excludes = proto.RepeatedField(proto.STRING, number=2)
 
@@ -669,12 +700,12 @@ class ExecStep(proto.Message):
             targeted by the PatchJob.
     """
 
-    linux_exec_step_config = proto.Field(
-        proto.MESSAGE, number=1, message="ExecStepConfig",
+    linux_exec_step_config = proto.Field(proto.MESSAGE, number=1,
+        message='ExecStepConfig',
     )
 
-    windows_exec_step_config = proto.Field(
-        proto.MESSAGE, number=2, message="ExecStepConfig",
+    windows_exec_step_config = proto.Field(proto.MESSAGE, number=2,
+        message='ExecStepConfig',
     )
 
 
@@ -697,22 +728,23 @@ class ExecStepConfig(proto.Message):
             [shebang lines]
             (https://en.wikipedia.org/wiki/Shebang_(Unix)).
     """
-
     class Interpreter(proto.Enum):
         r"""The interpreter used to execute the a file."""
         INTERPRETER_UNSPECIFIED = 0
         SHELL = 1
         POWERSHELL = 2
 
-    local_path = proto.Field(proto.STRING, number=1, oneof="executable")
+    local_path = proto.Field(proto.STRING, number=1, oneof='executable')
 
-    gcs_object = proto.Field(
-        proto.MESSAGE, number=2, oneof="executable", message="GcsObject",
+    gcs_object = proto.Field(proto.MESSAGE, number=2, oneof='executable',
+        message='GcsObject',
     )
 
     allowed_success_codes = proto.RepeatedField(proto.INT32, number=3)
 
-    interpreter = proto.Field(proto.ENUM, number=4, enum=Interpreter,)
+    interpreter = proto.Field(proto.ENUM, number=4,
+        enum=Interpreter,
+    )
 
 
 class GcsObject(proto.Message):
@@ -764,7 +796,6 @@ class PatchInstanceFilter(proto.Message):
             another way to group VMs when targeting configs,
             for example prefix="prod-".
     """
-
     class GroupLabel(proto.Message):
         r"""Targets a group of VM instances by using their `assigned
         labels <https://cloud.google.com/compute/docs/labeling-resources>`__.
@@ -787,7 +818,9 @@ class PatchInstanceFilter(proto.Message):
 
     all = proto.Field(proto.BOOL, number=1)
 
-    group_labels = proto.RepeatedField(proto.MESSAGE, number=2, message=GroupLabel,)
+    group_labels = proto.RepeatedField(proto.MESSAGE, number=2,
+        message=GroupLabel,
+    )
 
     zones = proto.RepeatedField(proto.STRING, number=3)
 
