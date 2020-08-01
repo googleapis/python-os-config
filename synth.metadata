@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-os-config.git",
-        "sha": "b43ea51c28470874fdf5da026970202009d48651"
+        "sha": "33f46ba4aa34e066a70a5ad792254574b5985f83"
       }
     },
     {
