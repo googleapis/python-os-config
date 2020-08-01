@@ -261,7 +261,7 @@ class ListPatchJobInstanceDetailsAsyncPager:
 
     @property
     async def pages(
-        self
+        self,
     ) -> AsyncIterable[patch_jobs.ListPatchJobInstanceDetailsResponse]:
         yield self._response
         while self._response.next_page_token:
@@ -393,7 +393,7 @@ class ListPatchDeploymentsAsyncPager:
 
     @property
     async def pages(
-        self
+        self,
     ) -> AsyncIterable[patch_deployments.ListPatchDeploymentsResponse]:
         yield self._response
         while self._response.next_page_token:

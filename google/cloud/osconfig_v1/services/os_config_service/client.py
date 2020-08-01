@@ -55,7 +55,7 @@ class OsConfigServiceClientMeta(type):
     _transport_registry["grpc"] = OsConfigServiceGrpcTransport
     _transport_registry["grpc_asyncio"] = OsConfigServiceGrpcAsyncIOTransport
 
-    def get_transport_class(cls, label: str = None) -> Type[OsConfigServiceTransport]:
+    def get_transport_class(cls, label: str = None,) -> Type[OsConfigServiceTransport]:
         """Return an appropriate transport class.
 
         Args:
@@ -136,10 +136,10 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     from_service_account_json = from_service_account_file
 
     @staticmethod
-    def patch_deployment_path(project: str, patch_deployment: str) -> str:
+    def patch_deployment_path(project: str, patch_deployment: str,) -> str:
         """Return a fully-qualified patch_deployment string."""
         return "projects/{project}/patchDeployments/{patch_deployment}".format(
-            project=project, patch_deployment=patch_deployment
+            project=project, patch_deployment=patch_deployment,
         )
 
     @staticmethod
@@ -297,7 +297,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -380,7 +380,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -440,7 +440,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -515,12 +515,12 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchJobsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -599,12 +599,12 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchJobInstanceDetailsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -707,7 +707,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -784,7 +784,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -860,12 +860,12 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchDeploymentsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -933,12 +933,14 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
 
 try:
     _client_info = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution("google-cloud-os-config").version
+        gapic_version=pkg_resources.get_distribution("google-cloud-os-config",).version,
     )
 except pkg_resources.DistributionNotFound:
     _client_info = gapic_v1.client_info.ClientInfo()
