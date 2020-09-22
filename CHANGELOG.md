@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://www.github.com/googleapis/python-os-config/compare/v0.1.2...v0.2.0) (2020-09-22)
+
+
+### Features
+
+* add async client ([#8](https://www.github.com/googleapis/python-os-config/issues/8)) ([33f46ba](https://www.github.com/googleapis/python-os-config/commit/33f46ba4aa34e066a70a5ad792254574b5985f83))
+
 ### [0.1.2](https://www.github.com/googleapis/python-os-config/compare/v0.1.1...v0.1.2) (2020-06-11)
 
 
