@@ -51,7 +51,6 @@ from .patch_deployments import (
     DeletePatchDeploymentRequest,
 )
 
-
 __all__ = (
     "ExecutePatchJobRequest",
     "GetPatchJobRequest",
