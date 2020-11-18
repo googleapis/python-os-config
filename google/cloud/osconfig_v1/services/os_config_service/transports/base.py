@@ -21,7 +21,7 @@ import pkg_resources
 
 from google import auth  # type: ignore
 from google.api_core import exceptions  # type: ignore
-from google.api_core import gapic_v1  # type: ignore
+from google.api_core import gapic_v1    # type: ignore
 from google.api_core import retry as retries  # type: ignore
 from google.auth import credentials  # type: ignore
 
@@ -32,28 +32,30 @@ from google.protobuf import empty_pb2 as empty  # type: ignore
 
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution("google-cloud-os-config",).version,
+        gapic_version=pkg_resources.get_distribution(
+            'google-cloud-os-config',
+        ).version,
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
 
-
 class OsConfigServiceTransport(abc.ABC):
     """Abstract transport class for OsConfigService."""
 
-    AUTH_SCOPES = ("https://www.googleapis.com/auth/cloud-platform",)
+    AUTH_SCOPES = (
+        'https://www.googleapis.com/auth/cloud-platform',
+    )
 
     def __init__(
-        self,
-        *,
-        host: str = "osconfig.googleapis.com",
-        credentials: credentials.Credentials = None,
-        credentials_file: typing.Optional[str] = None,
-        scopes: typing.Optional[typing.Sequence[str]] = AUTH_SCOPES,
-        quota_project_id: typing.Optional[str] = None,
-        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-        **kwargs,
-    ) -> None:
+            self, *,
+            host: str = 'osconfig.googleapis.com',
+            credentials: credentials.Credentials = None,
+            credentials_file: typing.Optional[str] = None,
+            scopes: typing.Optional[typing.Sequence[str]] = AUTH_SCOPES,
+            quota_project_id: typing.Optional[str] = None,
+            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+            **kwargs,
+            ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -76,26 +78,24 @@ class OsConfigServiceTransport(abc.ABC):
                 your own client library.
         """
         # Save the hostname. Default to port 443 (HTTPS) if none is specified.
-        if ":" not in host:
-            host += ":443"
+        if ':' not in host:
+            host += ':443'
         self._host = host
 
         # If no credentials are provided, then determine the appropriate
         # defaults.
         if credentials and credentials_file:
-            raise exceptions.DuplicateCredentialArgs(
-                "'credentials_file' and 'credentials' are mutually exclusive"
-            )
+            raise exceptions.DuplicateCredentialArgs("'credentials_file' and 'credentials' are mutually exclusive")
 
         if credentials_file is not None:
             credentials, _ = auth.load_credentials_from_file(
-                credentials_file, scopes=scopes, quota_project_id=quota_project_id
-            )
+                                credentials_file,
+                                scopes=scopes,
+                                quota_project_id=quota_project_id
+                            )
 
         elif credentials is None:
-            credentials, _ = auth.default(
-                scopes=scopes, quota_project_id=quota_project_id
-            )
+            credentials, _ = auth.default(scopes=scopes, quota_project_id=quota_project_id)
 
         # Save the credentials.
         self._credentials = credentials
@@ -107,16 +107,24 @@ class OsConfigServiceTransport(abc.ABC):
         # Precompute the wrapped methods.
         self._wrapped_methods = {
             self.execute_patch_job: gapic_v1.method.wrap_method(
-                self.execute_patch_job, default_timeout=None, client_info=client_info,
+                self.execute_patch_job,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.get_patch_job: gapic_v1.method.wrap_method(
-                self.get_patch_job, default_timeout=None, client_info=client_info,
+                self.get_patch_job,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.cancel_patch_job: gapic_v1.method.wrap_method(
-                self.cancel_patch_job, default_timeout=None, client_info=client_info,
+                self.cancel_patch_job,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.list_patch_jobs: gapic_v1.method.wrap_method(
-                self.list_patch_jobs, default_timeout=None, client_info=client_info,
+                self.list_patch_jobs,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.list_patch_job_instance_details: gapic_v1.method.wrap_method(
                 self.list_patch_job_instance_details,
@@ -143,103 +151,91 @@ class OsConfigServiceTransport(abc.ABC):
                 default_timeout=None,
                 client_info=client_info,
             ),
+
         }
 
     @property
-    def execute_patch_job(
-        self,
-    ) -> typing.Callable[
-        [patch_jobs.ExecutePatchJobRequest],
-        typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
-    ]:
+    def execute_patch_job(self) -> typing.Callable[
+            [patch_jobs.ExecutePatchJobRequest],
+            typing.Union[
+                patch_jobs.PatchJob,
+                typing.Awaitable[patch_jobs.PatchJob]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_patch_job(
-        self,
-    ) -> typing.Callable[
-        [patch_jobs.GetPatchJobRequest],
-        typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
-    ]:
+    def get_patch_job(self) -> typing.Callable[
+            [patch_jobs.GetPatchJobRequest],
+            typing.Union[
+                patch_jobs.PatchJob,
+                typing.Awaitable[patch_jobs.PatchJob]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def cancel_patch_job(
-        self,
-    ) -> typing.Callable[
-        [patch_jobs.CancelPatchJobRequest],
-        typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
-    ]:
+    def cancel_patch_job(self) -> typing.Callable[
+            [patch_jobs.CancelPatchJobRequest],
+            typing.Union[
+                patch_jobs.PatchJob,
+                typing.Awaitable[patch_jobs.PatchJob]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def list_patch_jobs(
-        self,
-    ) -> typing.Callable[
-        [patch_jobs.ListPatchJobsRequest],
-        typing.Union[
-            patch_jobs.ListPatchJobsResponse,
-            typing.Awaitable[patch_jobs.ListPatchJobsResponse],
-        ],
-    ]:
+    def list_patch_jobs(self) -> typing.Callable[
+            [patch_jobs.ListPatchJobsRequest],
+            typing.Union[
+                patch_jobs.ListPatchJobsResponse,
+                typing.Awaitable[patch_jobs.ListPatchJobsResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def list_patch_job_instance_details(
-        self,
-    ) -> typing.Callable[
-        [patch_jobs.ListPatchJobInstanceDetailsRequest],
-        typing.Union[
-            patch_jobs.ListPatchJobInstanceDetailsResponse,
-            typing.Awaitable[patch_jobs.ListPatchJobInstanceDetailsResponse],
-        ],
-    ]:
+    def list_patch_job_instance_details(self) -> typing.Callable[
+            [patch_jobs.ListPatchJobInstanceDetailsRequest],
+            typing.Union[
+                patch_jobs.ListPatchJobInstanceDetailsResponse,
+                typing.Awaitable[patch_jobs.ListPatchJobInstanceDetailsResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def create_patch_deployment(
-        self,
-    ) -> typing.Callable[
-        [patch_deployments.CreatePatchDeploymentRequest],
-        typing.Union[
-            patch_deployments.PatchDeployment,
-            typing.Awaitable[patch_deployments.PatchDeployment],
-        ],
-    ]:
+    def create_patch_deployment(self) -> typing.Callable[
+            [patch_deployments.CreatePatchDeploymentRequest],
+            typing.Union[
+                patch_deployments.PatchDeployment,
+                typing.Awaitable[patch_deployments.PatchDeployment]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def get_patch_deployment(
-        self,
-    ) -> typing.Callable[
-        [patch_deployments.GetPatchDeploymentRequest],
-        typing.Union[
-            patch_deployments.PatchDeployment,
-            typing.Awaitable[patch_deployments.PatchDeployment],
-        ],
-    ]:
+    def get_patch_deployment(self) -> typing.Callable[
+            [patch_deployments.GetPatchDeploymentRequest],
+            typing.Union[
+                patch_deployments.PatchDeployment,
+                typing.Awaitable[patch_deployments.PatchDeployment]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def list_patch_deployments(
-        self,
-    ) -> typing.Callable[
-        [patch_deployments.ListPatchDeploymentsRequest],
-        typing.Union[
-            patch_deployments.ListPatchDeploymentsResponse,
-            typing.Awaitable[patch_deployments.ListPatchDeploymentsResponse],
-        ],
-    ]:
+    def list_patch_deployments(self) -> typing.Callable[
+            [patch_deployments.ListPatchDeploymentsRequest],
+            typing.Union[
+                patch_deployments.ListPatchDeploymentsResponse,
+                typing.Awaitable[patch_deployments.ListPatchDeploymentsResponse]
+            ]]:
         raise NotImplementedError()
 
     @property
-    def delete_patch_deployment(
-        self,
-    ) -> typing.Callable[
-        [patch_deployments.DeletePatchDeploymentRequest],
-        typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],
-    ]:
+    def delete_patch_deployment(self) -> typing.Callable[
+            [patch_deployments.DeletePatchDeploymentRequest],
+            typing.Union[
+                empty.Empty,
+                typing.Awaitable[empty.Empty]
+            ]]:
         raise NotImplementedError()
 
 
-__all__ = ("OsConfigServiceTransport",)
+__all__ = (
+    'OsConfigServiceTransport',
+)

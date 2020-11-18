@@ -21,12 +21,12 @@ import re
 from typing import Dict, Sequence, Tuple, Type, Union
 import pkg_resources
 
-import google.api_core.client_options as ClientOptions  # type: ignore
-from google.api_core import exceptions  # type: ignore
-from google.api_core import gapic_v1  # type: ignore
-from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
-from google.oauth2 import service_account  # type: ignore
+import google.api_core.client_options as ClientOptions # type: ignore
+from google.api_core import exceptions                 # type: ignore
+from google.api_core import gapic_v1                   # type: ignore
+from google.api_core import retry as retries           # type: ignore
+from google.auth import credentials                    # type: ignore
+from google.oauth2 import service_account              # type: ignore
 
 from google.cloud.osconfig_v1.services.os_config_service import pagers
 from google.cloud.osconfig_v1.types import patch_deployments
@@ -54,40 +54,24 @@ class OsConfigServiceAsyncClient:
     instance_path = staticmethod(OsConfigServiceClient.instance_path)
     parse_instance_path = staticmethod(OsConfigServiceClient.parse_instance_path)
     patch_deployment_path = staticmethod(OsConfigServiceClient.patch_deployment_path)
-    parse_patch_deployment_path = staticmethod(
-        OsConfigServiceClient.parse_patch_deployment_path
-    )
+    parse_patch_deployment_path = staticmethod(OsConfigServiceClient.parse_patch_deployment_path)
     patch_job_path = staticmethod(OsConfigServiceClient.patch_job_path)
     parse_patch_job_path = staticmethod(OsConfigServiceClient.parse_patch_job_path)
 
-    common_billing_account_path = staticmethod(
-        OsConfigServiceClient.common_billing_account_path
-    )
-    parse_common_billing_account_path = staticmethod(
-        OsConfigServiceClient.parse_common_billing_account_path
-    )
+    common_billing_account_path = staticmethod(OsConfigServiceClient.common_billing_account_path)
+    parse_common_billing_account_path = staticmethod(OsConfigServiceClient.parse_common_billing_account_path)
 
     common_folder_path = staticmethod(OsConfigServiceClient.common_folder_path)
-    parse_common_folder_path = staticmethod(
-        OsConfigServiceClient.parse_common_folder_path
-    )
+    parse_common_folder_path = staticmethod(OsConfigServiceClient.parse_common_folder_path)
 
-    common_organization_path = staticmethod(
-        OsConfigServiceClient.common_organization_path
-    )
-    parse_common_organization_path = staticmethod(
-        OsConfigServiceClient.parse_common_organization_path
-    )
+    common_organization_path = staticmethod(OsConfigServiceClient.common_organization_path)
+    parse_common_organization_path = staticmethod(OsConfigServiceClient.parse_common_organization_path)
 
     common_project_path = staticmethod(OsConfigServiceClient.common_project_path)
-    parse_common_project_path = staticmethod(
-        OsConfigServiceClient.parse_common_project_path
-    )
+    parse_common_project_path = staticmethod(OsConfigServiceClient.parse_common_project_path)
 
     common_location_path = staticmethod(OsConfigServiceClient.common_location_path)
-    parse_common_location_path = staticmethod(
-        OsConfigServiceClient.parse_common_location_path
-    )
+    parse_common_location_path = staticmethod(OsConfigServiceClient.parse_common_location_path)
 
     from_service_account_file = OsConfigServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
@@ -101,18 +85,14 @@ class OsConfigServiceAsyncClient:
         """
         return self._client.transport
 
-    get_transport_class = functools.partial(
-        type(OsConfigServiceClient).get_transport_class, type(OsConfigServiceClient)
-    )
+    get_transport_class = functools.partial(type(OsConfigServiceClient).get_transport_class, type(OsConfigServiceClient))
 
-    def __init__(
-        self,
-        *,
-        credentials: credentials.Credentials = None,
-        transport: Union[str, OsConfigServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
-        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-    ) -> None:
+    def __init__(self, *,
+            credentials: credentials.Credentials = None,
+            transport: Union[str, OsConfigServiceTransport] = 'grpc_asyncio',
+            client_options: ClientOptions = None,
+            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+            ) -> None:
         """Instantiate the os config service client.
 
         Args:
@@ -151,16 +131,16 @@ class OsConfigServiceAsyncClient:
             transport=transport,
             client_options=client_options,
             client_info=client_info,
+
         )
 
-    async def execute_patch_job(
-        self,
-        request: patch_jobs.ExecutePatchJobRequest = None,
-        *,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> patch_jobs.PatchJob:
+    async def execute_patch_job(self,
+            request: patch_jobs.ExecutePatchJobRequest = None,
+            *,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> patch_jobs.PatchJob:
         r"""Patch VM instances by creating and running a patch
         job.
 
@@ -204,24 +184,30 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def get_patch_job(
-        self,
-        request: patch_jobs.GetPatchJobRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> patch_jobs.PatchJob:
+    async def get_patch_job(self,
+            request: patch_jobs.GetPatchJobRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> patch_jobs.PatchJob:
         r"""Get the patch job. This can be used to track the
         progress of an ongoing patch job or review the details
         of completed jobs.
@@ -262,10 +248,8 @@ class OsConfigServiceAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = patch_jobs.GetPatchJobRequest(request)
 
@@ -286,23 +270,29 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def cancel_patch_job(
-        self,
-        request: patch_jobs.CancelPatchJobRequest = None,
-        *,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> patch_jobs.PatchJob:
+    async def cancel_patch_job(self,
+            request: patch_jobs.CancelPatchJobRequest = None,
+            *,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> patch_jobs.PatchJob:
         r"""Cancel a patch job. The patch job must be active.
         Canceled patch jobs cannot be restarted.
 
@@ -345,24 +335,30 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def list_patch_jobs(
-        self,
-        request: patch_jobs.ListPatchJobsRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListPatchJobsAsyncPager:
+    async def list_patch_jobs(self,
+            request: patch_jobs.ListPatchJobsRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListPatchJobsAsyncPager:
         r"""Get a list of patch jobs.
 
         Args:
@@ -395,10 +391,8 @@ class OsConfigServiceAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = patch_jobs.ListPatchJobsRequest(request)
 
@@ -419,30 +413,39 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchJobsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def list_patch_job_instance_details(
-        self,
-        request: patch_jobs.ListPatchJobInstanceDetailsRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListPatchJobInstanceDetailsAsyncPager:
+    async def list_patch_job_instance_details(self,
+            request: patch_jobs.ListPatchJobInstanceDetailsRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListPatchJobInstanceDetailsAsyncPager:
         r"""Get a list of instance details for a given patch job.
 
         Args:
@@ -476,10 +479,8 @@ class OsConfigServiceAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = patch_jobs.ListPatchJobInstanceDetailsRequest(request)
 
@@ -500,32 +501,41 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchJobInstanceDetailsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def create_patch_deployment(
-        self,
-        request: patch_deployments.CreatePatchDeploymentRequest = None,
-        *,
-        parent: str = None,
-        patch_deployment: patch_deployments.PatchDeployment = None,
-        patch_deployment_id: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> patch_deployments.PatchDeployment:
+    async def create_patch_deployment(self,
+            request: patch_deployments.CreatePatchDeploymentRequest = None,
+            *,
+            parent: str = None,
+            patch_deployment: patch_deployments.PatchDeployment = None,
+            patch_deployment_id: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> patch_deployments.PatchDeployment:
         r"""Create an OS Config patch deployment.
 
         Args:
@@ -580,10 +590,8 @@ class OsConfigServiceAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent, patch_deployment, patch_deployment_id])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = patch_deployments.CreatePatchDeploymentRequest(request)
 
@@ -608,24 +616,30 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def get_patch_deployment(
-        self,
-        request: patch_deployments.GetPatchDeploymentRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> patch_deployments.PatchDeployment:
+    async def get_patch_deployment(self,
+            request: patch_deployments.GetPatchDeploymentRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> patch_deployments.PatchDeployment:
         r"""Get an OS Config patch deployment.
 
         Args:
@@ -660,10 +674,8 @@ class OsConfigServiceAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = patch_deployments.GetPatchDeploymentRequest(request)
 
@@ -684,24 +696,30 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # Done; return the response.
         return response
 
-    async def list_patch_deployments(
-        self,
-        request: patch_deployments.ListPatchDeploymentsRequest = None,
-        *,
-        parent: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> pagers.ListPatchDeploymentsAsyncPager:
+    async def list_patch_deployments(self,
+            request: patch_deployments.ListPatchDeploymentsRequest = None,
+            *,
+            parent: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> pagers.ListPatchDeploymentsAsyncPager:
         r"""Get a page of OS Config patch deployments.
 
         Args:
@@ -735,10 +753,8 @@ class OsConfigServiceAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([parent])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = patch_deployments.ListPatchDeploymentsRequest(request)
 
@@ -759,30 +775,39 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("parent", request.parent),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('parent', request.parent),
+            )),
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
+        response = await rpc(
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
+        )
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchDeploymentsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata,
+            method=rpc,
+            request=request,
+            response=response,
+            metadata=metadata,
         )
 
         # Done; return the response.
         return response
 
-    async def delete_patch_deployment(
-        self,
-        request: patch_deployments.DeletePatchDeploymentRequest = None,
-        *,
-        name: str = None,
-        retry: retries.Retry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
-        metadata: Sequence[Tuple[str, str]] = (),
-    ) -> None:
+    async def delete_patch_deployment(self,
+            request: patch_deployments.DeletePatchDeploymentRequest = None,
+            *,
+            name: str = None,
+            retry: retries.Retry = gapic_v1.method.DEFAULT,
+            timeout: float = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+            ) -> None:
         r"""Delete an OS Config patch deployment.
 
         Args:
@@ -807,10 +832,8 @@ class OsConfigServiceAsyncClient:
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([name])
         if request is not None and has_flattened_params:
-            raise ValueError(
-                "If the `request` argument is set, then none of "
-                "the individual field arguments should be set."
-            )
+            raise ValueError('If the `request` argument is set, then none of '
+                             'the individual field arguments should be set.')
 
         request = patch_deployments.DeletePatchDeploymentRequest(request)
 
@@ -831,21 +854,35 @@ class OsConfigServiceAsyncClient:
         # Certain fields should be provided within the metadata header;
         # add these here.
         metadata = tuple(metadata) + (
-            gapic_v1.routing_header.to_grpc_metadata((("name", request.name),)),
+            gapic_v1.routing_header.to_grpc_metadata((
+                ('name', request.name),
+            )),
         )
 
         # Send the request.
         await rpc(
-            request, retry=retry, timeout=timeout, metadata=metadata,
+            request,
+            retry=retry,
+            timeout=timeout,
+            metadata=metadata,
         )
+
+
+
+
+
 
 
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution("google-cloud-os-config",).version,
+        gapic_version=pkg_resources.get_distribution(
+            'google-cloud-os-config',
+        ).version,
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
 
 
-__all__ = ("OsConfigServiceAsyncClient",)
+__all__ = (
+    'OsConfigServiceAsyncClient',
+)
