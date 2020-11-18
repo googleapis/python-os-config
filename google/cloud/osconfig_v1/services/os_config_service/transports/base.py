@@ -32,7 +32,7 @@ from google.protobuf import empty_pb2 as empty  # type: ignore
 
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution("google-cloud-os-config").version
+        gapic_version=pkg_resources.get_distribution("google-cloud-os-config",).version,
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
@@ -107,16 +107,16 @@ class OsConfigServiceTransport(abc.ABC):
         # Precompute the wrapped methods.
         self._wrapped_methods = {
             self.execute_patch_job: gapic_v1.method.wrap_method(
-                self.execute_patch_job, default_timeout=None, client_info=client_info
+                self.execute_patch_job, default_timeout=None, client_info=client_info,
             ),
             self.get_patch_job: gapic_v1.method.wrap_method(
-                self.get_patch_job, default_timeout=None, client_info=client_info
+                self.get_patch_job, default_timeout=None, client_info=client_info,
             ),
             self.cancel_patch_job: gapic_v1.method.wrap_method(
-                self.cancel_patch_job, default_timeout=None, client_info=client_info
+                self.cancel_patch_job, default_timeout=None, client_info=client_info,
             ),
             self.list_patch_jobs: gapic_v1.method.wrap_method(
-                self.list_patch_jobs, default_timeout=None, client_info=client_info
+                self.list_patch_jobs, default_timeout=None, client_info=client_info,
             ),
             self.list_patch_job_instance_details: gapic_v1.method.wrap_method(
                 self.list_patch_job_instance_details,
@@ -129,7 +129,9 @@ class OsConfigServiceTransport(abc.ABC):
                 client_info=client_info,
             ),
             self.get_patch_deployment: gapic_v1.method.wrap_method(
-                self.get_patch_deployment, default_timeout=None, client_info=client_info
+                self.get_patch_deployment,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.list_patch_deployments: gapic_v1.method.wrap_method(
                 self.list_patch_deployments,
@@ -145,7 +147,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def execute_patch_job(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.ExecutePatchJobRequest],
         typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
@@ -154,7 +156,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def get_patch_job(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.GetPatchJobRequest],
         typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
@@ -163,7 +165,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def cancel_patch_job(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.CancelPatchJobRequest],
         typing.Union[patch_jobs.PatchJob, typing.Awaitable[patch_jobs.PatchJob]],
@@ -172,7 +174,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def list_patch_jobs(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.ListPatchJobsRequest],
         typing.Union[
@@ -184,7 +186,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def list_patch_job_instance_details(
-        self
+        self,
     ) -> typing.Callable[
         [patch_jobs.ListPatchJobInstanceDetailsRequest],
         typing.Union[
@@ -196,7 +198,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def create_patch_deployment(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.CreatePatchDeploymentRequest],
         typing.Union[
@@ -208,7 +210,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def get_patch_deployment(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.GetPatchDeploymentRequest],
         typing.Union[
@@ -220,7 +222,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def list_patch_deployments(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.ListPatchDeploymentsRequest],
         typing.Union[
@@ -232,7 +234,7 @@ class OsConfigServiceTransport(abc.ABC):
 
     @property
     def delete_patch_deployment(
-        self
+        self,
     ) -> typing.Callable[
         [patch_deployments.DeletePatchDeploymentRequest],
         typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],
