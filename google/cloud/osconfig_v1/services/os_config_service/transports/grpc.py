@@ -18,10 +18,10 @@
 import warnings
 from typing import Callable, Dict, Optional, Sequence, Tuple
 
-from google.api_core import grpc_helpers   # type: ignore
-from google.api_core import gapic_v1       # type: ignore
-from google import auth                    # type: ignore
-from google.auth import credentials        # type: ignore
+from google.api_core import grpc_helpers  # type: ignore
+from google.api_core import gapic_v1  # type: ignore
+from google import auth  # type: ignore
+from google.auth import credentials  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
 
 import grpc  # type: ignore
@@ -48,20 +48,23 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
     It sends protocol buffers over the wire using gRPC (which is built on
     top of HTTP/2); the ``grpcio`` package must be installed.
     """
+
     _stubs: Dict[str, Callable]
 
-    def __init__(self, *,
-            host: str = 'osconfig.googleapis.com',
-            credentials: credentials.Credentials = None,
-            credentials_file: str = None,
-            scopes: Sequence[str] = None,
-            channel: grpc.Channel = None,
-            api_mtls_endpoint: str = None,
-            client_cert_source: Callable[[], Tuple[bytes, bytes]] = None,
-            ssl_channel_credentials: grpc.ChannelCredentials = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "osconfig.googleapis.com",
+        credentials: credentials.Credentials = None,
+        credentials_file: str = None,
+        scopes: Sequence[str] = None,
+        channel: grpc.Channel = None,
+        api_mtls_endpoint: str = None,
+        client_cert_source: Callable[[], Tuple[bytes, bytes]] = None,
+        ssl_channel_credentials: grpc.ChannelCredentials = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -114,12 +117,21 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
             self._grpc_channel = channel
             self._ssl_channel_credentials = None
         elif api_mtls_endpoint:
-            warnings.warn("api_mtls_endpoint and client_cert_source are deprecated", DeprecationWarning)
+            warnings.warn(
+                "api_mtls_endpoint and client_cert_source are deprecated",
+                DeprecationWarning,
+            )
 
-            host = api_mtls_endpoint if ":" in api_mtls_endpoint else api_mtls_endpoint + ":443"
+            host = (
+                api_mtls_endpoint
+                if ":" in api_mtls_endpoint
+                else api_mtls_endpoint + ":443"
+            )
 
             if credentials is None:
-                credentials, _ = auth.default(scopes=self.AUTH_SCOPES, quota_project_id=quota_project_id)
+                credentials, _ = auth.default(
+                    scopes=self.AUTH_SCOPES, quota_project_id=quota_project_id
+                )
 
             # Create SSL credentials with client_cert_source or application
             # default SSL credentials.
@@ -145,7 +157,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
             host = host if ":" in host else host + ":443"
 
             if credentials is None:
-                credentials, _ = auth.default(scopes=self.AUTH_SCOPES, quota_project_id=quota_project_id)
+                credentials, _ = auth.default(
+                    scopes=self.AUTH_SCOPES, quota_project_id=quota_project_id
+                )
 
             # create a new channel. The provided one is ignored.
             self._grpc_channel = type(self).create_channel(
@@ -170,13 +184,15 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         )
 
     @classmethod
-    def create_channel(cls,
-                       host: str = 'osconfig.googleapis.com',
-                       credentials: credentials.Credentials = None,
-                       credentials_file: str = None,
-                       scopes: Optional[Sequence[str]] = None,
-                       quota_project_id: Optional[str] = None,
-                       **kwargs) -> grpc.Channel:
+    def create_channel(
+        cls,
+        host: str = "osconfig.googleapis.com",
+        credentials: credentials.Credentials = None,
+        credentials_file: str = None,
+        scopes: Optional[Sequence[str]] = None,
+        quota_project_id: Optional[str] = None,
+        **kwargs,
+    ) -> grpc.Channel:
         """Create and return a gRPC channel object.
         Args:
             address (Optional[str]): The host for the channel to use.
@@ -209,7 +225,7 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
             credentials_file=credentials_file,
             scopes=scopes,
             quota_project_id=quota_project_id,
-            **kwargs
+            **kwargs,
         )
 
     @property
@@ -219,9 +235,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         return self._grpc_channel
 
     @property
-    def execute_patch_job(self) -> Callable[
-            [patch_jobs.ExecutePatchJobRequest],
-            patch_jobs.PatchJob]:
+    def execute_patch_job(
+        self,
+    ) -> Callable[[patch_jobs.ExecutePatchJobRequest], patch_jobs.PatchJob]:
         r"""Return a callable for the execute patch job method over gRPC.
 
         Patch VM instances by creating and running a patch
@@ -237,18 +253,18 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'execute_patch_job' not in self._stubs:
-            self._stubs['execute_patch_job'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/ExecutePatchJob',
+        if "execute_patch_job" not in self._stubs:
+            self._stubs["execute_patch_job"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/ExecutePatchJob",
                 request_serializer=patch_jobs.ExecutePatchJobRequest.serialize,
                 response_deserializer=patch_jobs.PatchJob.deserialize,
             )
-        return self._stubs['execute_patch_job']
+        return self._stubs["execute_patch_job"]
 
     @property
-    def get_patch_job(self) -> Callable[
-            [patch_jobs.GetPatchJobRequest],
-            patch_jobs.PatchJob]:
+    def get_patch_job(
+        self,
+    ) -> Callable[[patch_jobs.GetPatchJobRequest], patch_jobs.PatchJob]:
         r"""Return a callable for the get patch job method over gRPC.
 
         Get the patch job. This can be used to track the
@@ -265,18 +281,18 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'get_patch_job' not in self._stubs:
-            self._stubs['get_patch_job'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/GetPatchJob',
+        if "get_patch_job" not in self._stubs:
+            self._stubs["get_patch_job"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/GetPatchJob",
                 request_serializer=patch_jobs.GetPatchJobRequest.serialize,
                 response_deserializer=patch_jobs.PatchJob.deserialize,
             )
-        return self._stubs['get_patch_job']
+        return self._stubs["get_patch_job"]
 
     @property
-    def cancel_patch_job(self) -> Callable[
-            [patch_jobs.CancelPatchJobRequest],
-            patch_jobs.PatchJob]:
+    def cancel_patch_job(
+        self,
+    ) -> Callable[[patch_jobs.CancelPatchJobRequest], patch_jobs.PatchJob]:
         r"""Return a callable for the cancel patch job method over gRPC.
 
         Cancel a patch job. The patch job must be active.
@@ -292,18 +308,18 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'cancel_patch_job' not in self._stubs:
-            self._stubs['cancel_patch_job'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/CancelPatchJob',
+        if "cancel_patch_job" not in self._stubs:
+            self._stubs["cancel_patch_job"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/CancelPatchJob",
                 request_serializer=patch_jobs.CancelPatchJobRequest.serialize,
                 response_deserializer=patch_jobs.PatchJob.deserialize,
             )
-        return self._stubs['cancel_patch_job']
+        return self._stubs["cancel_patch_job"]
 
     @property
-    def list_patch_jobs(self) -> Callable[
-            [patch_jobs.ListPatchJobsRequest],
-            patch_jobs.ListPatchJobsResponse]:
+    def list_patch_jobs(
+        self,
+    ) -> Callable[[patch_jobs.ListPatchJobsRequest], patch_jobs.ListPatchJobsResponse]:
         r"""Return a callable for the list patch jobs method over gRPC.
 
         Get a list of patch jobs.
@@ -318,18 +334,21 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'list_patch_jobs' not in self._stubs:
-            self._stubs['list_patch_jobs'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/ListPatchJobs',
+        if "list_patch_jobs" not in self._stubs:
+            self._stubs["list_patch_jobs"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/ListPatchJobs",
                 request_serializer=patch_jobs.ListPatchJobsRequest.serialize,
                 response_deserializer=patch_jobs.ListPatchJobsResponse.deserialize,
             )
-        return self._stubs['list_patch_jobs']
+        return self._stubs["list_patch_jobs"]
 
     @property
-    def list_patch_job_instance_details(self) -> Callable[
-            [patch_jobs.ListPatchJobInstanceDetailsRequest],
-            patch_jobs.ListPatchJobInstanceDetailsResponse]:
+    def list_patch_job_instance_details(
+        self,
+    ) -> Callable[
+        [patch_jobs.ListPatchJobInstanceDetailsRequest],
+        patch_jobs.ListPatchJobInstanceDetailsResponse,
+    ]:
         r"""Return a callable for the list patch job instance
         details method over gRPC.
 
@@ -345,18 +364,23 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'list_patch_job_instance_details' not in self._stubs:
-            self._stubs['list_patch_job_instance_details'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/ListPatchJobInstanceDetails',
+        if "list_patch_job_instance_details" not in self._stubs:
+            self._stubs[
+                "list_patch_job_instance_details"
+            ] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/ListPatchJobInstanceDetails",
                 request_serializer=patch_jobs.ListPatchJobInstanceDetailsRequest.serialize,
                 response_deserializer=patch_jobs.ListPatchJobInstanceDetailsResponse.deserialize,
             )
-        return self._stubs['list_patch_job_instance_details']
+        return self._stubs["list_patch_job_instance_details"]
 
     @property
-    def create_patch_deployment(self) -> Callable[
-            [patch_deployments.CreatePatchDeploymentRequest],
-            patch_deployments.PatchDeployment]:
+    def create_patch_deployment(
+        self,
+    ) -> Callable[
+        [patch_deployments.CreatePatchDeploymentRequest],
+        patch_deployments.PatchDeployment,
+    ]:
         r"""Return a callable for the create patch deployment method over gRPC.
 
         Create an OS Config patch deployment.
@@ -371,18 +395,20 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'create_patch_deployment' not in self._stubs:
-            self._stubs['create_patch_deployment'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/CreatePatchDeployment',
+        if "create_patch_deployment" not in self._stubs:
+            self._stubs["create_patch_deployment"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/CreatePatchDeployment",
                 request_serializer=patch_deployments.CreatePatchDeploymentRequest.serialize,
                 response_deserializer=patch_deployments.PatchDeployment.deserialize,
             )
-        return self._stubs['create_patch_deployment']
+        return self._stubs["create_patch_deployment"]
 
     @property
-    def get_patch_deployment(self) -> Callable[
-            [patch_deployments.GetPatchDeploymentRequest],
-            patch_deployments.PatchDeployment]:
+    def get_patch_deployment(
+        self,
+    ) -> Callable[
+        [patch_deployments.GetPatchDeploymentRequest], patch_deployments.PatchDeployment
+    ]:
         r"""Return a callable for the get patch deployment method over gRPC.
 
         Get an OS Config patch deployment.
@@ -397,18 +423,21 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'get_patch_deployment' not in self._stubs:
-            self._stubs['get_patch_deployment'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/GetPatchDeployment',
+        if "get_patch_deployment" not in self._stubs:
+            self._stubs["get_patch_deployment"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/GetPatchDeployment",
                 request_serializer=patch_deployments.GetPatchDeploymentRequest.serialize,
                 response_deserializer=patch_deployments.PatchDeployment.deserialize,
             )
-        return self._stubs['get_patch_deployment']
+        return self._stubs["get_patch_deployment"]
 
     @property
-    def list_patch_deployments(self) -> Callable[
-            [patch_deployments.ListPatchDeploymentsRequest],
-            patch_deployments.ListPatchDeploymentsResponse]:
+    def list_patch_deployments(
+        self,
+    ) -> Callable[
+        [patch_deployments.ListPatchDeploymentsRequest],
+        patch_deployments.ListPatchDeploymentsResponse,
+    ]:
         r"""Return a callable for the list patch deployments method over gRPC.
 
         Get a page of OS Config patch deployments.
@@ -423,18 +452,18 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'list_patch_deployments' not in self._stubs:
-            self._stubs['list_patch_deployments'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/ListPatchDeployments',
+        if "list_patch_deployments" not in self._stubs:
+            self._stubs["list_patch_deployments"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/ListPatchDeployments",
                 request_serializer=patch_deployments.ListPatchDeploymentsRequest.serialize,
                 response_deserializer=patch_deployments.ListPatchDeploymentsResponse.deserialize,
             )
-        return self._stubs['list_patch_deployments']
+        return self._stubs["list_patch_deployments"]
 
     @property
-    def delete_patch_deployment(self) -> Callable[
-            [patch_deployments.DeletePatchDeploymentRequest],
-            empty.Empty]:
+    def delete_patch_deployment(
+        self,
+    ) -> Callable[[patch_deployments.DeletePatchDeploymentRequest], empty.Empty]:
         r"""Return a callable for the delete patch deployment method over gRPC.
 
         Delete an OS Config patch deployment.
@@ -449,15 +478,13 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         # the request.
         # gRPC handles serialization and deserialization, so we just need
         # to pass in the functions for each.
-        if 'delete_patch_deployment' not in self._stubs:
-            self._stubs['delete_patch_deployment'] = self.grpc_channel.unary_unary(
-                '/google.cloud.osconfig.v1.OsConfigService/DeletePatchDeployment',
+        if "delete_patch_deployment" not in self._stubs:
+            self._stubs["delete_patch_deployment"] = self.grpc_channel.unary_unary(
+                "/google.cloud.osconfig.v1.OsConfigService/DeletePatchDeployment",
                 request_serializer=patch_deployments.DeletePatchDeploymentRequest.serialize,
                 response_deserializer=empty.Empty.FromString,
             )
-        return self._stubs['delete_patch_deployment']
+        return self._stubs["delete_patch_deployment"]
 
 
-__all__ = (
-    'OsConfigServiceGrpcTransport',
-)
+__all__ = ("OsConfigServiceGrpcTransport",)

@@ -38,12 +38,15 @@ class ListPatchJobsPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-    def __init__(self,
-            method: Callable[..., patch_jobs.ListPatchJobsResponse],
-            request: patch_jobs.ListPatchJobsRequest,
-            response: patch_jobs.ListPatchJobsResponse,
-            *,
-            metadata: Sequence[Tuple[str, str]] = ()):
+
+    def __init__(
+        self,
+        method: Callable[..., patch_jobs.ListPatchJobsResponse],
+        request: patch_jobs.ListPatchJobsRequest,
+        response: patch_jobs.ListPatchJobsResponse,
+        *,
+        metadata: Sequence[Tuple[str, str]] = ()
+    ):
         """Instantiate the pager.
 
         Args:
@@ -77,7 +80,7 @@ class ListPatchJobsPager:
             yield from page.patch_jobs
 
     def __repr__(self) -> str:
-        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
+        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
 
 
 class ListPatchJobsAsyncPager:
@@ -97,12 +100,15 @@ class ListPatchJobsAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-    def __init__(self,
-            method: Callable[..., Awaitable[patch_jobs.ListPatchJobsResponse]],
-            request: patch_jobs.ListPatchJobsRequest,
-            response: patch_jobs.ListPatchJobsResponse,
-            *,
-            metadata: Sequence[Tuple[str, str]] = ()):
+
+    def __init__(
+        self,
+        method: Callable[..., Awaitable[patch_jobs.ListPatchJobsResponse]],
+        request: patch_jobs.ListPatchJobsRequest,
+        response: patch_jobs.ListPatchJobsResponse,
+        *,
+        metadata: Sequence[Tuple[str, str]] = ()
+    ):
         """Instantiate the pager.
 
         Args:
@@ -140,7 +146,7 @@ class ListPatchJobsAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
+        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
 
 
 class ListPatchJobInstanceDetailsPager:
@@ -160,12 +166,15 @@ class ListPatchJobInstanceDetailsPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-    def __init__(self,
-            method: Callable[..., patch_jobs.ListPatchJobInstanceDetailsResponse],
-            request: patch_jobs.ListPatchJobInstanceDetailsRequest,
-            response: patch_jobs.ListPatchJobInstanceDetailsResponse,
-            *,
-            metadata: Sequence[Tuple[str, str]] = ()):
+
+    def __init__(
+        self,
+        method: Callable[..., patch_jobs.ListPatchJobInstanceDetailsResponse],
+        request: patch_jobs.ListPatchJobInstanceDetailsRequest,
+        response: patch_jobs.ListPatchJobInstanceDetailsResponse,
+        *,
+        metadata: Sequence[Tuple[str, str]] = ()
+    ):
         """Instantiate the pager.
 
         Args:
@@ -199,7 +208,7 @@ class ListPatchJobInstanceDetailsPager:
             yield from page.patch_job_instance_details
 
     def __repr__(self) -> str:
-        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
+        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
 
 
 class ListPatchJobInstanceDetailsAsyncPager:
@@ -219,12 +228,17 @@ class ListPatchJobInstanceDetailsAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-    def __init__(self,
-            method: Callable[..., Awaitable[patch_jobs.ListPatchJobInstanceDetailsResponse]],
-            request: patch_jobs.ListPatchJobInstanceDetailsRequest,
-            response: patch_jobs.ListPatchJobInstanceDetailsResponse,
-            *,
-            metadata: Sequence[Tuple[str, str]] = ()):
+
+    def __init__(
+        self,
+        method: Callable[
+            ..., Awaitable[patch_jobs.ListPatchJobInstanceDetailsResponse]
+        ],
+        request: patch_jobs.ListPatchJobInstanceDetailsRequest,
+        response: patch_jobs.ListPatchJobInstanceDetailsResponse,
+        *,
+        metadata: Sequence[Tuple[str, str]] = ()
+    ):
         """Instantiate the pager.
 
         Args:
@@ -246,7 +260,9 @@ class ListPatchJobInstanceDetailsAsyncPager:
         return getattr(self._response, name)
 
     @property
-    async def pages(self) -> AsyncIterable[patch_jobs.ListPatchJobInstanceDetailsResponse]:
+    async def pages(
+        self,
+    ) -> AsyncIterable[patch_jobs.ListPatchJobInstanceDetailsResponse]:
         yield self._response
         while self._response.next_page_token:
             self._request.page_token = self._response.next_page_token
@@ -262,7 +278,7 @@ class ListPatchJobInstanceDetailsAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
+        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
 
 
 class ListPatchDeploymentsPager:
@@ -282,12 +298,15 @@ class ListPatchDeploymentsPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-    def __init__(self,
-            method: Callable[..., patch_deployments.ListPatchDeploymentsResponse],
-            request: patch_deployments.ListPatchDeploymentsRequest,
-            response: patch_deployments.ListPatchDeploymentsResponse,
-            *,
-            metadata: Sequence[Tuple[str, str]] = ()):
+
+    def __init__(
+        self,
+        method: Callable[..., patch_deployments.ListPatchDeploymentsResponse],
+        request: patch_deployments.ListPatchDeploymentsRequest,
+        response: patch_deployments.ListPatchDeploymentsResponse,
+        *,
+        metadata: Sequence[Tuple[str, str]] = ()
+    ):
         """Instantiate the pager.
 
         Args:
@@ -321,7 +340,7 @@ class ListPatchDeploymentsPager:
             yield from page.patch_deployments
 
     def __repr__(self) -> str:
-        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
+        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
 
 
 class ListPatchDeploymentsAsyncPager:
@@ -341,12 +360,17 @@ class ListPatchDeploymentsAsyncPager:
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
-    def __init__(self,
-            method: Callable[..., Awaitable[patch_deployments.ListPatchDeploymentsResponse]],
-            request: patch_deployments.ListPatchDeploymentsRequest,
-            response: patch_deployments.ListPatchDeploymentsResponse,
-            *,
-            metadata: Sequence[Tuple[str, str]] = ()):
+
+    def __init__(
+        self,
+        method: Callable[
+            ..., Awaitable[patch_deployments.ListPatchDeploymentsResponse]
+        ],
+        request: patch_deployments.ListPatchDeploymentsRequest,
+        response: patch_deployments.ListPatchDeploymentsResponse,
+        *,
+        metadata: Sequence[Tuple[str, str]] = ()
+    ):
         """Instantiate the pager.
 
         Args:
@@ -368,7 +392,9 @@ class ListPatchDeploymentsAsyncPager:
         return getattr(self._response, name)
 
     @property
-    async def pages(self) -> AsyncIterable[patch_deployments.ListPatchDeploymentsResponse]:
+    async def pages(
+        self,
+    ) -> AsyncIterable[patch_deployments.ListPatchDeploymentsResponse]:
         yield self._response
         while self._response.next_page_token:
             self._request.page_token = self._response.next_page_token
@@ -384,4 +410,4 @@ class ListPatchDeploymentsAsyncPager:
         return async_generator()
 
     def __repr__(self) -> str:
-        return '{0}<{1!r}>'.format(self.__class__.__name__, self._response)
+        return "{0}<{1!r}>".format(self.__class__.__name__, self._response)
