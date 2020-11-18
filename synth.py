@@ -35,7 +35,7 @@ s.move(library, excludes=["nox.py", "setup.py", "README.rst", "docs/index.rst"])
 s.replace(["google/**/*.py", "tests/**/*.py"], "google-cloud-osconfig", "google-cloud-os-config")
 
 # Add newline after last item in list
-s.replace("google/cloud/**/client.py",
+s.replace("google/cloud/**/*client.py",
 "(-  Must be unique within the project\.)",
 "\g<1>\n")
 
