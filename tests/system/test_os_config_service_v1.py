@@ -30,7 +30,7 @@ class TestOsConfigServiceV1(object):
         request = patch_jobs.ExecutePatchJobRequest(
             parent=f"projects/{project_id}",
             description="Python Client Library System Test",
-            instance_filter=patch_jobs.PatchInstanceFilter(all=True),
+            instance_filter=patch_jobs.PatchInstanceFilter(all_=True),
         )
         patch_job = client.execute_patch_job(request)
         assert patch_job is not None
