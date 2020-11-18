@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "02c23d62c7a133608fcf6ea33aea90ed0e0d098a",
-        "internalRef": "317658441"
+        "sha": "4b0ad15b0ff483486ae90d73092e7be00f8c1848",
+        "internalRef": "341842584"
       }
     },
     {
@@ -104,6 +104,8 @@
     "google/cloud/osconfig_v1/services/os_config_service/transports/grpc.py",
     "google/cloud/osconfig_v1/services/os_config_service/transports/grpc_asyncio.py",
     "google/cloud/osconfig_v1/types/__init__.py",
+    "google/cloud/osconfig_v1/types/inventory.py",
+    "google/cloud/osconfig_v1/types/osconfig_common.py",
     "google/cloud/osconfig_v1/types/osconfig_service.py",
     "google/cloud/osconfig_v1/types/patch_deployments.py",
     "google/cloud/osconfig_v1/types/patch_jobs.py",

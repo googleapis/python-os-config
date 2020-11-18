@@ -180,7 +180,7 @@ class OsConfigServiceAsyncClient:
                 A high level representation of a patch job that is
                 either in progress or has completed.
 
-                Instances details are not included in the job. To
+                Instance details are not included in the job. To
                 paginate through instance details, use
                 ListPatchJobInstanceDetails.
 
@@ -248,7 +248,7 @@ class OsConfigServiceAsyncClient:
                 A high level representation of a patch job that is
                 either in progress or has completed.
 
-                Instances details are not included in the job. To
+                Instance details are not included in the job. To
                 paginate through instance details, use
                 ListPatchJobInstanceDetails.
 
@@ -321,7 +321,7 @@ class OsConfigServiceAsyncClient:
                 A high level representation of a patch job that is
                 either in progress or has completed.
 
-                Instances details are not included in the job. To
+                Instance details are not included in the job. To
                 paginate through instance details, use
                 ListPatchJobInstanceDetails.
 

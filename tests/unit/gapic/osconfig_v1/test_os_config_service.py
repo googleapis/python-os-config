@@ -38,6 +38,7 @@ from google.cloud.osconfig_v1.services.os_config_service import (
 from google.cloud.osconfig_v1.services.os_config_service import OsConfigServiceClient
 from google.cloud.osconfig_v1.services.os_config_service import pagers
 from google.cloud.osconfig_v1.services.os_config_service import transports
+from google.cloud.osconfig_v1.types import osconfig_common
 from google.cloud.osconfig_v1.types import patch_deployments
 from google.cloud.osconfig_v1.types import patch_jobs
 from google.oauth2 import service_account

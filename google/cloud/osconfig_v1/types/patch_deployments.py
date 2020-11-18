@@ -89,6 +89,8 @@ class PatchDeployment(proto.Message):
             deployment. Timestamp is in
             `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`__ text
             format.
+        rollout (~.patch_jobs.PatchRollout):
+            Optional. Rollout strategy of the patch job.
     """
 
     name = proto.Field(proto.STRING, number=1)
@@ -118,6 +120,8 @@ class PatchDeployment(proto.Message):
     last_execute_time = proto.Field(
         proto.MESSAGE, number=10, message=timestamp.Timestamp
     )
+
+    rollout = proto.Field(proto.MESSAGE, number=11, message=patch_jobs.PatchRollout)
 
 
 class OneTimeSchedule(proto.Message):

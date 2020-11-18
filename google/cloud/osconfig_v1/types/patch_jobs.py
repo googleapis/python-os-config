@@ -18,6 +18,7 @@
 import proto  # type: ignore
 
 
+from google.cloud.osconfig_v1.types import osconfig_common
 from google.protobuf import duration_pb2 as gp_duration  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
@@ -45,6 +46,7 @@ __protobuf__ = proto.module(
         "ExecStepConfig",
         "GcsObject",
         "PatchInstanceFilter",
+        "PatchRollout",
     },
 )
 
@@ -77,6 +79,8 @@ class ExecutePatchJobRequest(proto.Message):
         display_name (str):
             Display name for this patch job. This does
             not have to be unique.
+        rollout (~.gco_patch_jobs.PatchRollout):
+            Rollout strategy of the patch job.
     """
 
     parent = proto.Field(proto.STRING, number=1)
@@ -94,6 +98,8 @@ class ExecutePatchJobRequest(proto.Message):
     dry_run = proto.Field(proto.BOOL, number=6)
 
     display_name = proto.Field(proto.STRING, number=8)
+
+    rollout = proto.Field(proto.MESSAGE, number=9, message="PatchRollout")
 
 
 class GetPatchJobRequest(proto.Message):
@@ -247,7 +253,7 @@ class PatchJob(proto.Message):
     r"""A high level representation of a patch job that is either in
     progress or has completed.
 
-    Instances details are not included in the job. To paginate through
+    Instance details are not included in the job. To paginate through
     instance details, use ListPatchJobInstanceDetails.
 
     For more information about patch jobs, see `Creating patch
@@ -268,7 +274,7 @@ class PatchJob(proto.Message):
         update_time (~.timestamp.Timestamp):
             Last time this patch job was updated.
         state (~.gco_patch_jobs.PatchJob.State):
-            The current state of the PatchJob .
+            The current state of the PatchJob.
         instance_filter (~.gco_patch_jobs.PatchInstanceFilter):
             Instances to patch.
         patch_config (~.gco_patch_jobs.PatchConfig):
@@ -292,6 +298,8 @@ class PatchJob(proto.Message):
         patch_deployment (str):
             Output only. Name of the patch deployment
             that created this patch job.
+        rollout (~.gco_patch_jobs.PatchRollout):
+            Rollout strategy being applied.
     """
 
     class State(proto.Enum):
@@ -417,6 +425,8 @@ class PatchJob(proto.Message):
     percent_complete = proto.Field(proto.DOUBLE, number=12)
 
     patch_deployment = proto.Field(proto.STRING, number=15)
+
+    rollout = proto.Field(proto.MESSAGE, number=16, message="PatchRollout")
 
 
 class PatchConfig(proto.Message):
@@ -797,6 +807,58 @@ class PatchInstanceFilter(proto.Message):
     instances = proto.RepeatedField(proto.STRING, number=4)
 
     instance_name_prefixes = proto.RepeatedField(proto.STRING, number=5)
+
+
+class PatchRollout(proto.Message):
+    r"""Patch rollout configuration specifications. Contains details
+    on the concurrency control when applying patch(es) to all
+    targeted VMs.
+
+    Attributes:
+        mode (~.gco_patch_jobs.PatchRollout.Mode):
+            Mode of the patch rollout.
+        disruption_budget (~.osconfig_common.FixedOrPercent):
+            The maximum number (or percentage) of VMs per zone to
+            disrupt at any given moment. The number of VMs calculated
+            from multiplying the percentage by the total number of VMs
+            in a zone is rounded up.
+
+            During patching, a VM is considered disrupted from the time
+            the agent is notified to begin until patching has completed.
+            This disruption time includes the time to complete reboot
+            and any post-patch steps.
+
+            A VM contributes to the disruption budget if its patching
+            operation fails either when applying the patches, running
+            pre or post patch steps, or if it fails to respond with a
+            success notification before timing out. VMs that are not
+            running or do not have an active agent do not count toward
+            this disruption budget.
+
+            For zone-by-zone rollouts, if the disruption budget in a
+            zone is exceeded, the patch job stops, because continuing to
+            the next zone requires completion of the patch process in
+            the previous zone.
+
+            For example, if the disruption budget has a fixed value of
+            ``10``, and 8 VMs fail to patch in the current zone, the
+            patch job continues to patch 2 VMs at a time until the zone
+            is completed. When that zone is completed successfully,
+            patching begins with 10 VMs at a time in the next zone. If
+            10 VMs in the next zone fail to patch, the patch job stops.
+    """
+
+    class Mode(proto.Enum):
+        r"""Type of the rollout."""
+        MODE_UNSPECIFIED = 0
+        ZONE_BY_ZONE = 1
+        CONCURRENT_ZONES = 2
+
+    mode = proto.Field(proto.ENUM, number=1, enum=Mode)
+
+    disruption_budget = proto.Field(
+        proto.MESSAGE, number=2, message=osconfig_common.FixedOrPercent
+    )
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

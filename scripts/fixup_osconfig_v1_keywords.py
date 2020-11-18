@@ -44,7 +44,7 @@ class osconfigCallTransformer(cst.CSTTransformer):
     'cancel_patch_job': ('name', ),
     'create_patch_deployment': ('parent', 'patch_deployment_id', 'patch_deployment', ),
     'delete_patch_deployment': ('name', ),
-    'execute_patch_job': ('parent', 'instance_filter', 'description', 'patch_config', 'duration', 'dry_run', 'display_name', ),
+    'execute_patch_job': ('parent', 'instance_filter', 'description', 'patch_config', 'duration', 'dry_run', 'display_name', 'rollout', ),
     'get_patch_deployment': ('name', ),
     'get_patch_job': ('name', ),
     'list_patch_deployments': ('parent', 'page_size', 'page_token', ),
