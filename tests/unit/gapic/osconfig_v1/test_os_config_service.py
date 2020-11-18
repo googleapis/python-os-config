@@ -392,7 +392,7 @@ def test_os_config_service_client_client_options_scopes(
     client_class, transport_class, transport_name
 ):
     # Check the case scopes are provided.
-    options = client_options.ClientOptions(scopes=["1", "2"])
+    options = client_options.ClientOptions(scopes=["1", "2"],)
     with mock.patch.object(transport_class, "__init__") as patched:
         patched.return_value = None
         client = client_class(client_options=options)
@@ -460,7 +460,7 @@ def test_execute_patch_job(
     transport: str = "grpc", request_type=patch_jobs.ExecutePatchJobRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -521,7 +521,7 @@ async def test_execute_patch_job_async(
     transport: str = "grpc_asyncio", request_type=patch_jobs.ExecutePatchJobRequest
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -580,7 +580,7 @@ async def test_execute_patch_job_async_from_dict():
 
 
 def test_execute_patch_job_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -602,12 +602,12 @@ def test_execute_patch_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_execute_patch_job_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -629,14 +629,14 @@ async def test_execute_patch_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 def test_get_patch_job(
     transport: str = "grpc", request_type=patch_jobs.GetPatchJobRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -695,7 +695,7 @@ async def test_get_patch_job_async(
     transport: str = "grpc_asyncio", request_type=patch_jobs.GetPatchJobRequest
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -752,7 +752,7 @@ async def test_get_patch_job_async_from_dict():
 
 
 def test_get_patch_job_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -772,12 +772,12 @@ def test_get_patch_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_get_patch_job_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -797,11 +797,11 @@ async def test_get_patch_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 def test_get_patch_job_flattened():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_patch_job), "__call__") as call:
@@ -810,7 +810,7 @@ def test_get_patch_job_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_patch_job(name="name_value")
+        client.get_patch_job(name="name_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -821,17 +821,19 @@ def test_get_patch_job_flattened():
 
 
 def test_get_patch_job_flattened_error():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
-        client.get_patch_job(patch_jobs.GetPatchJobRequest(), name="name_value")
+        client.get_patch_job(
+            patch_jobs.GetPatchJobRequest(), name="name_value",
+        )
 
 
 @pytest.mark.asyncio
 async def test_get_patch_job_flattened_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_patch_job), "__call__") as call:
@@ -841,7 +843,7 @@ async def test_get_patch_job_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(patch_jobs.PatchJob())
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_patch_job(name="name_value")
+        response = await client.get_patch_job(name="name_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -853,19 +855,21 @@ async def test_get_patch_job_flattened_async():
 
 @pytest.mark.asyncio
 async def test_get_patch_job_flattened_error_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
-        await client.get_patch_job(patch_jobs.GetPatchJobRequest(), name="name_value")
+        await client.get_patch_job(
+            patch_jobs.GetPatchJobRequest(), name="name_value",
+        )
 
 
 def test_cancel_patch_job(
     transport: str = "grpc", request_type=patch_jobs.CancelPatchJobRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -924,7 +928,7 @@ async def test_cancel_patch_job_async(
     transport: str = "grpc_asyncio", request_type=patch_jobs.CancelPatchJobRequest
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -981,7 +985,7 @@ async def test_cancel_patch_job_async_from_dict():
 
 
 def test_cancel_patch_job_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1001,12 +1005,12 @@ def test_cancel_patch_job_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_cancel_patch_job_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1026,14 +1030,14 @@ async def test_cancel_patch_job_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 def test_list_patch_jobs(
     transport: str = "grpc", request_type=patch_jobs.ListPatchJobsRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1044,7 +1048,7 @@ def test_list_patch_jobs(
     with mock.patch.object(type(client.transport.list_patch_jobs), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = patch_jobs.ListPatchJobsResponse(
-            next_page_token="next_page_token_value"
+            next_page_token="next_page_token_value",
         )
 
         response = client.list_patch_jobs(request)
@@ -1071,7 +1075,7 @@ async def test_list_patch_jobs_async(
     transport: str = "grpc_asyncio", request_type=patch_jobs.ListPatchJobsRequest
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1082,7 +1086,7 @@ async def test_list_patch_jobs_async(
     with mock.patch.object(type(client.transport.list_patch_jobs), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            patch_jobs.ListPatchJobsResponse(next_page_token="next_page_token_value")
+            patch_jobs.ListPatchJobsResponse(next_page_token="next_page_token_value",)
         )
 
         response = await client.list_patch_jobs(request)
@@ -1105,7 +1109,7 @@ async def test_list_patch_jobs_async_from_dict():
 
 
 def test_list_patch_jobs_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1125,12 +1129,12 @@ def test_list_patch_jobs_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_patch_jobs_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1152,11 +1156,11 @@ async def test_list_patch_jobs_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 def test_list_patch_jobs_flattened():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_patch_jobs), "__call__") as call:
@@ -1165,7 +1169,7 @@ def test_list_patch_jobs_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_patch_jobs(parent="parent_value")
+        client.list_patch_jobs(parent="parent_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1176,17 +1180,19 @@ def test_list_patch_jobs_flattened():
 
 
 def test_list_patch_jobs_flattened_error():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
-        client.list_patch_jobs(patch_jobs.ListPatchJobsRequest(), parent="parent_value")
+        client.list_patch_jobs(
+            patch_jobs.ListPatchJobsRequest(), parent="parent_value",
+        )
 
 
 @pytest.mark.asyncio
 async def test_list_patch_jobs_flattened_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_patch_jobs), "__call__") as call:
@@ -1198,7 +1204,7 @@ async def test_list_patch_jobs_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_patch_jobs(parent="parent_value")
+        response = await client.list_patch_jobs(parent="parent_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1210,18 +1216,18 @@ async def test_list_patch_jobs_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_patch_jobs_flattened_error_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_patch_jobs(
-            patch_jobs.ListPatchJobsRequest(), parent="parent_value"
+            patch_jobs.ListPatchJobsRequest(), parent="parent_value",
         )
 
 
 def test_list_patch_jobs_pager():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_patch_jobs), "__call__") as call:
@@ -1235,12 +1241,12 @@ def test_list_patch_jobs_pager():
                 ],
                 next_page_token="abc",
             ),
-            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def"),
+            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def",),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob()], next_page_token="ghi"
+                patch_jobs=[patch_jobs.PatchJob(),], next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob()]
+                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob(),],
             ),
             RuntimeError,
         )
@@ -1259,7 +1265,7 @@ def test_list_patch_jobs_pager():
 
 
 def test_list_patch_jobs_pages():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_patch_jobs), "__call__") as call:
@@ -1273,12 +1279,12 @@ def test_list_patch_jobs_pages():
                 ],
                 next_page_token="abc",
             ),
-            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def"),
+            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def",),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob()], next_page_token="ghi"
+                patch_jobs=[patch_jobs.PatchJob(),], next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob()]
+                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob(),],
             ),
             RuntimeError,
         )
@@ -1289,7 +1295,7 @@ def test_list_patch_jobs_pages():
 
 @pytest.mark.asyncio
 async def test_list_patch_jobs_async_pager():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1305,16 +1311,16 @@ async def test_list_patch_jobs_async_pager():
                 ],
                 next_page_token="abc",
             ),
-            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def"),
+            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def",),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob()], next_page_token="ghi"
+                patch_jobs=[patch_jobs.PatchJob(),], next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob()]
+                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob(),],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_patch_jobs(request={})
+        async_pager = await client.list_patch_jobs(request={},)
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -1326,7 +1332,7 @@ async def test_list_patch_jobs_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_patch_jobs_async_pages():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1342,12 +1348,12 @@ async def test_list_patch_jobs_async_pages():
                 ],
                 next_page_token="abc",
             ),
-            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def"),
+            patch_jobs.ListPatchJobsResponse(patch_jobs=[], next_page_token="def",),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob()], next_page_token="ghi"
+                patch_jobs=[patch_jobs.PatchJob(),], next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobsResponse(
-                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob()]
+                patch_jobs=[patch_jobs.PatchJob(), patch_jobs.PatchJob(),],
             ),
             RuntimeError,
         )
@@ -1362,7 +1368,7 @@ def test_list_patch_job_instance_details(
     transport: str = "grpc", request_type=patch_jobs.ListPatchJobInstanceDetailsRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1375,7 +1381,7 @@ def test_list_patch_job_instance_details(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = patch_jobs.ListPatchJobInstanceDetailsResponse(
-            next_page_token="next_page_token_value"
+            next_page_token="next_page_token_value",
         )
 
         response = client.list_patch_job_instance_details(request)
@@ -1403,7 +1409,7 @@ async def test_list_patch_job_instance_details_async(
     request_type=patch_jobs.ListPatchJobInstanceDetailsRequest,
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1417,7 +1423,7 @@ async def test_list_patch_job_instance_details_async(
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                next_page_token="next_page_token_value"
+                next_page_token="next_page_token_value",
             )
         )
 
@@ -1441,7 +1447,7 @@ async def test_list_patch_job_instance_details_async_from_dict():
 
 
 def test_list_patch_job_instance_details_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1463,12 +1469,12 @@ def test_list_patch_job_instance_details_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_patch_job_instance_details_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1492,11 +1498,11 @@ async def test_list_patch_job_instance_details_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 def test_list_patch_job_instance_details_flattened():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1507,7 +1513,7 @@ def test_list_patch_job_instance_details_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_patch_job_instance_details(parent="parent_value")
+        client.list_patch_job_instance_details(parent="parent_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1518,19 +1524,19 @@ def test_list_patch_job_instance_details_flattened():
 
 
 def test_list_patch_job_instance_details_flattened_error():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_patch_job_instance_details(
-            patch_jobs.ListPatchJobInstanceDetailsRequest(), parent="parent_value"
+            patch_jobs.ListPatchJobInstanceDetailsRequest(), parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_patch_job_instance_details_flattened_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1544,7 +1550,7 @@ async def test_list_patch_job_instance_details_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_patch_job_instance_details(parent="parent_value")
+        response = await client.list_patch_job_instance_details(parent="parent_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1556,18 +1562,18 @@ async def test_list_patch_job_instance_details_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_patch_job_instance_details_flattened_error_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_patch_job_instance_details(
-            patch_jobs.ListPatchJobInstanceDetailsRequest(), parent="parent_value"
+            patch_jobs.ListPatchJobInstanceDetailsRequest(), parent="parent_value",
         )
 
 
 def test_list_patch_job_instance_details_pager():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1584,17 +1590,17 @@ def test_list_patch_job_instance_details_pager():
                 next_page_token="abc",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[], next_page_token="def"
+                patch_job_instance_details=[], next_page_token="def",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails()],
+                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails(),],
                 next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
                 patch_job_instance_details=[
                     patch_jobs.PatchJobInstanceDetails(),
                     patch_jobs.PatchJobInstanceDetails(),
-                ]
+                ],
             ),
             RuntimeError,
         )
@@ -1613,7 +1619,7 @@ def test_list_patch_job_instance_details_pager():
 
 
 def test_list_patch_job_instance_details_pages():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1630,17 +1636,17 @@ def test_list_patch_job_instance_details_pages():
                 next_page_token="abc",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[], next_page_token="def"
+                patch_job_instance_details=[], next_page_token="def",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails()],
+                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails(),],
                 next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
                 patch_job_instance_details=[
                     patch_jobs.PatchJobInstanceDetails(),
                     patch_jobs.PatchJobInstanceDetails(),
-                ]
+                ],
             ),
             RuntimeError,
         )
@@ -1651,7 +1657,7 @@ def test_list_patch_job_instance_details_pages():
 
 @pytest.mark.asyncio
 async def test_list_patch_job_instance_details_async_pager():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1670,21 +1676,21 @@ async def test_list_patch_job_instance_details_async_pager():
                 next_page_token="abc",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[], next_page_token="def"
+                patch_job_instance_details=[], next_page_token="def",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails()],
+                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails(),],
                 next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
                 patch_job_instance_details=[
                     patch_jobs.PatchJobInstanceDetails(),
                     patch_jobs.PatchJobInstanceDetails(),
-                ]
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_patch_job_instance_details(request={})
+        async_pager = await client.list_patch_job_instance_details(request={},)
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -1696,7 +1702,7 @@ async def test_list_patch_job_instance_details_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_patch_job_instance_details_async_pages():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1715,17 +1721,17 @@ async def test_list_patch_job_instance_details_async_pages():
                 next_page_token="abc",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[], next_page_token="def"
+                patch_job_instance_details=[], next_page_token="def",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
-                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails()],
+                patch_job_instance_details=[patch_jobs.PatchJobInstanceDetails(),],
                 next_page_token="ghi",
             ),
             patch_jobs.ListPatchJobInstanceDetailsResponse(
                 patch_job_instance_details=[
                     patch_jobs.PatchJobInstanceDetails(),
                     patch_jobs.PatchJobInstanceDetails(),
-                ]
+                ],
             ),
             RuntimeError,
         )
@@ -1742,7 +1748,7 @@ def test_create_patch_deployment(
     transport: str = "grpc", request_type=patch_deployments.CreatePatchDeploymentRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1789,7 +1795,7 @@ async def test_create_patch_deployment_async(
     request_type=patch_deployments.CreatePatchDeploymentRequest,
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1803,7 +1809,7 @@ async def test_create_patch_deployment_async(
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             patch_deployments.PatchDeployment(
-                name="name_value", description="description_value"
+                name="name_value", description="description_value",
             )
         )
 
@@ -1829,7 +1835,7 @@ async def test_create_patch_deployment_async_from_dict():
 
 
 def test_create_patch_deployment_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1851,12 +1857,12 @@ def test_create_patch_deployment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_create_patch_deployment_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1880,11 +1886,11 @@ async def test_create_patch_deployment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 def test_create_patch_deployment_flattened():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1916,7 +1922,7 @@ def test_create_patch_deployment_flattened():
 
 
 def test_create_patch_deployment_flattened_error():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1931,7 +1937,7 @@ def test_create_patch_deployment_flattened_error():
 
 @pytest.mark.asyncio
 async def test_create_patch_deployment_flattened_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1967,7 +1973,7 @@ async def test_create_patch_deployment_flattened_async():
 
 @pytest.mark.asyncio
 async def test_create_patch_deployment_flattened_error_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1984,7 +1990,7 @@ def test_get_patch_deployment(
     transport: str = "grpc", request_type=patch_deployments.GetPatchDeploymentRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2031,7 +2037,7 @@ async def test_get_patch_deployment_async(
     request_type=patch_deployments.GetPatchDeploymentRequest,
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2045,7 +2051,7 @@ async def test_get_patch_deployment_async(
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             patch_deployments.PatchDeployment(
-                name="name_value", description="description_value"
+                name="name_value", description="description_value",
             )
         )
 
@@ -2071,7 +2077,7 @@ async def test_get_patch_deployment_async_from_dict():
 
 
 def test_get_patch_deployment_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2093,12 +2099,12 @@ def test_get_patch_deployment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_get_patch_deployment_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2122,11 +2128,11 @@ async def test_get_patch_deployment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 def test_get_patch_deployment_flattened():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2137,7 +2143,7 @@ def test_get_patch_deployment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_patch_deployment(name="name_value")
+        client.get_patch_deployment(name="name_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2148,19 +2154,19 @@ def test_get_patch_deployment_flattened():
 
 
 def test_get_patch_deployment_flattened_error():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_patch_deployment(
-            patch_deployments.GetPatchDeploymentRequest(), name="name_value"
+            patch_deployments.GetPatchDeploymentRequest(), name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_get_patch_deployment_flattened_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2174,7 +2180,7 @@ async def test_get_patch_deployment_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_patch_deployment(name="name_value")
+        response = await client.get_patch_deployment(name="name_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2186,13 +2192,13 @@ async def test_get_patch_deployment_flattened_async():
 
 @pytest.mark.asyncio
 async def test_get_patch_deployment_flattened_error_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_patch_deployment(
-            patch_deployments.GetPatchDeploymentRequest(), name="name_value"
+            patch_deployments.GetPatchDeploymentRequest(), name="name_value",
         )
 
 
@@ -2200,7 +2206,7 @@ def test_list_patch_deployments(
     transport: str = "grpc", request_type=patch_deployments.ListPatchDeploymentsRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2213,7 +2219,7 @@ def test_list_patch_deployments(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = patch_deployments.ListPatchDeploymentsResponse(
-            next_page_token="next_page_token_value"
+            next_page_token="next_page_token_value",
         )
 
         response = client.list_patch_deployments(request)
@@ -2241,7 +2247,7 @@ async def test_list_patch_deployments_async(
     request_type=patch_deployments.ListPatchDeploymentsRequest,
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2255,7 +2261,7 @@ async def test_list_patch_deployments_async(
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             patch_deployments.ListPatchDeploymentsResponse(
-                next_page_token="next_page_token_value"
+                next_page_token="next_page_token_value",
             )
         )
 
@@ -2279,7 +2285,7 @@ async def test_list_patch_deployments_async_from_dict():
 
 
 def test_list_patch_deployments_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2301,12 +2307,12 @@ def test_list_patch_deployments_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_list_patch_deployments_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2330,11 +2336,11 @@ async def test_list_patch_deployments_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value") in kw["metadata"]
+    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
 
 
 def test_list_patch_deployments_flattened():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2345,7 +2351,7 @@ def test_list_patch_deployments_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_patch_deployments(parent="parent_value")
+        client.list_patch_deployments(parent="parent_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2356,19 +2362,19 @@ def test_list_patch_deployments_flattened():
 
 
 def test_list_patch_deployments_flattened_error():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_patch_deployments(
-            patch_deployments.ListPatchDeploymentsRequest(), parent="parent_value"
+            patch_deployments.ListPatchDeploymentsRequest(), parent="parent_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_list_patch_deployments_flattened_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2382,7 +2388,7 @@ async def test_list_patch_deployments_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_patch_deployments(parent="parent_value")
+        response = await client.list_patch_deployments(parent="parent_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2394,18 +2400,18 @@ async def test_list_patch_deployments_flattened_async():
 
 @pytest.mark.asyncio
 async def test_list_patch_deployments_flattened_error_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_patch_deployments(
-            patch_deployments.ListPatchDeploymentsRequest(), parent="parent_value"
+            patch_deployments.ListPatchDeploymentsRequest(), parent="parent_value",
         )
 
 
 def test_list_patch_deployments_pager():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2422,17 +2428,17 @@ def test_list_patch_deployments_pager():
                 next_page_token="abc",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[], next_page_token="def"
+                patch_deployments=[], next_page_token="def",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[patch_deployments.PatchDeployment()],
+                patch_deployments=[patch_deployments.PatchDeployment(),],
                 next_page_token="ghi",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
                 patch_deployments=[
                     patch_deployments.PatchDeployment(),
                     patch_deployments.PatchDeployment(),
-                ]
+                ],
             ),
             RuntimeError,
         )
@@ -2451,7 +2457,7 @@ def test_list_patch_deployments_pager():
 
 
 def test_list_patch_deployments_pages():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2468,17 +2474,17 @@ def test_list_patch_deployments_pages():
                 next_page_token="abc",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[], next_page_token="def"
+                patch_deployments=[], next_page_token="def",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[patch_deployments.PatchDeployment()],
+                patch_deployments=[patch_deployments.PatchDeployment(),],
                 next_page_token="ghi",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
                 patch_deployments=[
                     patch_deployments.PatchDeployment(),
                     patch_deployments.PatchDeployment(),
-                ]
+                ],
             ),
             RuntimeError,
         )
@@ -2489,7 +2495,7 @@ def test_list_patch_deployments_pages():
 
 @pytest.mark.asyncio
 async def test_list_patch_deployments_async_pager():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2508,21 +2514,21 @@ async def test_list_patch_deployments_async_pager():
                 next_page_token="abc",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[], next_page_token="def"
+                patch_deployments=[], next_page_token="def",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[patch_deployments.PatchDeployment()],
+                patch_deployments=[patch_deployments.PatchDeployment(),],
                 next_page_token="ghi",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
                 patch_deployments=[
                     patch_deployments.PatchDeployment(),
                     patch_deployments.PatchDeployment(),
-                ]
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_patch_deployments(request={})
+        async_pager = await client.list_patch_deployments(request={},)
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -2534,7 +2540,7 @@ async def test_list_patch_deployments_async_pager():
 
 @pytest.mark.asyncio
 async def test_list_patch_deployments_async_pages():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials)
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials,)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2553,17 +2559,17 @@ async def test_list_patch_deployments_async_pages():
                 next_page_token="abc",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[], next_page_token="def"
+                patch_deployments=[], next_page_token="def",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
-                patch_deployments=[patch_deployments.PatchDeployment()],
+                patch_deployments=[patch_deployments.PatchDeployment(),],
                 next_page_token="ghi",
             ),
             patch_deployments.ListPatchDeploymentsResponse(
                 patch_deployments=[
                     patch_deployments.PatchDeployment(),
                     patch_deployments.PatchDeployment(),
-                ]
+                ],
             ),
             RuntimeError,
         )
@@ -2578,7 +2584,7 @@ def test_delete_patch_deployment(
     transport: str = "grpc", request_type=patch_deployments.DeletePatchDeploymentRequest
 ):
     client = OsConfigServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2614,7 +2620,7 @@ async def test_delete_patch_deployment_async(
     request_type=patch_deployments.DeletePatchDeploymentRequest,
 ):
     client = OsConfigServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport
+        credentials=credentials.AnonymousCredentials(), transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2646,7 +2652,7 @@ async def test_delete_patch_deployment_async_from_dict():
 
 
 def test_delete_patch_deployment_field_headers():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2668,12 +2674,12 @@ def test_delete_patch_deployment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 @pytest.mark.asyncio
 async def test_delete_patch_deployment_field_headers_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2695,11 +2701,11 @@ async def test_delete_patch_deployment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value") in kw["metadata"]
+    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
 
 
 def test_delete_patch_deployment_flattened():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2710,7 +2716,7 @@ def test_delete_patch_deployment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_patch_deployment(name="name_value")
+        client.delete_patch_deployment(name="name_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2721,19 +2727,19 @@ def test_delete_patch_deployment_flattened():
 
 
 def test_delete_patch_deployment_flattened_error():
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_patch_deployment(
-            patch_deployments.DeletePatchDeploymentRequest(), name="name_value"
+            patch_deployments.DeletePatchDeploymentRequest(), name="name_value",
         )
 
 
 @pytest.mark.asyncio
 async def test_delete_patch_deployment_flattened_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2745,7 +2751,7 @@ async def test_delete_patch_deployment_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_patch_deployment(name="name_value")
+        response = await client.delete_patch_deployment(name="name_value",)
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2757,49 +2763,50 @@ async def test_delete_patch_deployment_flattened_async():
 
 @pytest.mark.asyncio
 async def test_delete_patch_deployment_flattened_error_async():
-    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials())
+    client = OsConfigServiceAsyncClient(credentials=credentials.AnonymousCredentials(),)
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_patch_deployment(
-            patch_deployments.DeletePatchDeploymentRequest(), name="name_value"
+            patch_deployments.DeletePatchDeploymentRequest(), name="name_value",
         )
 
 
 def test_credentials_transport_error():
     # It is an error to provide credentials and a transport instance.
     transport = transports.OsConfigServiceGrpcTransport(
-        credentials=credentials.AnonymousCredentials()
+        credentials=credentials.AnonymousCredentials(),
     )
     with pytest.raises(ValueError):
         client = OsConfigServiceClient(
-            credentials=credentials.AnonymousCredentials(), transport=transport
+            credentials=credentials.AnonymousCredentials(), transport=transport,
         )
 
     # It is an error to provide a credentials file and a transport instance.
     transport = transports.OsConfigServiceGrpcTransport(
-        credentials=credentials.AnonymousCredentials()
+        credentials=credentials.AnonymousCredentials(),
     )
     with pytest.raises(ValueError):
         client = OsConfigServiceClient(
-            client_options={"credentials_file": "credentials.json"}, transport=transport
+            client_options={"credentials_file": "credentials.json"},
+            transport=transport,
         )
 
     # It is an error to provide scopes and a transport instance.
     transport = transports.OsConfigServiceGrpcTransport(
-        credentials=credentials.AnonymousCredentials()
+        credentials=credentials.AnonymousCredentials(),
     )
     with pytest.raises(ValueError):
         client = OsConfigServiceClient(
-            client_options={"scopes": ["1", "2"]}, transport=transport
+            client_options={"scopes": ["1", "2"]}, transport=transport,
         )
 
 
 def test_transport_instance():
     # A client may be instantiated with a custom transport instance.
     transport = transports.OsConfigServiceGrpcTransport(
-        credentials=credentials.AnonymousCredentials()
+        credentials=credentials.AnonymousCredentials(),
     )
     client = OsConfigServiceClient(transport=transport)
     assert client.transport is transport
@@ -2808,13 +2815,13 @@ def test_transport_instance():
 def test_transport_get_channel():
     # A client may be instantiated with a custom transport instance.
     transport = transports.OsConfigServiceGrpcTransport(
-        credentials=credentials.AnonymousCredentials()
+        credentials=credentials.AnonymousCredentials(),
     )
     channel = transport.grpc_channel
     assert channel
 
     transport = transports.OsConfigServiceGrpcAsyncIOTransport(
-        credentials=credentials.AnonymousCredentials()
+        credentials=credentials.AnonymousCredentials(),
     )
     channel = transport.grpc_channel
     assert channel
@@ -2837,8 +2844,8 @@ def test_transport_adc(transport_class):
 
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
-    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials())
-    assert isinstance(client.transport, transports.OsConfigServiceGrpcTransport)
+    client = OsConfigServiceClient(credentials=credentials.AnonymousCredentials(),)
+    assert isinstance(client.transport, transports.OsConfigServiceGrpcTransport,)
 
 
 def test_os_config_service_base_transport_error():
@@ -2857,7 +2864,7 @@ def test_os_config_service_base_transport():
     ) as Transport:
         Transport.return_value = None
         transport = transports.OsConfigServiceTransport(
-            credentials=credentials.AnonymousCredentials()
+            credentials=credentials.AnonymousCredentials(),
         )
 
     # Every method on the transport should just blindly
@@ -2888,7 +2895,7 @@ def test_os_config_service_base_transport_with_credentials_file():
         Transport.return_value = None
         load_creds.return_value = (credentials.AnonymousCredentials(), None)
         transport = transports.OsConfigServiceTransport(
-            credentials_file="credentials.json", quota_project_id="octopus"
+            credentials_file="credentials.json", quota_project_id="octopus",
         )
         load_creds.assert_called_once_with(
             "credentials.json",
@@ -2958,7 +2965,7 @@ def test_os_config_service_grpc_transport_channel():
 
     # Check that channel is used if provided.
     transport = transports.OsConfigServiceGrpcTransport(
-        host="squid.clam.whelk", channel=channel
+        host="squid.clam.whelk", channel=channel,
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
@@ -2970,7 +2977,7 @@ def test_os_config_service_grpc_asyncio_transport_channel():
 
     # Check that channel is used if provided.
     transport = transports.OsConfigServiceGrpcAsyncIOTransport(
-        host="squid.clam.whelk", channel=channel
+        host="squid.clam.whelk", channel=channel,
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
@@ -2985,7 +2992,7 @@ def test_os_config_service_grpc_asyncio_transport_channel():
     ],
 )
 def test_os_config_service_transport_channel_mtls_with_client_cert_source(
-    transport_class
+    transport_class,
 ):
     with mock.patch(
         "grpc.ssl_channel_credentials", autospec=True
@@ -3071,14 +3078,18 @@ def test_instance_path():
     instance = "whelk"
 
     expected = "projects/{project}/zones/{zone}/instances/{instance}".format(
-        project=project, zone=zone, instance=instance
+        project=project, zone=zone, instance=instance,
     )
     actual = OsConfigServiceClient.instance_path(project, zone, instance)
     assert expected == actual
 
 
 def test_parse_instance_path():
-    expected = {"project": "octopus", "zone": "oyster", "instance": "nudibranch"}
+    expected = {
+        "project": "octopus",
+        "zone": "oyster",
+        "instance": "nudibranch",
+    }
     path = OsConfigServiceClient.instance_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3091,14 +3102,17 @@ def test_patch_deployment_path():
     patch_deployment = "mussel"
 
     expected = "projects/{project}/patchDeployments/{patch_deployment}".format(
-        project=project, patch_deployment=patch_deployment
+        project=project, patch_deployment=patch_deployment,
     )
     actual = OsConfigServiceClient.patch_deployment_path(project, patch_deployment)
     assert expected == actual
 
 
 def test_parse_patch_deployment_path():
-    expected = {"project": "winkle", "patch_deployment": "nautilus"}
+    expected = {
+        "project": "winkle",
+        "patch_deployment": "nautilus",
+    }
     path = OsConfigServiceClient.patch_deployment_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3111,14 +3125,17 @@ def test_patch_job_path():
     patch_job = "abalone"
 
     expected = "projects/{project}/patchJobs/{patch_job}".format(
-        project=project, patch_job=patch_job
+        project=project, patch_job=patch_job,
     )
     actual = OsConfigServiceClient.patch_job_path(project, patch_job)
     assert expected == actual
 
 
 def test_parse_patch_job_path():
-    expected = {"project": "squid", "patch_job": "clam"}
+    expected = {
+        "project": "squid",
+        "patch_job": "clam",
+    }
     path = OsConfigServiceClient.patch_job_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3130,14 +3147,16 @@ def test_common_billing_account_path():
     billing_account = "whelk"
 
     expected = "billingAccounts/{billing_account}".format(
-        billing_account=billing_account
+        billing_account=billing_account,
     )
     actual = OsConfigServiceClient.common_billing_account_path(billing_account)
     assert expected == actual
 
 
 def test_parse_common_billing_account_path():
-    expected = {"billing_account": "octopus"}
+    expected = {
+        "billing_account": "octopus",
+    }
     path = OsConfigServiceClient.common_billing_account_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3148,13 +3167,15 @@ def test_parse_common_billing_account_path():
 def test_common_folder_path():
     folder = "oyster"
 
-    expected = "folders/{folder}".format(folder=folder)
+    expected = "folders/{folder}".format(folder=folder,)
     actual = OsConfigServiceClient.common_folder_path(folder)
     assert expected == actual
 
 
 def test_parse_common_folder_path():
-    expected = {"folder": "nudibranch"}
+    expected = {
+        "folder": "nudibranch",
+    }
     path = OsConfigServiceClient.common_folder_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3165,13 +3186,15 @@ def test_parse_common_folder_path():
 def test_common_organization_path():
     organization = "cuttlefish"
 
-    expected = "organizations/{organization}".format(organization=organization)
+    expected = "organizations/{organization}".format(organization=organization,)
     actual = OsConfigServiceClient.common_organization_path(organization)
     assert expected == actual
 
 
 def test_parse_common_organization_path():
-    expected = {"organization": "mussel"}
+    expected = {
+        "organization": "mussel",
+    }
     path = OsConfigServiceClient.common_organization_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3182,13 +3205,15 @@ def test_parse_common_organization_path():
 def test_common_project_path():
     project = "winkle"
 
-    expected = "projects/{project}".format(project=project)
+    expected = "projects/{project}".format(project=project,)
     actual = OsConfigServiceClient.common_project_path(project)
     assert expected == actual
 
 
 def test_parse_common_project_path():
-    expected = {"project": "nautilus"}
+    expected = {
+        "project": "nautilus",
+    }
     path = OsConfigServiceClient.common_project_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3201,14 +3226,17 @@ def test_common_location_path():
     location = "abalone"
 
     expected = "projects/{project}/locations/{location}".format(
-        project=project, location=location
+        project=project, location=location,
     )
     actual = OsConfigServiceClient.common_location_path(project, location)
     assert expected == actual
 
 
 def test_parse_common_location_path():
-    expected = {"project": "squid", "location": "clam"}
+    expected = {
+        "project": "squid",
+        "location": "clam",
+    }
     path = OsConfigServiceClient.common_location_path(**expected)
 
     # Check that the path construction is reversible.
@@ -3223,7 +3251,7 @@ def test_client_withDEFAULT_CLIENT_INFO():
         transports.OsConfigServiceTransport, "_prep_wrapped_messages"
     ) as prep:
         client = OsConfigServiceClient(
-            credentials=credentials.AnonymousCredentials(), client_info=client_info
+            credentials=credentials.AnonymousCredentials(), client_info=client_info,
         )
         prep.assert_called_once_with(client_info)
 
@@ -3232,6 +3260,6 @@ def test_client_withDEFAULT_CLIENT_INFO():
     ) as prep:
         transport_class = OsConfigServiceClient.get_transport_class()
         transport = transport_class(
-            credentials=credentials.AnonymousCredentials(), client_info=client_info
+            credentials=credentials.AnonymousCredentials(), client_info=client_info,
         )
         prep.assert_called_once_with(client_info)

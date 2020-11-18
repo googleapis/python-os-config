@@ -208,7 +208,7 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -290,7 +290,7 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -349,7 +349,7 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -423,12 +423,12 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchJobsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -504,12 +504,12 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchJobInstanceDetailsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -554,7 +554,6 @@ class OsConfigServiceAsyncClient:
                 -  Must be between 1-63 characters.
                 -  Must end with a number or a letter.
                 -  Must be unique within the project.
-
                 This corresponds to the ``patch_deployment_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -612,7 +611,7 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -688,7 +687,7 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -763,12 +762,12 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListPatchDeploymentsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -835,12 +834,14 @@ class OsConfigServiceAsyncClient:
         )
 
         # Send the request.
-        await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        await rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
 
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution("google-cloud-os-config").version
+        gapic_version=pkg_resources.get_distribution("google-cloud-os-config",).version,
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()

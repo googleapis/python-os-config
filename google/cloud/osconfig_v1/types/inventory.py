@@ -21,7 +21,9 @@ import proto  # type: ignore
 from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
 
 
-__protobuf__ = proto.module(package="google.cloud.osconfig.v1", manifest={"Inventory"})
+__protobuf__ = proto.module(
+    package="google.cloud.osconfig.v1", manifest={"Inventory",},
+)
 
 
 class Inventory(proto.Message):
@@ -119,14 +121,14 @@ class Inventory(proto.Message):
         id = proto.Field(proto.STRING, number=1)
 
         origin_type = proto.Field(
-            proto.ENUM, number=2, enum="Inventory.Item.OriginType"
+            proto.ENUM, number=2, enum="Inventory.Item.OriginType",
         )
 
-        create_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp)
+        create_time = proto.Field(proto.MESSAGE, number=8, message=timestamp.Timestamp,)
 
-        update_time = proto.Field(proto.MESSAGE, number=9, message=timestamp.Timestamp)
+        update_time = proto.Field(proto.MESSAGE, number=9, message=timestamp.Timestamp,)
 
-        type_ = proto.Field(proto.ENUM, number=5, enum="Inventory.Item.Type")
+        type_ = proto.Field(proto.ENUM, number=5, enum="Inventory.Item.Type",)
 
         installed_package = proto.Field(
             proto.MESSAGE,
@@ -209,7 +211,7 @@ class Inventory(proto.Message):
         )
 
         zypper_patch = proto.Field(
-            proto.MESSAGE, number=5, oneof="details", message="Inventory.ZypperPatch"
+            proto.MESSAGE, number=5, oneof="details", message="Inventory.ZypperPatch",
         )
 
         wua_package = proto.Field(
@@ -326,7 +328,7 @@ class Inventory(proto.Message):
         revision_number = proto.Field(proto.INT32, number=7)
 
         last_deployment_change_time = proto.Field(
-            proto.MESSAGE, number=10, message=timestamp.Timestamp
+            proto.MESSAGE, number=10, message=timestamp.Timestamp,
         )
 
     class ZypperPatch(proto.Message):
@@ -379,11 +381,13 @@ class Inventory(proto.Message):
 
         hot_fix_id = proto.Field(proto.STRING, number=3)
 
-        install_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp)
+        install_time = proto.Field(
+            proto.MESSAGE, number=5, message=timestamp.Timestamp,
+        )
 
-    os_info = proto.Field(proto.MESSAGE, number=1, message=OsInfo)
+    os_info = proto.Field(proto.MESSAGE, number=1, message=OsInfo,)
 
-    items = proto.MapField(proto.STRING, proto.MESSAGE, number=2, message=Item)
+    items = proto.MapField(proto.STRING, proto.MESSAGE, number=2, message=Item,)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))

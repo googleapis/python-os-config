@@ -57,7 +57,7 @@ class OsConfigServiceClientMeta(type):
     _transport_registry["grpc"] = OsConfigServiceGrpcTransport
     _transport_registry["grpc_asyncio"] = OsConfigServiceGrpcAsyncIOTransport
 
-    def get_transport_class(cls, label: str = None) -> Type[OsConfigServiceTransport]:
+    def get_transport_class(cls, label: str = None,) -> Type[OsConfigServiceTransport]:
         """Return an appropriate transport class.
 
         Args:
@@ -147,10 +147,10 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         return self._transport
 
     @staticmethod
-    def instance_path(project: str, zone: str, instance: str) -> str:
+    def instance_path(project: str, zone: str, instance: str,) -> str:
         """Return a fully-qualified instance string."""
         return "projects/{project}/zones/{zone}/instances/{instance}".format(
-            project=project, zone=zone, instance=instance
+            project=project, zone=zone, instance=instance,
         )
 
     @staticmethod
@@ -163,10 +163,10 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
-    def patch_deployment_path(project: str, patch_deployment: str) -> str:
+    def patch_deployment_path(project: str, patch_deployment: str,) -> str:
         """Return a fully-qualified patch_deployment string."""
         return "projects/{project}/patchDeployments/{patch_deployment}".format(
-            project=project, patch_deployment=patch_deployment
+            project=project, patch_deployment=patch_deployment,
         )
 
     @staticmethod
@@ -179,10 +179,10 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
-    def patch_job_path(project: str, patch_job: str) -> str:
+    def patch_job_path(project: str, patch_job: str,) -> str:
         """Return a fully-qualified patch_job string."""
         return "projects/{project}/patchJobs/{patch_job}".format(
-            project=project, patch_job=patch_job
+            project=project, patch_job=patch_job,
         )
 
     @staticmethod
@@ -195,7 +195,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     def common_billing_account_path(billing_account: str,) -> str:
         """Return a fully-qualified billing_account string."""
         return "billingAccounts/{billing_account}".format(
-            billing_account=billing_account
+            billing_account=billing_account,
         )
 
     @staticmethod
@@ -207,7 +207,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     @staticmethod
     def common_folder_path(folder: str,) -> str:
         """Return a fully-qualified folder string."""
-        return "folders/{folder}".format(folder=folder)
+        return "folders/{folder}".format(folder=folder,)
 
     @staticmethod
     def parse_common_folder_path(path: str) -> Dict[str, str]:
@@ -218,7 +218,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     @staticmethod
     def common_organization_path(organization: str,) -> str:
         """Return a fully-qualified organization string."""
-        return "organizations/{organization}".format(organization=organization)
+        return "organizations/{organization}".format(organization=organization,)
 
     @staticmethod
     def parse_common_organization_path(path: str) -> Dict[str, str]:
@@ -229,7 +229,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     @staticmethod
     def common_project_path(project: str,) -> str:
         """Return a fully-qualified project string."""
-        return "projects/{project}".format(project=project)
+        return "projects/{project}".format(project=project,)
 
     @staticmethod
     def parse_common_project_path(path: str) -> Dict[str, str]:
@@ -238,10 +238,10 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
-    def common_location_path(project: str, location: str) -> str:
+    def common_location_path(project: str, location: str,) -> str:
         """Return a fully-qualified location string."""
         return "projects/{project}/locations/{location}".format(
-            project=project, location=location
+            project=project, location=location,
         )
 
     @staticmethod
@@ -423,7 +423,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -506,7 +506,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -566,7 +566,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -641,12 +641,12 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchJobsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -725,12 +725,12 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchJobInstanceDetailsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -775,6 +775,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 -  Must be between 1-63 characters.
                 -  Must end with a number or a letter.
                 -  Must be unique within the project.
+
                 This corresponds to the ``patch_deployment_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -833,7 +834,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -910,7 +911,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -986,12 +987,12 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListPatchDeploymentsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -1059,12 +1060,14 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         )
 
         # Send the request.
-        rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
 
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
-        gapic_version=pkg_resources.get_distribution("google-cloud-os-config").version
+        gapic_version=pkg_resources.get_distribution("google-cloud-os-config",).version,
     )
 except pkg_resources.DistributionNotFound:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo()
