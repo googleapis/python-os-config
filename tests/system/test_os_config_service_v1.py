@@ -60,7 +60,7 @@ class TestOsConfigServiceV1(object):
         client = OsConfigServiceClient()
 
         patch_deployment = patch_deployments.PatchDeployment(
-            instance_filter=patch_jobs.PatchInstanceFilter(all=True),
+            instance_filter=patch_jobs.PatchInstanceFilter(all_=True),
             one_time_schedule=patch_deployments.OneTimeSchedule(
                 execute_time=timestamp.Timestamp(seconds=200000000000)
             ),
