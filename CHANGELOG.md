@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/googleapis/python-os-config/compare/v1.0.0...v1.0.1) (2020-12-22)
+
+
+### Bug Fixes
+
+* remove client side receive limits  ([#29](https://www.github.com/googleapis/python-os-config/issues/29)) ([628ada4](https://www.github.com/googleapis/python-os-config/commit/628ada4004b1add04f5c2d95b9b1cad48616cf2c))
+
 ## [1.0.0](https://www.github.com/googleapis/python-os-config/compare/v0.1.2...v1.0.0) (2020-11-18)
 
 
