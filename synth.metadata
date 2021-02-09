@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-os-config.git",
-        "sha": "628ada4004b1add04f5c2d95b9b1cad48616cf2c"
+        "sha": "31c3793f31b4800c9f22383f64831b6088cabce1"
       }
     },
     {
@@ -37,12 +37,11 @@
         "apiName": "osconfig",
         "apiVersion": "v1",
         "language": "python",
-        "generator": "gapic-generator-python"
+        "generator": "bazel"
       }
     }
   ],
   "generatedFiles": [
-    ".coveragerc",
     ".flake8",
     ".github/CONTRIBUTING.md",
     ".github/ISSUE_TEMPLATE/bug_report.md",
@@ -95,35 +94,38 @@
     "docs/_static/custom.css",
     "docs/_templates/layout.html",
     "docs/conf.py",
+    "docs/gapic/v1/api.rst",
+    "docs/gapic/v1/types.rst",
     "docs/multiprocessing.rst",
-    "docs/osconfig_v1/services.rst",
-    "docs/osconfig_v1/types.rst",
-    "google/cloud/osconfig/__init__.py",
-    "google/cloud/osconfig/py.typed",
+    "google/__init__.py",
+    "google/cloud/__init__.py",
+    "google/cloud/osconfig.py",
     "google/cloud/osconfig_v1/__init__.py",
-    "google/cloud/osconfig_v1/py.typed",
-    "google/cloud/osconfig_v1/services/__init__.py",
-    "google/cloud/osconfig_v1/services/os_config_service/__init__.py",
+    "google/cloud/osconfig_v1/gapic/__init__.py",
+    "google/cloud/osconfig_v1/gapic/enums.py",
+    "google/cloud/osconfig_v1/gapic/os_config_service_client.py",
+    "google/cloud/osconfig_v1/gapic/os_config_service_client_config.py",
+    "google/cloud/osconfig_v1/gapic/transports/__init__.py",
+    "google/cloud/osconfig_v1/gapic/transports/os_config_service_grpc_transport.py",
+    "google/cloud/osconfig_v1/proto/__init__.py",
+    "google/cloud/osconfig_v1/proto/inventory_pb2.py",
+    "google/cloud/osconfig_v1/proto/inventory_pb2_grpc.py",
+    "google/cloud/osconfig_v1/proto/osconfig_common_pb2.py",
+    "google/cloud/osconfig_v1/proto/osconfig_common_pb2_grpc.py",
+    "google/cloud/osconfig_v1/proto/osconfig_service_pb2.py",
+    "google/cloud/osconfig_v1/proto/osconfig_service_pb2_grpc.py",
+    "google/cloud/osconfig_v1/proto/patch_deployments_pb2.py",
+    "google/cloud/osconfig_v1/proto/patch_deployments_pb2_grpc.py",
+    "google/cloud/osconfig_v1/proto/patch_jobs_pb2.py",
+    "google/cloud/osconfig_v1/proto/patch_jobs_pb2_grpc.py",
     "google/cloud/osconfig_v1/services/os_config_service/async_client.py",
     "google/cloud/osconfig_v1/services/os_config_service/client.py",
-    "google/cloud/osconfig_v1/services/os_config_service/pagers.py",
-    "google/cloud/osconfig_v1/services/os_config_service/transports/__init__.py",
-    "google/cloud/osconfig_v1/services/os_config_service/transports/base.py",
-    "google/cloud/osconfig_v1/services/os_config_service/transports/grpc.py",
-    "google/cloud/osconfig_v1/services/os_config_service/transports/grpc_asyncio.py",
-    "google/cloud/osconfig_v1/types/__init__.py",
-    "google/cloud/osconfig_v1/types/inventory.py",
-    "google/cloud/osconfig_v1/types/osconfig_common.py",
-    "google/cloud/osconfig_v1/types/osconfig_service.py",
-    "google/cloud/osconfig_v1/types/patch_deployments.py",
-    "google/cloud/osconfig_v1/types/patch_jobs.py",
-    "mypy.ini",
+    "google/cloud/osconfig_v1/types.py",
     "noxfile.py",
     "renovate.json",
     "samples/AUTHORING_GUIDE.md",
     "samples/CONTRIBUTING.md",
     "scripts/decrypt-secrets.sh",
-    "scripts/fixup_osconfig_v1_keywords.py",
     "scripts/readme-gen/readme_gen.py",
     "scripts/readme-gen/templates/README.tmpl.rst",
     "scripts/readme-gen/templates/auth.tmpl.rst",
@@ -132,7 +134,6 @@
     "scripts/readme-gen/templates/install_portaudio.tmpl.rst",
     "setup.cfg",
     "testing/.gitignore",
-    "tests/unit/gapic/osconfig_v1/__init__.py",
-    "tests/unit/gapic/osconfig_v1/test_os_config_service.py"
+    "tests/unit/gapic/v1/test_os_config_service_client_v1.py"
   ]
 }
