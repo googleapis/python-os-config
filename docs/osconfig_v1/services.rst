@@ -1,6 +1,6 @@
 Services for Google Cloud Osconfig v1 API
 =========================================
-.. toctree::
-    :maxdepth: 2
 
-    os_config_service
+.. automodule:: google.cloud.osconfig_v1.services.os_config_service
+    :members:
+    :inherited-members:
