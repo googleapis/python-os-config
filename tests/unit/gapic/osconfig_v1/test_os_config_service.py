@@ -93,15 +93,19 @@ def test__get_default_mtls_endpoint():
     )
 
 
-def test_os_config_service_client_from_service_account_info():
+@pytest.mark.parametrize(
+    "client_class", [OsConfigServiceClient, OsConfigServiceAsyncClient,]
+)
+def test_os_config_service_client_from_service_account_info(client_class):
     creds = credentials.AnonymousCredentials()
     with mock.patch.object(
         service_account.Credentials, "from_service_account_info"
     ) as factory:
         factory.return_value = creds
         info = {"valid": True}
-        client = OsConfigServiceClient.from_service_account_info(info)
+        client = client_class.from_service_account_info(info)
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "osconfig.googleapis.com:443"
 
@@ -117,9 +121,11 @@ def test_os_config_service_client_from_service_account_file(client_class):
         factory.return_value = creds
         client = client_class.from_service_account_file("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         client = client_class.from_service_account_json("dummy/file/path.json")
         assert client.transport._credentials == creds
+        assert isinstance(client, client_class)
 
         assert client.transport._host == "osconfig.googleapis.com:443"
 
@@ -515,6 +521,24 @@ def test_execute_patch_job_from_dict():
     test_execute_patch_job(request_type=dict)
 
 
+def test_execute_patch_job_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.execute_patch_job), "__call__"
+    ) as call:
+        client.execute_patch_job()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_jobs.ExecutePatchJobRequest()
+
+
 @pytest.mark.asyncio
 async def test_execute_patch_job_async(
     transport: str = "grpc_asyncio", request_type=patch_jobs.ExecutePatchJobRequest
@@ -687,6 +711,22 @@ def test_get_patch_job(
 
 def test_get_patch_job_from_dict():
     test_get_patch_job(request_type=dict)
+
+
+def test_get_patch_job_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.get_patch_job), "__call__") as call:
+        client.get_patch_job()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_jobs.GetPatchJobRequest()
 
 
 @pytest.mark.asyncio
@@ -922,6 +962,22 @@ def test_cancel_patch_job_from_dict():
     test_cancel_patch_job(request_type=dict)
 
 
+def test_cancel_patch_job_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.cancel_patch_job), "__call__") as call:
+        client.cancel_patch_job()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_jobs.CancelPatchJobRequest()
+
+
 @pytest.mark.asyncio
 async def test_cancel_patch_job_async(
     transport: str = "grpc_asyncio", request_type=patch_jobs.CancelPatchJobRequest
@@ -1067,6 +1123,22 @@ def test_list_patch_jobs(
 
 def test_list_patch_jobs_from_dict():
     test_list_patch_jobs(request_type=dict)
+
+
+def test_list_patch_jobs_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(type(client.transport.list_patch_jobs), "__call__") as call:
+        client.list_patch_jobs()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_jobs.ListPatchJobsRequest()
 
 
 @pytest.mark.asyncio
@@ -1400,6 +1472,24 @@ def test_list_patch_job_instance_details(
 
 def test_list_patch_job_instance_details_from_dict():
     test_list_patch_job_instance_details(request_type=dict)
+
+
+def test_list_patch_job_instance_details_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.list_patch_job_instance_details), "__call__"
+    ) as call:
+        client.list_patch_job_instance_details()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_jobs.ListPatchJobInstanceDetailsRequest()
 
 
 @pytest.mark.asyncio
@@ -1788,6 +1878,24 @@ def test_create_patch_deployment_from_dict():
     test_create_patch_deployment(request_type=dict)
 
 
+def test_create_patch_deployment_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.create_patch_deployment), "__call__"
+    ) as call:
+        client.create_patch_deployment()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_deployments.CreatePatchDeploymentRequest()
+
+
 @pytest.mark.asyncio
 async def test_create_patch_deployment_async(
     transport: str = "grpc_asyncio",
@@ -2030,6 +2138,24 @@ def test_get_patch_deployment_from_dict():
     test_get_patch_deployment(request_type=dict)
 
 
+def test_get_patch_deployment_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.get_patch_deployment), "__call__"
+    ) as call:
+        client.get_patch_deployment()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_deployments.GetPatchDeploymentRequest()
+
+
 @pytest.mark.asyncio
 async def test_get_patch_deployment_async(
     transport: str = "grpc_asyncio",
@@ -2238,6 +2364,24 @@ def test_list_patch_deployments(
 
 def test_list_patch_deployments_from_dict():
     test_list_patch_deployments(request_type=dict)
+
+
+def test_list_patch_deployments_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.list_patch_deployments), "__call__"
+    ) as call:
+        client.list_patch_deployments()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_deployments.ListPatchDeploymentsRequest()
 
 
 @pytest.mark.asyncio
@@ -2611,6 +2755,24 @@ def test_delete_patch_deployment(
 
 def test_delete_patch_deployment_from_dict():
     test_delete_patch_deployment(request_type=dict)
+
+
+def test_delete_patch_deployment_empty_call():
+    # This test is a coverage failsafe to make sure that totally empty calls,
+    # i.e. request == None and no flattened fields passed, work.
+    client = OsConfigServiceClient(
+        credentials=credentials.AnonymousCredentials(), transport="grpc",
+    )
+
+    # Mock the actual call within the gRPC stub, and fake the request.
+    with mock.patch.object(
+        type(client.transport.delete_patch_deployment), "__call__"
+    ) as call:
+        client.delete_patch_deployment()
+        call.assert_called()
+        _, args, _ = call.mock_calls[0]
+
+        assert args[0] == patch_deployments.DeletePatchDeploymentRequest()
 
 
 @pytest.mark.asyncio
