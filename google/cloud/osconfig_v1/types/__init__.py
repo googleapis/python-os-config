@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 
+from .inventory import Inventory
 from .osconfig_common import FixedOrPercent
 from .patch_jobs import (
     ExecutePatchJobRequest,
@@ -52,9 +53,9 @@ from .patch_deployments import (
     ListPatchDeploymentsResponse,
     DeletePatchDeploymentRequest,
 )
-from .inventory import Inventory
 
 __all__ = (
+    "Inventory",
     "FixedOrPercent",
     "ExecutePatchJobRequest",
     "GetPatchJobRequest",
@@ -88,5 +89,4 @@ __all__ = (
     "ListPatchDeploymentsRequest",
     "ListPatchDeploymentsResponse",
     "DeletePatchDeploymentRequest",
-    "Inventory",
 )
