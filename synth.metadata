@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-os-config.git",
-        "sha": "20c8cff409253b452abd335f15768015f54b338d"
+        "sha": "628ada4004b1add04f5c2d95b9b1cad48616cf2c"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "3131ab57860adbb25dfa78858e16b69ffc868f99",
-        "internalRef": "350604597"
+        "sha": "3f87da2ed1ddc3566ef0810c4fc06a2682cc9f5f",
+        "internalRef": "343022252"
       }
     },
     {
@@ -37,7 +37,7 @@
         "apiName": "osconfig",
         "apiVersion": "v1",
         "language": "python",
-        "generator": "bazel"
+        "generator": "gapic-generator-python"
       }
     }
   ],
@@ -96,7 +96,6 @@
     "docs/_templates/layout.html",
     "docs/conf.py",
     "docs/multiprocessing.rst",
-    "docs/osconfig_v1/os_config_service.rst",
     "docs/osconfig_v1/services.rst",
     "docs/osconfig_v1/types.rst",
     "google/cloud/osconfig/__init__.py",

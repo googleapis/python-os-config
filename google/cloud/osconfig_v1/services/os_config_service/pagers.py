@@ -25,7 +25,7 @@ class ListPatchJobsPager:
     """A pager for iterating through ``list_patch_jobs`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.osconfig_v1.types.ListPatchJobsResponse` object, and
+    :class:`~.patch_jobs.ListPatchJobsResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``patch_jobs`` field.
 
@@ -34,7 +34,7 @@ class ListPatchJobsPager:
     through the ``patch_jobs`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.osconfig_v1.types.ListPatchJobsResponse`
+    All the usual :class:`~.patch_jobs.ListPatchJobsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -52,9 +52,9 @@ class ListPatchJobsPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.osconfig_v1.types.ListPatchJobsRequest):
+            request (:class:`~.patch_jobs.ListPatchJobsRequest`):
                 The initial request object.
-            response (google.cloud.osconfig_v1.types.ListPatchJobsResponse):
+            response (:class:`~.patch_jobs.ListPatchJobsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -87,7 +87,7 @@ class ListPatchJobsAsyncPager:
     """A pager for iterating through ``list_patch_jobs`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.osconfig_v1.types.ListPatchJobsResponse` object, and
+    :class:`~.patch_jobs.ListPatchJobsResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``patch_jobs`` field.
 
@@ -96,7 +96,7 @@ class ListPatchJobsAsyncPager:
     through the ``patch_jobs`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.osconfig_v1.types.ListPatchJobsResponse`
+    All the usual :class:`~.patch_jobs.ListPatchJobsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -114,9 +114,9 @@ class ListPatchJobsAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.osconfig_v1.types.ListPatchJobsRequest):
+            request (:class:`~.patch_jobs.ListPatchJobsRequest`):
                 The initial request object.
-            response (google.cloud.osconfig_v1.types.ListPatchJobsResponse):
+            response (:class:`~.patch_jobs.ListPatchJobsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -153,7 +153,7 @@ class ListPatchJobInstanceDetailsPager:
     """A pager for iterating through ``list_patch_job_instance_details`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsResponse` object, and
+    :class:`~.patch_jobs.ListPatchJobInstanceDetailsResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``patch_job_instance_details`` field.
 
@@ -162,7 +162,7 @@ class ListPatchJobInstanceDetailsPager:
     through the ``patch_job_instance_details`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsResponse`
+    All the usual :class:`~.patch_jobs.ListPatchJobInstanceDetailsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -180,9 +180,9 @@ class ListPatchJobInstanceDetailsPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsRequest):
+            request (:class:`~.patch_jobs.ListPatchJobInstanceDetailsRequest`):
                 The initial request object.
-            response (google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsResponse):
+            response (:class:`~.patch_jobs.ListPatchJobInstanceDetailsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -215,7 +215,7 @@ class ListPatchJobInstanceDetailsAsyncPager:
     """A pager for iterating through ``list_patch_job_instance_details`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsResponse` object, and
+    :class:`~.patch_jobs.ListPatchJobInstanceDetailsResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``patch_job_instance_details`` field.
 
@@ -224,7 +224,7 @@ class ListPatchJobInstanceDetailsAsyncPager:
     through the ``patch_job_instance_details`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsResponse`
+    All the usual :class:`~.patch_jobs.ListPatchJobInstanceDetailsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -244,9 +244,9 @@ class ListPatchJobInstanceDetailsAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsRequest):
+            request (:class:`~.patch_jobs.ListPatchJobInstanceDetailsRequest`):
                 The initial request object.
-            response (google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsResponse):
+            response (:class:`~.patch_jobs.ListPatchJobInstanceDetailsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -285,7 +285,7 @@ class ListPatchDeploymentsPager:
     """A pager for iterating through ``list_patch_deployments`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.osconfig_v1.types.ListPatchDeploymentsResponse` object, and
+    :class:`~.patch_deployments.ListPatchDeploymentsResponse` object, and
     provides an ``__iter__`` method to iterate through its
     ``patch_deployments`` field.
 
@@ -294,7 +294,7 @@ class ListPatchDeploymentsPager:
     through the ``patch_deployments`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.osconfig_v1.types.ListPatchDeploymentsResponse`
+    All the usual :class:`~.patch_deployments.ListPatchDeploymentsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -312,9 +312,9 @@ class ListPatchDeploymentsPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.osconfig_v1.types.ListPatchDeploymentsRequest):
+            request (:class:`~.patch_deployments.ListPatchDeploymentsRequest`):
                 The initial request object.
-            response (google.cloud.osconfig_v1.types.ListPatchDeploymentsResponse):
+            response (:class:`~.patch_deployments.ListPatchDeploymentsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
@@ -347,7 +347,7 @@ class ListPatchDeploymentsAsyncPager:
     """A pager for iterating through ``list_patch_deployments`` requests.
 
     This class thinly wraps an initial
-    :class:`google.cloud.osconfig_v1.types.ListPatchDeploymentsResponse` object, and
+    :class:`~.patch_deployments.ListPatchDeploymentsResponse` object, and
     provides an ``__aiter__`` method to iterate through its
     ``patch_deployments`` field.
 
@@ -356,7 +356,7 @@ class ListPatchDeploymentsAsyncPager:
     through the ``patch_deployments`` field on the
     corresponding responses.
 
-    All the usual :class:`google.cloud.osconfig_v1.types.ListPatchDeploymentsResponse`
+    All the usual :class:`~.patch_deployments.ListPatchDeploymentsResponse`
     attributes are available on the pager. If multiple requests are made, only
     the most recent response is retained, and thus used for attribute lookup.
     """
@@ -376,9 +376,9 @@ class ListPatchDeploymentsAsyncPager:
         Args:
             method (Callable): The method that was originally called, and
                 which instantiated this pager.
-            request (google.cloud.osconfig_v1.types.ListPatchDeploymentsRequest):
+            request (:class:`~.patch_deployments.ListPatchDeploymentsRequest`):
                 The initial request object.
-            response (google.cloud.osconfig_v1.types.ListPatchDeploymentsResponse):
+            response (:class:`~.patch_deployments.ListPatchDeploymentsResponse`):
                 The initial response object.
             metadata (Sequence[Tuple[str, str]]): Strings which should be
                 sent along with the request as metadata.
