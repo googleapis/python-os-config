@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/googleapis/python-os-config/compare/v1.1.0...v1.1.1) (2021-04-01)
+
+
+### Documentation
+
+* fix sphinx identifiers ([#52](https://www.github.com/googleapis/python-os-config/issues/52)) ([940916d](https://www.github.com/googleapis/python-os-config/commit/940916de78ac19bea3f63f75ce073648f920c70b))
+
 ## [1.1.0](https://www.github.com/googleapis/python-os-config/compare/v1.0.0...v1.1.0) (2021-02-12)
 
 
