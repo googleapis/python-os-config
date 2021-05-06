@@ -234,7 +234,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
     def execute_patch_job(
         self,
     ) -> Callable[[patch_jobs.ExecutePatchJobRequest], Awaitable[patch_jobs.PatchJob]]:
-        r"""Return a callable for the execute patch job method over gRPC.
+        r"""Return a callable for the
+        execute patch job
+          method over gRPC.
 
         Patch VM instances by creating and running a patch
         job.
@@ -261,7 +263,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
     def get_patch_job(
         self,
     ) -> Callable[[patch_jobs.GetPatchJobRequest], Awaitable[patch_jobs.PatchJob]]:
-        r"""Return a callable for the get patch job method over gRPC.
+        r"""Return a callable for the
+        get patch job
+          method over gRPC.
 
         Get the patch job. This can be used to track the
         progress of an ongoing patch job or review the details
@@ -289,7 +293,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
     def cancel_patch_job(
         self,
     ) -> Callable[[patch_jobs.CancelPatchJobRequest], Awaitable[patch_jobs.PatchJob]]:
-        r"""Return a callable for the cancel patch job method over gRPC.
+        r"""Return a callable for the
+        cancel patch job
+          method over gRPC.
 
         Cancel a patch job. The patch job must be active.
         Canceled patch jobs cannot be restarted.
@@ -318,7 +324,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
     ) -> Callable[
         [patch_jobs.ListPatchJobsRequest], Awaitable[patch_jobs.ListPatchJobsResponse]
     ]:
-        r"""Return a callable for the list patch jobs method over gRPC.
+        r"""Return a callable for the
+        list patch jobs
+          method over gRPC.
 
         Get a list of patch jobs.
 
@@ -347,8 +355,10 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
         [patch_jobs.ListPatchJobInstanceDetailsRequest],
         Awaitable[patch_jobs.ListPatchJobInstanceDetailsResponse],
     ]:
-        r"""Return a callable for the list patch job instance
-        details method over gRPC.
+        r"""Return a callable for the
+        list patch job instance
+        details
+          method over gRPC.
 
         Get a list of instance details for a given patch job.
 
@@ -379,7 +389,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
         [patch_deployments.CreatePatchDeploymentRequest],
         Awaitable[patch_deployments.PatchDeployment],
     ]:
-        r"""Return a callable for the create patch deployment method over gRPC.
+        r"""Return a callable for the
+        create patch deployment
+          method over gRPC.
 
         Create an OS Config patch deployment.
 
@@ -408,7 +420,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
         [patch_deployments.GetPatchDeploymentRequest],
         Awaitable[patch_deployments.PatchDeployment],
     ]:
-        r"""Return a callable for the get patch deployment method over gRPC.
+        r"""Return a callable for the
+        get patch deployment
+          method over gRPC.
 
         Get an OS Config patch deployment.
 
@@ -437,7 +451,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
         [patch_deployments.ListPatchDeploymentsRequest],
         Awaitable[patch_deployments.ListPatchDeploymentsResponse],
     ]:
-        r"""Return a callable for the list patch deployments method over gRPC.
+        r"""Return a callable for the
+        list patch deployments
+          method over gRPC.
 
         Get a page of OS Config patch deployments.
 
@@ -465,7 +481,9 @@ class OsConfigServiceGrpcAsyncIOTransport(OsConfigServiceTransport):
     ) -> Callable[
         [patch_deployments.DeletePatchDeploymentRequest], Awaitable[empty.Empty]
     ]:
-        r"""Return a callable for the delete patch deployment method over gRPC.
+        r"""Return a callable for the
+        delete patch deployment
+          method over gRPC.
 
         Delete an OS Config patch deployment.
 

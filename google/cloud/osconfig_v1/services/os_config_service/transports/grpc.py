@@ -230,7 +230,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
     def execute_patch_job(
         self,
     ) -> Callable[[patch_jobs.ExecutePatchJobRequest], patch_jobs.PatchJob]:
-        r"""Return a callable for the execute patch job method over gRPC.
+        r"""Return a callable for the
+        execute patch job
+          method over gRPC.
 
         Patch VM instances by creating and running a patch
         job.
@@ -257,7 +259,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
     def get_patch_job(
         self,
     ) -> Callable[[patch_jobs.GetPatchJobRequest], patch_jobs.PatchJob]:
-        r"""Return a callable for the get patch job method over gRPC.
+        r"""Return a callable for the
+        get patch job
+          method over gRPC.
 
         Get the patch job. This can be used to track the
         progress of an ongoing patch job or review the details
@@ -285,7 +289,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
     def cancel_patch_job(
         self,
     ) -> Callable[[patch_jobs.CancelPatchJobRequest], patch_jobs.PatchJob]:
-        r"""Return a callable for the cancel patch job method over gRPC.
+        r"""Return a callable for the
+        cancel patch job
+          method over gRPC.
 
         Cancel a patch job. The patch job must be active.
         Canceled patch jobs cannot be restarted.
@@ -312,7 +318,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
     def list_patch_jobs(
         self,
     ) -> Callable[[patch_jobs.ListPatchJobsRequest], patch_jobs.ListPatchJobsResponse]:
-        r"""Return a callable for the list patch jobs method over gRPC.
+        r"""Return a callable for the
+        list patch jobs
+          method over gRPC.
 
         Get a list of patch jobs.
 
@@ -341,8 +349,10 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         [patch_jobs.ListPatchJobInstanceDetailsRequest],
         patch_jobs.ListPatchJobInstanceDetailsResponse,
     ]:
-        r"""Return a callable for the list patch job instance
-        details method over gRPC.
+        r"""Return a callable for the
+        list patch job instance
+        details
+          method over gRPC.
 
         Get a list of instance details for a given patch job.
 
@@ -373,7 +383,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         [patch_deployments.CreatePatchDeploymentRequest],
         patch_deployments.PatchDeployment,
     ]:
-        r"""Return a callable for the create patch deployment method over gRPC.
+        r"""Return a callable for the
+        create patch deployment
+          method over gRPC.
 
         Create an OS Config patch deployment.
 
@@ -401,7 +413,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
     ) -> Callable[
         [patch_deployments.GetPatchDeploymentRequest], patch_deployments.PatchDeployment
     ]:
-        r"""Return a callable for the get patch deployment method over gRPC.
+        r"""Return a callable for the
+        get patch deployment
+          method over gRPC.
 
         Get an OS Config patch deployment.
 
@@ -430,7 +444,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
         [patch_deployments.ListPatchDeploymentsRequest],
         patch_deployments.ListPatchDeploymentsResponse,
     ]:
-        r"""Return a callable for the list patch deployments method over gRPC.
+        r"""Return a callable for the
+        list patch deployments
+          method over gRPC.
 
         Get a page of OS Config patch deployments.
 
@@ -456,7 +472,9 @@ class OsConfigServiceGrpcTransport(OsConfigServiceTransport):
     def delete_patch_deployment(
         self,
     ) -> Callable[[patch_deployments.DeletePatchDeploymentRequest], empty.Empty]:
-        r"""Return a callable for the delete patch deployment method over gRPC.
+        r"""Return a callable for the
+        delete patch deployment
+          method over gRPC.
 
         Delete an OS Config patch deployment.
 

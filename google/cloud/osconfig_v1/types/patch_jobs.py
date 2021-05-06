@@ -713,7 +713,7 @@ class PatchInstanceFilter(proto.Message):
                 filter.
         """
 
-        labels = proto.MapField(proto.STRING, proto.STRING, number=1,)
+        labels = proto.MapField(proto.STRING, proto.STRING, number=1)
 
     all_ = proto.Field(proto.BOOL, number=1,)
     group_labels = proto.RepeatedField(proto.MESSAGE, number=2, message=GroupLabel,)
