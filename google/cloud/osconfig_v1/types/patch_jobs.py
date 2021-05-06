@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 import proto  # type: ignore
+
 
 from google.cloud.osconfig_v1.types import osconfig_common
 from google.protobuf import duration_pb2 as gp_duration  # type: ignore
@@ -80,27 +83,35 @@ class ExecutePatchJobRequest(proto.Message):
             Rollout strategy of the patch job.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
-    description = proto.Field(proto.STRING, number=2,)
+    parent = proto.Field(proto.STRING, number=1)
+
+    description = proto.Field(proto.STRING, number=2)
+
     instance_filter = proto.Field(
         proto.MESSAGE, number=7, message="PatchInstanceFilter",
     )
+
     patch_config = proto.Field(proto.MESSAGE, number=4, message="PatchConfig",)
+
     duration = proto.Field(proto.MESSAGE, number=5, message=gp_duration.Duration,)
-    dry_run = proto.Field(proto.BOOL, number=6,)
-    display_name = proto.Field(proto.STRING, number=8,)
+
+    dry_run = proto.Field(proto.BOOL, number=6)
+
+    display_name = proto.Field(proto.STRING, number=8)
+
     rollout = proto.Field(proto.MESSAGE, number=9, message="PatchRollout",)
 
 
 class GetPatchJobRequest(proto.Message):
     r"""Request to get an active or completed patch job.
+
     Attributes:
         name (str):
             Required. Name of the patch in the form
             ``projects/*/patchJobs/*``
     """
 
-    name = proto.Field(proto.STRING, number=1,)
+    name = proto.Field(proto.STRING, number=1)
 
 
 class ListPatchJobInstanceDetailsRequest(proto.Message):
@@ -124,10 +135,13 @@ class ListPatchJobInstanceDetailsRequest(proto.Message):
             zone, name, state, or ``failure_reason``.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
-    page_size = proto.Field(proto.INT32, number=2,)
-    page_token = proto.Field(proto.STRING, number=3,)
-    filter = proto.Field(proto.STRING, number=4,)
+    parent = proto.Field(proto.STRING, number=1)
+
+    page_size = proto.Field(proto.INT32, number=2)
+
+    page_token = proto.Field(proto.STRING, number=3)
+
+    filter = proto.Field(proto.STRING, number=4)
 
 
 class ListPatchJobInstanceDetailsResponse(proto.Message):
@@ -149,7 +163,8 @@ class ListPatchJobInstanceDetailsResponse(proto.Message):
     patch_job_instance_details = proto.RepeatedField(
         proto.MESSAGE, number=1, message="PatchJobInstanceDetails",
     )
-    next_page_token = proto.Field(proto.STRING, number=2,)
+
+    next_page_token = proto.Field(proto.STRING, number=2)
 
 
 class PatchJobInstanceDetails(proto.Message):
@@ -175,15 +190,20 @@ class PatchJobInstanceDetails(proto.Message):
             attempts to apply the patch.
     """
 
-    name = proto.Field(proto.STRING, number=1,)
-    instance_system_id = proto.Field(proto.STRING, number=2,)
+    name = proto.Field(proto.STRING, number=1)
+
+    instance_system_id = proto.Field(proto.STRING, number=2)
+
     state = proto.Field(proto.ENUM, number=3, enum="Instance.PatchState",)
-    failure_reason = proto.Field(proto.STRING, number=4,)
-    attempt_count = proto.Field(proto.INT64, number=5,)
+
+    failure_reason = proto.Field(proto.STRING, number=4)
+
+    attempt_count = proto.Field(proto.INT64, number=5)
 
 
 class ListPatchJobsRequest(proto.Message):
     r"""A request message for listing patch jobs.
+
     Attributes:
         parent (str):
             Required. In the form of ``projects/*``
@@ -200,14 +220,18 @@ class ListPatchJobsRequest(proto.Message):
             filtering is only available on the patch_deployment field.
     """
 
-    parent = proto.Field(proto.STRING, number=1,)
-    page_size = proto.Field(proto.INT32, number=2,)
-    page_token = proto.Field(proto.STRING, number=3,)
-    filter = proto.Field(proto.STRING, number=4,)
+    parent = proto.Field(proto.STRING, number=1)
+
+    page_size = proto.Field(proto.INT32, number=2)
+
+    page_token = proto.Field(proto.STRING, number=3)
+
+    filter = proto.Field(proto.STRING, number=4)
 
 
 class ListPatchJobsResponse(proto.Message):
     r"""A response message for listing patch jobs.
+
     Attributes:
         patch_jobs (Sequence[google.cloud.osconfig_v1.types.PatchJob]):
             The list of patch jobs.
@@ -221,7 +245,8 @@ class ListPatchJobsResponse(proto.Message):
         return self
 
     patch_jobs = proto.RepeatedField(proto.MESSAGE, number=1, message="PatchJob",)
-    next_page_token = proto.Field(proto.STRING, number=2,)
+
+    next_page_token = proto.Field(proto.STRING, number=2)
 
 
 class PatchJob(proto.Message):
@@ -339,40 +364,68 @@ class PatchJob(proto.Message):
                 communicate with the service.
         """
 
-        pending_instance_count = proto.Field(proto.INT64, number=1,)
-        inactive_instance_count = proto.Field(proto.INT64, number=2,)
-        notified_instance_count = proto.Field(proto.INT64, number=3,)
-        started_instance_count = proto.Field(proto.INT64, number=4,)
-        downloading_patches_instance_count = proto.Field(proto.INT64, number=5,)
-        applying_patches_instance_count = proto.Field(proto.INT64, number=6,)
-        rebooting_instance_count = proto.Field(proto.INT64, number=7,)
-        succeeded_instance_count = proto.Field(proto.INT64, number=8,)
-        succeeded_reboot_required_instance_count = proto.Field(proto.INT64, number=9,)
-        failed_instance_count = proto.Field(proto.INT64, number=10,)
-        acked_instance_count = proto.Field(proto.INT64, number=11,)
-        timed_out_instance_count = proto.Field(proto.INT64, number=12,)
-        pre_patch_step_instance_count = proto.Field(proto.INT64, number=13,)
-        post_patch_step_instance_count = proto.Field(proto.INT64, number=14,)
-        no_agent_detected_instance_count = proto.Field(proto.INT64, number=15,)
+        pending_instance_count = proto.Field(proto.INT64, number=1)
 
-    name = proto.Field(proto.STRING, number=1,)
-    display_name = proto.Field(proto.STRING, number=14,)
-    description = proto.Field(proto.STRING, number=2,)
+        inactive_instance_count = proto.Field(proto.INT64, number=2)
+
+        notified_instance_count = proto.Field(proto.INT64, number=3)
+
+        started_instance_count = proto.Field(proto.INT64, number=4)
+
+        downloading_patches_instance_count = proto.Field(proto.INT64, number=5)
+
+        applying_patches_instance_count = proto.Field(proto.INT64, number=6)
+
+        rebooting_instance_count = proto.Field(proto.INT64, number=7)
+
+        succeeded_instance_count = proto.Field(proto.INT64, number=8)
+
+        succeeded_reboot_required_instance_count = proto.Field(proto.INT64, number=9)
+
+        failed_instance_count = proto.Field(proto.INT64, number=10)
+
+        acked_instance_count = proto.Field(proto.INT64, number=11)
+
+        timed_out_instance_count = proto.Field(proto.INT64, number=12)
+
+        pre_patch_step_instance_count = proto.Field(proto.INT64, number=13)
+
+        post_patch_step_instance_count = proto.Field(proto.INT64, number=14)
+
+        no_agent_detected_instance_count = proto.Field(proto.INT64, number=15)
+
+    name = proto.Field(proto.STRING, number=1)
+
+    display_name = proto.Field(proto.STRING, number=14)
+
+    description = proto.Field(proto.STRING, number=2)
+
     create_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
+
     update_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
+
     state = proto.Field(proto.ENUM, number=5, enum=State,)
+
     instance_filter = proto.Field(
         proto.MESSAGE, number=13, message="PatchInstanceFilter",
     )
+
     patch_config = proto.Field(proto.MESSAGE, number=7, message="PatchConfig",)
+
     duration = proto.Field(proto.MESSAGE, number=8, message=gp_duration.Duration,)
+
     instance_details_summary = proto.Field(
         proto.MESSAGE, number=9, message=InstanceDetailsSummary,
     )
-    dry_run = proto.Field(proto.BOOL, number=10,)
-    error_message = proto.Field(proto.STRING, number=11,)
-    percent_complete = proto.Field(proto.DOUBLE, number=12,)
-    patch_deployment = proto.Field(proto.STRING, number=15,)
+
+    dry_run = proto.Field(proto.BOOL, number=10)
+
+    error_message = proto.Field(proto.STRING, number=11)
+
+    percent_complete = proto.Field(proto.DOUBLE, number=12)
+
+    patch_deployment = proto.Field(proto.STRING, number=15)
+
     rollout = proto.Field(proto.MESSAGE, number=16, message="PatchRollout",)
 
 
@@ -412,19 +465,26 @@ class PatchConfig(proto.Message):
         NEVER = 3
 
     reboot_config = proto.Field(proto.ENUM, number=1, enum=RebootConfig,)
+
     apt = proto.Field(proto.MESSAGE, number=3, message="AptSettings",)
+
     yum = proto.Field(proto.MESSAGE, number=4, message="YumSettings",)
+
     goo = proto.Field(proto.MESSAGE, number=5, message="GooSettings",)
+
     zypper = proto.Field(proto.MESSAGE, number=6, message="ZypperSettings",)
+
     windows_update = proto.Field(
         proto.MESSAGE, number=7, message="WindowsUpdateSettings",
     )
+
     pre_step = proto.Field(proto.MESSAGE, number=8, message="ExecStep",)
+
     post_step = proto.Field(proto.MESSAGE, number=9, message="ExecStep",)
 
 
 class Instance(proto.Message):
-    r"""Namespace for instance state enums.    """
+    r"""Namespace for instance state enums."""
 
     class PatchState(proto.Enum):
         r"""Patch state of an instance."""
@@ -448,13 +508,14 @@ class Instance(proto.Message):
 
 class CancelPatchJobRequest(proto.Message):
     r"""Message for canceling a patch job.
+
     Attributes:
         name (str):
             Required. Name of the patch in the form
             ``projects/*/patchJobs/*``
     """
 
-    name = proto.Field(proto.STRING, number=1,)
+    name = proto.Field(proto.STRING, number=1)
 
 
 class AptSettings(proto.Message):
@@ -485,8 +546,10 @@ class AptSettings(proto.Message):
         UPGRADE = 2
 
     type_ = proto.Field(proto.ENUM, number=1, enum=Type,)
-    excludes = proto.RepeatedField(proto.STRING, number=2,)
-    exclusive_packages = proto.RepeatedField(proto.STRING, number=3,)
+
+    excludes = proto.RepeatedField(proto.STRING, number=2)
+
+    exclusive_packages = proto.RepeatedField(proto.STRING, number=3)
 
 
 class YumSettings(proto.Message):
@@ -513,14 +576,17 @@ class YumSettings(proto.Message):
             fields.
     """
 
-    security = proto.Field(proto.BOOL, number=1,)
-    minimal = proto.Field(proto.BOOL, number=2,)
-    excludes = proto.RepeatedField(proto.STRING, number=3,)
-    exclusive_packages = proto.RepeatedField(proto.STRING, number=4,)
+    security = proto.Field(proto.BOOL, number=1)
+
+    minimal = proto.Field(proto.BOOL, number=2)
+
+    excludes = proto.RepeatedField(proto.STRING, number=3)
+
+    exclusive_packages = proto.RepeatedField(proto.STRING, number=4)
 
 
 class GooSettings(proto.Message):
-    r"""Googet patching is performed by running ``googet update``.    """
+    r"""Googet patching is performed by running ``googet update``."""
 
 
 class ZypperSettings(proto.Message):
@@ -549,16 +615,22 @@ class ZypperSettings(proto.Message):
             with any other patch configuration fields.
     """
 
-    with_optional = proto.Field(proto.BOOL, number=1,)
-    with_update = proto.Field(proto.BOOL, number=2,)
-    categories = proto.RepeatedField(proto.STRING, number=3,)
-    severities = proto.RepeatedField(proto.STRING, number=4,)
-    excludes = proto.RepeatedField(proto.STRING, number=5,)
-    exclusive_patches = proto.RepeatedField(proto.STRING, number=6,)
+    with_optional = proto.Field(proto.BOOL, number=1)
+
+    with_update = proto.Field(proto.BOOL, number=2)
+
+    categories = proto.RepeatedField(proto.STRING, number=3)
+
+    severities = proto.RepeatedField(proto.STRING, number=4)
+
+    excludes = proto.RepeatedField(proto.STRING, number=5)
+
+    exclusive_patches = proto.RepeatedField(proto.STRING, number=6)
 
 
 class WindowsUpdateSettings(proto.Message):
     r"""Windows patching is performed using the Windows Update Agent.
+
     Attributes:
         classifications (Sequence[google.cloud.osconfig_v1.types.WindowsUpdateSettings.Classification]):
             Only apply updates of these windows update
@@ -589,12 +661,15 @@ class WindowsUpdateSettings(proto.Message):
         UPDATE = 9
 
     classifications = proto.RepeatedField(proto.ENUM, number=1, enum=Classification,)
-    excludes = proto.RepeatedField(proto.STRING, number=2,)
-    exclusive_patches = proto.RepeatedField(proto.STRING, number=3,)
+
+    excludes = proto.RepeatedField(proto.STRING, number=2)
+
+    exclusive_patches = proto.RepeatedField(proto.STRING, number=3)
 
 
 class ExecStep(proto.Message):
     r"""A step that runs an executable for a PatchJob.
+
     Attributes:
         linux_exec_step_config (google.cloud.osconfig_v1.types.ExecStepConfig):
             The ExecStepConfig for all Linux VMs targeted
@@ -607,6 +682,7 @@ class ExecStep(proto.Message):
     linux_exec_step_config = proto.Field(
         proto.MESSAGE, number=1, message="ExecStepConfig",
     )
+
     windows_exec_step_config = proto.Field(
         proto.MESSAGE, number=2, message="ExecStepConfig",
     )
@@ -614,6 +690,7 @@ class ExecStep(proto.Message):
 
 class ExecStepConfig(proto.Message):
     r"""Common configurations for an ExecStep.
+
     Attributes:
         local_path (str):
             An absolute path to the executable on the VM.
@@ -637,16 +714,20 @@ class ExecStepConfig(proto.Message):
         SHELL = 1
         POWERSHELL = 2
 
-    local_path = proto.Field(proto.STRING, number=1, oneof="executable",)
+    local_path = proto.Field(proto.STRING, number=1, oneof="executable")
+
     gcs_object = proto.Field(
         proto.MESSAGE, number=2, oneof="executable", message="GcsObject",
     )
-    allowed_success_codes = proto.RepeatedField(proto.INT32, number=3,)
+
+    allowed_success_codes = proto.RepeatedField(proto.INT32, number=3)
+
     interpreter = proto.Field(proto.ENUM, number=4, enum=Interpreter,)
 
 
 class GcsObject(proto.Message):
     r"""Cloud Storage object representation.
+
     Attributes:
         bucket (str):
             Required. Bucket of the Cloud Storage object.
@@ -659,9 +740,11 @@ class GcsObject(proto.Message):
             change.
     """
 
-    bucket = proto.Field(proto.STRING, number=1,)
-    object_ = proto.Field(proto.STRING, number=2,)
-    generation_number = proto.Field(proto.INT64, number=3,)
+    bucket = proto.Field(proto.STRING, number=1)
+
+    object_ = proto.Field(proto.STRING, number=2)
+
+    generation_number = proto.Field(proto.INT64, number=3)
 
 
 class PatchInstanceFilter(proto.Message):
@@ -715,11 +798,15 @@ class PatchInstanceFilter(proto.Message):
 
         labels = proto.MapField(proto.STRING, proto.STRING, number=1)
 
-    all_ = proto.Field(proto.BOOL, number=1,)
+    all_ = proto.Field(proto.BOOL, number=1)
+
     group_labels = proto.RepeatedField(proto.MESSAGE, number=2, message=GroupLabel,)
-    zones = proto.RepeatedField(proto.STRING, number=3,)
-    instances = proto.RepeatedField(proto.STRING, number=4,)
-    instance_name_prefixes = proto.RepeatedField(proto.STRING, number=5,)
+
+    zones = proto.RepeatedField(proto.STRING, number=3)
+
+    instances = proto.RepeatedField(proto.STRING, number=4)
+
+    instance_name_prefixes = proto.RepeatedField(proto.STRING, number=5)
 
 
 class PatchRollout(proto.Message):
@@ -768,6 +855,7 @@ class PatchRollout(proto.Message):
         CONCURRENT_ZONES = 2
 
     mode = proto.Field(proto.ENUM, number=1, enum=Mode,)
+
     disruption_budget = proto.Field(
         proto.MESSAGE, number=2, message=osconfig_common.FixedOrPercent,
     )
