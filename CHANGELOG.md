@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/googleapis/python-os-config/compare/v1.0.0...v1.2.0) (2021-06-09)
+
+
+### Features
+
+* add v1alpha ([#80](https://www.github.com/googleapis/python-os-config/issues/80)) ([493ac75](https://www.github.com/googleapis/python-os-config/commit/493ac75a5fec0185fa15415fe4feffe0c36ca7e9))
+
+
+### Miscellaneous Chores
+
+* release as 1.2.0 ([#79](https://www.github.com/googleapis/python-os-config/issues/79)) ([c484cb6](https://www.github.com/googleapis/python-os-config/commit/c484cb69ecd2184a901898f5374fc8e72ba3ca33))
+
 ## [1.0.0](https://www.github.com/googleapis/python-os-config/compare/v1.1.0...v1.0.0) (2021-05-28)
 
 
