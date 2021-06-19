@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.1](https://www.github.com/googleapis/python-os-config/compare/v1.2.0...v1.2.1) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-os-config/issues/1127)) ([#83](https://www.github.com/googleapis/python-os-config/issues/83)) ([b9fc494](https://www.github.com/googleapis/python-os-config/commit/b9fc4948a320fcf6a7154a2c7a1476cc78736c4d))
+
 ## [1.2.0](https://www.github.com/googleapis/python-os-config/compare/v1.1.0...v1.2.0) (2021-06-09)
 
 
