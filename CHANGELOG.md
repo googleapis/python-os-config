@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.4.0](https://www.github.com/googleapis/python-os-config/compare/v1.3.1...v1.4.0) (2021-07-24)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#97](https://www.github.com/googleapis/python-os-config/issues/97)) ([404adc3](https://www.github.com/googleapis/python-os-config/commit/404adc3419aaa40b0b66f55fc3ed92758287816b))
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#101](https://www.github.com/googleapis/python-os-config/issues/101)) ([5f6c367](https://www.github.com/googleapis/python-os-config/commit/5f6c367753fb780f15ff38245b2c85387e01965e))
+
 ### [1.3.1](https://www.github.com/googleapis/python-os-config/compare/v1.3.0...v1.3.1) (2021-07-20)
 
 
