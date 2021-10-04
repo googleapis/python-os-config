@@ -10,6 +10,6 @@
     "repo": "googleapis/python-os-config",
     "distribution_name": "google-cloud-os-config",
     "api_id": "osconfig.googleapis.com",
-    "default_version": "",
+    "default_version": "v1",
     "codeowner_team": ""
 }
