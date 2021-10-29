@@ -22,12 +22,13 @@ API Reference
     osconfig_v1alpha/services
     osconfig_v1alpha/types
 
+
 Changelog
 ---------
 
 For a list of all ``google-cloud-os-config`` releases:
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   changelog
+    changelog
