@@ -15,26 +15,26 @@
 #
 import proto  # type: ignore
 
-from google.cloud.osconfig_v1alpha.types import os_policy
-from google.cloud.osconfig_v1alpha.types import osconfig_common
+from google.cloud.osconfig_v1.types import os_policy
+from google.cloud.osconfig_v1.types import osconfig_common
 from google.protobuf import duration_pb2  # type: ignore
 from google.protobuf import field_mask_pb2  # type: ignore
 from google.protobuf import timestamp_pb2  # type: ignore
 
 
 __protobuf__ = proto.module(
-    package='google.cloud.osconfig.v1alpha',
+    package="google.cloud.osconfig.v1",
     manifest={
-        'OSPolicyAssignment',
-        'OSPolicyAssignmentOperationMetadata',
-        'CreateOSPolicyAssignmentRequest',
-        'UpdateOSPolicyAssignmentRequest',
-        'GetOSPolicyAssignmentRequest',
-        'ListOSPolicyAssignmentsRequest',
-        'ListOSPolicyAssignmentsResponse',
-        'ListOSPolicyAssignmentRevisionsRequest',
-        'ListOSPolicyAssignmentRevisionsResponse',
-        'DeleteOSPolicyAssignmentRequest',
+        "OSPolicyAssignment",
+        "OSPolicyAssignmentOperationMetadata",
+        "CreateOSPolicyAssignmentRequest",
+        "UpdateOSPolicyAssignmentRequest",
+        "GetOSPolicyAssignmentRequest",
+        "ListOSPolicyAssignmentsRequest",
+        "ListOSPolicyAssignmentsResponse",
+        "ListOSPolicyAssignmentRevisionsRequest",
+        "ListOSPolicyAssignmentRevisionsResponse",
+        "DeleteOSPolicyAssignmentRequest",
     },
 )
 
@@ -65,12 +65,12 @@ class OSPolicyAssignment(proto.Message):
             OS policy assignment description.
             Length of the description is limited to 1024
             characters.
-        os_policies (Sequence[google.cloud.osconfig_v1alpha.types.OSPolicy]):
+        os_policies (Sequence[google.cloud.osconfig_v1.types.OSPolicy]):
             Required. List of OS policies to be applied
             to the VMs.
-        instance_filter (google.cloud.osconfig_v1alpha.types.OSPolicyAssignment.InstanceFilter):
+        instance_filter (google.cloud.osconfig_v1.types.OSPolicyAssignment.InstanceFilter):
             Required. Filter to select VMs.
-        rollout (google.cloud.osconfig_v1alpha.types.OSPolicyAssignment.Rollout):
+        rollout (google.cloud.osconfig_v1.types.OSPolicyAssignment.Rollout):
             Required. Rollout to deploy the OS policy assignment. A
             rollout is triggered in the following situations:
 
@@ -89,7 +89,11 @@ class OSPolicyAssignment(proto.Message):
         revision_create_time (google.protobuf.timestamp_pb2.Timestamp):
             Output only. The timestamp that the revision
             was created.
-        rollout_state (google.cloud.osconfig_v1alpha.types.OSPolicyAssignment.RolloutState):
+        etag (str):
+            The etag for this OS policy assignment.
+            If this is provided on update, it must match the
+            server's etag.
+        rollout_state (google.cloud.osconfig_v1.types.OSPolicyAssignment.RolloutState):
             Output only. OS policy assignment rollout
             state
         baseline (bool):
@@ -113,6 +117,7 @@ class OSPolicyAssignment(proto.Message):
             Output only. Server generated unique id for
             the OS policy assignment resource.
     """
+
     class RolloutState(proto.Enum):
         r"""OS policy assignment rollout state"""
         ROLLOUT_STATE_UNSPECIFIED = 0
@@ -134,64 +139,70 @@ class OSPolicyAssignment(proto.Message):
            both labels present.
 
         Attributes:
-            labels (Sequence[google.cloud.osconfig_v1alpha.types.OSPolicyAssignment.LabelSet.LabelsEntry]):
+            labels (Sequence[google.cloud.osconfig_v1.types.OSPolicyAssignment.LabelSet.LabelsEntry]):
                 Labels are identified by key/value pairs in
                 this map. A VM should contain all the key/value
                 pairs specified in this map to be selected.
         """
 
-        labels = proto.MapField(
-            proto.STRING,
-            proto.STRING,
-            number=1,
-        )
+        labels = proto.MapField(proto.STRING, proto.STRING, number=1,)
 
     class InstanceFilter(proto.Message):
-        r"""Message to represent the filters to select VMs for an
-        assignment
+        r"""Filters to select target VMs for an assignment.
+        If more than one filter criteria is specified below, a VM will
+        be selected if and only if it satisfies all of them.
 
         Attributes:
             all_ (bool):
                 Target all VMs in the project. If true, no
                 other criteria is permitted.
-            os_short_names (Sequence[str]):
-                A VM is included if it's OS short name
-                matches with any of the values provided in this
-                list.
-            inclusion_labels (Sequence[google.cloud.osconfig_v1alpha.types.OSPolicyAssignment.LabelSet]):
+            inclusion_labels (Sequence[google.cloud.osconfig_v1.types.OSPolicyAssignment.LabelSet]):
                 List of label sets used for VM inclusion.
 
                 If the list has more than one ``LabelSet``, the VM is
                 included if any of the label sets are applicable for the VM.
-            exclusion_labels (Sequence[google.cloud.osconfig_v1alpha.types.OSPolicyAssignment.LabelSet]):
+            exclusion_labels (Sequence[google.cloud.osconfig_v1.types.OSPolicyAssignment.LabelSet]):
                 List of label sets used for VM exclusion.
                 If the list has more than one label set, the VM
                 is excluded if any of the label sets are
                 applicable for the VM.
-
-                This filter is applied last in the filtering
-                chain and therefore a VM is guaranteed to be
-                excluded if it satisfies one of the below label
-                sets.
+            inventories (Sequence[google.cloud.osconfig_v1.types.OSPolicyAssignment.InstanceFilter.Inventory]):
+                List of inventories to select VMs.
+                A VM is selected if its inventory data matches
+                at least one of the following inventories.
         """
 
-        all_ = proto.Field(
-            proto.BOOL,
-            number=1,
-        )
-        os_short_names = proto.RepeatedField(
-            proto.STRING,
-            number=2,
-        )
+        class Inventory(proto.Message):
+            r"""VM inventory details.
+
+            Attributes:
+                os_short_name (str):
+                    Required. The OS short name
+                os_version (str):
+                    The OS version
+
+                    Prefix matches are supported if asterisk(*) is provided as
+                    the last character. For example, to match all versions with
+                    a major version of ``7``, specify the following value for
+                    this field ``7.*``
+
+                    An empty string matches all OS versions.
+            """
+
+            os_short_name = proto.Field(proto.STRING, number=1,)
+            os_version = proto.Field(proto.STRING, number=2,)
+
+        all_ = proto.Field(proto.BOOL, number=1,)
         inclusion_labels = proto.RepeatedField(
-            proto.MESSAGE,
-            number=3,
-            message='OSPolicyAssignment.LabelSet',
+            proto.MESSAGE, number=2, message="OSPolicyAssignment.LabelSet",
         )
         exclusion_labels = proto.RepeatedField(
+            proto.MESSAGE, number=3, message="OSPolicyAssignment.LabelSet",
+        )
+        inventories = proto.RepeatedField(
             proto.MESSAGE,
             number=4,
-            message='OSPolicyAssignment.LabelSet',
+            message="OSPolicyAssignment.InstanceFilter.Inventory",
         )
 
     class Rollout(proto.Message):
@@ -199,7 +210,7 @@ class OSPolicyAssignment(proto.Message):
         OS policy assignment.
 
         Attributes:
-            disruption_budget (google.cloud.osconfig_v1alpha.types.FixedOrPercent):
+            disruption_budget (google.cloud.osconfig_v1.types.FixedOrPercent):
                 Required. The maximum number (or percentage)
                 of VMs per zone to disrupt at any given moment.
             min_wait_duration (google.protobuf.duration_pb2.Duration):
@@ -211,69 +222,29 @@ class OSPolicyAssignment(proto.Message):
         """
 
         disruption_budget = proto.Field(
-            proto.MESSAGE,
-            number=1,
-            message=osconfig_common.FixedOrPercent,
+            proto.MESSAGE, number=1, message=osconfig_common.FixedOrPercent,
         )
         min_wait_duration = proto.Field(
-            proto.MESSAGE,
-            number=2,
-            message=duration_pb2.Duration,
+            proto.MESSAGE, number=2, message=duration_pb2.Duration,
         )
 
-    name = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    description = proto.Field(
-        proto.STRING,
-        number=2,
-    )
+    name = proto.Field(proto.STRING, number=1,)
+    description = proto.Field(proto.STRING, number=2,)
     os_policies = proto.RepeatedField(
-        proto.MESSAGE,
-        number=3,
-        message=os_policy.OSPolicy,
+        proto.MESSAGE, number=3, message=os_policy.OSPolicy,
     )
-    instance_filter = proto.Field(
-        proto.MESSAGE,
-        number=4,
-        message=InstanceFilter,
-    )
-    rollout = proto.Field(
-        proto.MESSAGE,
-        number=5,
-        message=Rollout,
-    )
-    revision_id = proto.Field(
-        proto.STRING,
-        number=6,
-    )
+    instance_filter = proto.Field(proto.MESSAGE, number=4, message=InstanceFilter,)
+    rollout = proto.Field(proto.MESSAGE, number=5, message=Rollout,)
+    revision_id = proto.Field(proto.STRING, number=6,)
     revision_create_time = proto.Field(
-        proto.MESSAGE,
-        number=7,
-        message=timestamp_pb2.Timestamp,
+        proto.MESSAGE, number=7, message=timestamp_pb2.Timestamp,
     )
-    rollout_state = proto.Field(
-        proto.ENUM,
-        number=9,
-        enum=RolloutState,
-    )
-    baseline = proto.Field(
-        proto.BOOL,
-        number=10,
-    )
-    deleted = proto.Field(
-        proto.BOOL,
-        number=11,
-    )
-    reconciling = proto.Field(
-        proto.BOOL,
-        number=12,
-    )
-    uid = proto.Field(
-        proto.STRING,
-        number=13,
-    )
+    etag = proto.Field(proto.STRING, number=8,)
+    rollout_state = proto.Field(proto.ENUM, number=9, enum=RolloutState,)
+    baseline = proto.Field(proto.BOOL, number=10,)
+    deleted = proto.Field(proto.BOOL, number=11,)
+    reconciling = proto.Field(proto.BOOL, number=12,)
+    uid = proto.Field(proto.STRING, number=13,)
 
 
 class OSPolicyAssignmentOperationMetadata(proto.Message):
@@ -286,15 +257,16 @@ class OSPolicyAssignmentOperationMetadata(proto.Message):
 
             Format:
             ``projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}``
-        api_method (google.cloud.osconfig_v1alpha.types.OSPolicyAssignmentOperationMetadata.APIMethod):
+        api_method (google.cloud.osconfig_v1.types.OSPolicyAssignmentOperationMetadata.APIMethod):
             The OS policy assignment API method.
-        rollout_state (google.cloud.osconfig_v1alpha.types.OSPolicyAssignmentOperationMetadata.RolloutState):
+        rollout_state (google.cloud.osconfig_v1.types.OSPolicyAssignmentOperationMetadata.RolloutState):
             State of the rollout
         rollout_start_time (google.protobuf.timestamp_pb2.Timestamp):
             Rollout start time
         rollout_update_time (google.protobuf.timestamp_pb2.Timestamp):
             Rollout update time
     """
+
     class APIMethod(proto.Enum):
         r"""The OS policy assignment API method."""
         API_METHOD_UNSPECIFIED = 0
@@ -310,29 +282,14 @@ class OSPolicyAssignmentOperationMetadata(proto.Message):
         CANCELLED = 3
         SUCCEEDED = 4
 
-    os_policy_assignment = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    api_method = proto.Field(
-        proto.ENUM,
-        number=2,
-        enum=APIMethod,
-    )
-    rollout_state = proto.Field(
-        proto.ENUM,
-        number=3,
-        enum=RolloutState,
-    )
+    os_policy_assignment = proto.Field(proto.STRING, number=1,)
+    api_method = proto.Field(proto.ENUM, number=2, enum=APIMethod,)
+    rollout_state = proto.Field(proto.ENUM, number=3, enum=RolloutState,)
     rollout_start_time = proto.Field(
-        proto.MESSAGE,
-        number=4,
-        message=timestamp_pb2.Timestamp,
+        proto.MESSAGE, number=4, message=timestamp_pb2.Timestamp,
     )
     rollout_update_time = proto.Field(
-        proto.MESSAGE,
-        number=5,
-        message=timestamp_pb2.Timestamp,
+        proto.MESSAGE, number=5, message=timestamp_pb2.Timestamp,
     )
 
 
@@ -343,7 +300,7 @@ class CreateOSPolicyAssignmentRequest(proto.Message):
         parent (str):
             Required. The parent resource name in the
             form: projects/{project}/locations/{location}
-        os_policy_assignment (google.cloud.osconfig_v1alpha.types.OSPolicyAssignment):
+        os_policy_assignment (google.cloud.osconfig_v1.types.OSPolicyAssignment):
             Required. The OS policy assignment to be
             created.
         os_policy_assignment_id (str):
@@ -358,26 +315,18 @@ class CreateOSPolicyAssignmentRequest(proto.Message):
             -  Must be unique within the project.
     """
 
-    parent = proto.Field(
-        proto.STRING,
-        number=1,
-    )
+    parent = proto.Field(proto.STRING, number=1,)
     os_policy_assignment = proto.Field(
-        proto.MESSAGE,
-        number=2,
-        message='OSPolicyAssignment',
+        proto.MESSAGE, number=2, message="OSPolicyAssignment",
     )
-    os_policy_assignment_id = proto.Field(
-        proto.STRING,
-        number=3,
-    )
+    os_policy_assignment_id = proto.Field(proto.STRING, number=3,)
 
 
 class UpdateOSPolicyAssignmentRequest(proto.Message):
     r"""A request message to update an OS policy assignment
 
     Attributes:
-        os_policy_assignment (google.cloud.osconfig_v1alpha.types.OSPolicyAssignment):
+        os_policy_assignment (google.cloud.osconfig_v1.types.OSPolicyAssignment):
             Required. The updated OS policy assignment.
         update_mask (google.protobuf.field_mask_pb2.FieldMask):
             Optional. Field mask that controls which
@@ -385,14 +334,10 @@ class UpdateOSPolicyAssignmentRequest(proto.Message):
     """
 
     os_policy_assignment = proto.Field(
-        proto.MESSAGE,
-        number=1,
-        message='OSPolicyAssignment',
+        proto.MESSAGE, number=1, message="OSPolicyAssignment",
     )
     update_mask = proto.Field(
-        proto.MESSAGE,
-        number=2,
-        message=field_mask_pb2.FieldMask,
+        proto.MESSAGE, number=2, message=field_mask_pb2.FieldMask,
     )
 
 
@@ -407,10 +352,7 @@ class GetOSPolicyAssignmentRequest(proto.Message):
             ``projects/{project}/locations/{location}/osPolicyAssignments/{os_policy_assignment}@{revisionId}``
     """
 
-    name = proto.Field(
-        proto.STRING,
-        number=1,
-    )
+    name = proto.Field(proto.STRING, number=1,)
 
 
 class ListOSPolicyAssignmentsRequest(proto.Message):
@@ -428,18 +370,9 @@ class ListOSPolicyAssignmentsRequest(proto.Message):
             listing should continue from.
     """
 
-    parent = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    page_size = proto.Field(
-        proto.INT32,
-        number=2,
-    )
-    page_token = proto.Field(
-        proto.STRING,
-        number=3,
-    )
+    parent = proto.Field(proto.STRING, number=1,)
+    page_size = proto.Field(proto.INT32, number=2,)
+    page_token = proto.Field(proto.STRING, number=3,)
 
 
 class ListOSPolicyAssignmentsResponse(proto.Message):
@@ -447,7 +380,7 @@ class ListOSPolicyAssignmentsResponse(proto.Message):
     parent.
 
     Attributes:
-        os_policy_assignments (Sequence[google.cloud.osconfig_v1alpha.types.OSPolicyAssignment]):
+        os_policy_assignments (Sequence[google.cloud.osconfig_v1.types.OSPolicyAssignment]):
             The list of assignments
         next_page_token (str):
             The pagination token to retrieve the next
@@ -459,14 +392,9 @@ class ListOSPolicyAssignmentsResponse(proto.Message):
         return self
 
     os_policy_assignments = proto.RepeatedField(
-        proto.MESSAGE,
-        number=1,
-        message='OSPolicyAssignment',
+        proto.MESSAGE, number=1, message="OSPolicyAssignment",
     )
-    next_page_token = proto.Field(
-        proto.STRING,
-        number=2,
-    )
+    next_page_token = proto.Field(proto.STRING, number=2,)
 
 
 class ListOSPolicyAssignmentRevisionsRequest(proto.Message):
@@ -485,18 +413,9 @@ class ListOSPolicyAssignmentRevisionsRequest(proto.Message):
             this listing should continue from.
     """
 
-    name = proto.Field(
-        proto.STRING,
-        number=1,
-    )
-    page_size = proto.Field(
-        proto.INT32,
-        number=2,
-    )
-    page_token = proto.Field(
-        proto.STRING,
-        number=3,
-    )
+    name = proto.Field(proto.STRING, number=1,)
+    page_size = proto.Field(proto.INT32, number=2,)
+    page_token = proto.Field(proto.STRING, number=3,)
 
 
 class ListOSPolicyAssignmentRevisionsResponse(proto.Message):
@@ -504,7 +423,7 @@ class ListOSPolicyAssignmentRevisionsResponse(proto.Message):
     assignment.
 
     Attributes:
-        os_policy_assignments (Sequence[google.cloud.osconfig_v1alpha.types.OSPolicyAssignment]):
+        os_policy_assignments (Sequence[google.cloud.osconfig_v1.types.OSPolicyAssignment]):
             The OS policy assignment revisions
         next_page_token (str):
             The pagination token to retrieve the next
@@ -516,14 +435,9 @@ class ListOSPolicyAssignmentRevisionsResponse(proto.Message):
         return self
 
     os_policy_assignments = proto.RepeatedField(
-        proto.MESSAGE,
-        number=1,
-        message='OSPolicyAssignment',
+        proto.MESSAGE, number=1, message="OSPolicyAssignment",
     )
-    next_page_token = proto.Field(
-        proto.STRING,
-        number=2,
-    )
+    next_page_token = proto.Field(proto.STRING, number=2,)
 
 
 class DeleteOSPolicyAssignmentRequest(proto.Message):
@@ -535,10 +449,7 @@ class DeleteOSPolicyAssignmentRequest(proto.Message):
             assignment to be deleted
     """
 
-    name = proto.Field(
-        proto.STRING,
-        number=1,
-    )
+    name = proto.Field(proto.STRING, number=1,)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))
