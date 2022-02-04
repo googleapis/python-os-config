@@ -446,6 +446,27 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         r"""Patch VM instances by creating and running a patch
         job.
 
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_execute_patch_job():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.ExecutePatchJobRequest(
+                    parent="parent_value",
+                )
+
+                # Make the request
+                response = client.execute_patch_job(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.osconfig_v1.types.ExecutePatchJobRequest, dict]):
                 The request object. A request message to initiate
@@ -506,6 +527,27 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         r"""Get the patch job. This can be used to track the
         progress of an ongoing patch job or review the details
         of completed jobs.
+
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_get_patch_job():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.GetPatchJobRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.get_patch_job(request=request)
+
+                # Handle response
+                print(response)
 
         Args:
             request (Union[google.cloud.osconfig_v1.types.GetPatchJobRequest, dict]):
@@ -586,6 +628,27 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         r"""Cancel a patch job. The patch job must be active.
         Canceled patch jobs cannot be restarted.
 
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_cancel_patch_job():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.CancelPatchJobRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.cancel_patch_job(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.osconfig_v1.types.CancelPatchJobRequest, dict]):
                 The request object. Message for canceling a patch job.
@@ -643,6 +706,25 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPatchJobsPager:
         r"""Get a list of patch jobs.
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_list_patch_jobs():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.ListPatchJobsRequest(
+                    parent="parent_value",
+                )
+
+                # Make the request
+                page_result = client.list_patch_jobs(request=request)
+                for response in page_result:
+                    print(response)
 
         Args:
             request (Union[google.cloud.osconfig_v1.types.ListPatchJobsRequest, dict]):
@@ -721,6 +803,25 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPatchJobInstanceDetailsPager:
         r"""Get a list of instance details for a given patch job.
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_list_patch_job_instance_details():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.ListPatchJobInstanceDetailsRequest(
+                    parent="parent_value",
+                )
+
+                # Make the request
+                page_result = client.list_patch_job_instance_details(request=request)
+                for response in page_result:
+                    print(response)
 
         Args:
             request (Union[google.cloud.osconfig_v1.types.ListPatchJobInstanceDetailsRequest, dict]):
@@ -805,6 +906,27 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_deployments.PatchDeployment:
         r"""Create an OS Config patch deployment.
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_create_patch_deployment():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.CreatePatchDeploymentRequest(
+                    parent="parent_value",
+                    patch_deployment_id="patch_deployment_id_value",
+                )
+
+                # Make the request
+                response = client.create_patch_deployment(request=request)
+
+                # Handle response
+                print(response)
 
         Args:
             request (Union[google.cloud.osconfig_v1.types.CreatePatchDeploymentRequest, dict]):
@@ -906,6 +1028,26 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> patch_deployments.PatchDeployment:
         r"""Get an OS Config patch deployment.
 
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_get_patch_deployment():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.GetPatchDeploymentRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.get_patch_deployment(request=request)
+
+                # Handle response
+                print(response)
+
         Args:
             request (Union[google.cloud.osconfig_v1.types.GetPatchDeploymentRequest, dict]):
                 The request object. A request message for retrieving a
@@ -980,6 +1122,25 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPatchDeploymentsPager:
         r"""Get a page of OS Config patch deployments.
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_list_patch_deployments():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.ListPatchDeploymentsRequest(
+                    parent="parent_value",
+                )
+
+                # Make the request
+                page_result = client.list_patch_deployments(request=request)
+                for response in page_result:
+                    print(response)
 
         Args:
             request (Union[google.cloud.osconfig_v1.types.ListPatchDeploymentsRequest, dict]):
@@ -1060,6 +1221,23 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Delete an OS Config patch deployment.
+
+
+        .. code-block::
+
+            from google.cloud import osconfig_v1
+
+            def sample_delete_patch_deployment():
+                # Create a client
+                client = osconfig_v1.OsConfigServiceClient()
+
+                # Initialize request argument(s)
+                request = osconfig_v1.DeletePatchDeploymentRequest(
+                    name="name_value",
+                )
+
+                # Make the request
+                response = client.delete_patch_deployment(request=request)
 
         Args:
             request (Union[google.cloud.osconfig_v1.types.DeletePatchDeploymentRequest, dict]):
