@@ -544,12 +544,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigService_ListPatchDeployments_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -564,11 +564,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -586,12 +588,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigService_ListPatchDeployments_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -606,11 +608,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -629,12 +633,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigService_ListPatchJobInstanceDetails_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -649,11 +653,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -671,12 +677,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigService_ListPatchJobInstanceDetails_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -691,11 +697,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -714,12 +722,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigService_ListPatchJobs_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -734,11 +742,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -756,12 +766,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigService_ListPatchJobs_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -776,11 +786,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1066,12 +1078,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_CreateOSPolicyAssignment_async",
       "segments": [
         {
-          "end": 56,
+          "end": 58,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 56,
+          "end": 58,
           "start": 27,
           "type": "SHORT"
         },
@@ -1086,11 +1098,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 55,
           "start": 49,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 57,
+          "end": 59,
+          "start": 56,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1108,12 +1122,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_CreateOSPolicyAssignment_sync",
       "segments": [
         {
-          "end": 56,
+          "end": 58,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 56,
+          "end": 58,
           "start": 27,
           "type": "SHORT"
         },
@@ -1128,11 +1142,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 55,
           "start": 49,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 57,
+          "end": 59,
+          "start": 56,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1151,12 +1167,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_DeleteOSPolicyAssignment_async",
       "segments": [
         {
-          "end": 46,
+          "end": 48,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 46,
+          "end": 48,
           "start": 27,
           "type": "SHORT"
         },
@@ -1171,11 +1187,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 45,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 47,
+          "end": 49,
+          "start": 46,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1193,12 +1211,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_DeleteOSPolicyAssignment_sync",
       "segments": [
         {
-          "end": 46,
+          "end": 48,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 46,
+          "end": 48,
           "start": 27,
           "type": "SHORT"
         },
@@ -1213,11 +1231,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 45,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 47,
+          "end": 49,
+          "start": 46,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1592,12 +1612,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListInventories_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1612,11 +1632,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1634,12 +1656,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListInventories_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1654,11 +1676,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1677,12 +1701,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListOSPolicyAssignmentReports_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1697,11 +1721,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1719,12 +1745,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListOSPolicyAssignmentReports_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1739,11 +1765,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1762,12 +1790,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListOSPolicyAssignmentRevisions_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1782,11 +1810,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1804,12 +1834,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListOSPolicyAssignmentRevisions_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1824,11 +1854,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1847,12 +1879,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListOSPolicyAssignments_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1867,11 +1899,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1889,12 +1923,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListOSPolicyAssignments_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1909,11 +1943,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1932,12 +1968,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListVulnerabilityReports_async",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1952,11 +1988,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -1974,12 +2012,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_ListVulnerabilityReports_sync",
       "segments": [
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 43,
+          "end": 45,
           "start": 27,
           "type": "SHORT"
         },
@@ -1994,11 +2032,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 41,
           "start": 39,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 44,
+          "end": 46,
+          "start": 42,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -2017,12 +2057,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_UpdateOSPolicyAssignment_async",
       "segments": [
         {
-          "end": 54,
+          "end": 56,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 54,
+          "end": 56,
           "start": 27,
           "type": "SHORT"
         },
@@ -2037,11 +2077,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 53,
           "start": 47,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 55,
+          "end": 57,
+          "start": 54,
           "type": "RESPONSE_HANDLING"
         }
       ]
@@ -2059,12 +2101,12 @@
       "regionTag": "osconfig_generated_osconfig_v1_OsConfigZonalService_UpdateOSPolicyAssignment_sync",
       "segments": [
         {
-          "end": 54,
+          "end": 56,
           "start": 27,
           "type": "FULL"
         },
         {
-          "end": 54,
+          "end": 56,
           "start": 27,
           "type": "SHORT"
         },
@@ -2079,11 +2121,13 @@
           "type": "REQUEST_INITIALIZATION"
         },
         {
+          "end": 53,
           "start": 47,
           "type": "REQUEST_EXECUTION"
         },
         {
-          "end": 55,
+          "end": 57,
+          "start": 54,
           "type": "RESPONSE_HANDLING"
         }
       ]

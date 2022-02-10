@@ -465,7 +465,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.execute_patch_job(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -547,7 +547,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.get_patch_job(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -647,7 +647,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.cancel_patch_job(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -724,6 +724,8 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_patch_jobs(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -821,6 +823,8 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_patch_job_instance_details(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -926,7 +930,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.create_patch_deployment(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1046,7 +1050,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.get_patch_deployment(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1140,6 +1144,8 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_patch_deployments(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -1238,7 +1244,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 )
 
                 # Make the request
-                response = client.delete_patch_deployment(request=request)
+                client.delete_patch_deployment(request=request)
 
         Args:
             request (Union[google.cloud.osconfig_v1.types.DeletePatchDeploymentRequest, dict]):
@@ -1321,7 +1327,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.update_patch_deployment(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1431,7 +1437,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.pause_patch_deployment(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1529,7 +1535,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
                 # Make the request
                 response = client.resume_patch_deployment(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:

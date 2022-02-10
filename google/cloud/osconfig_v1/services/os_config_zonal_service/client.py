@@ -564,6 +564,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
                 print("Waiting for operation to complete...")
 
                 response = operation.result()
+
+                # Handle the response
                 print(response)
 
         Args:
@@ -730,6 +732,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
                 print("Waiting for operation to complete...")
 
                 response = operation.result()
+
+                # Handle the response
                 print(response)
 
         Args:
@@ -861,7 +865,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
                 # Make the request
                 response = client.get_os_policy_assignment(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -969,6 +973,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_os_policy_assignments(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -1074,6 +1080,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_os_policy_assignment_revisions(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -1198,6 +1206,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
                 print("Waiting for operation to complete...")
 
                 response = operation.result()
+
+                # Handle the response
                 print(response)
 
         Args:
@@ -1317,7 +1327,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
                 # Make the request
                 response = client.get_os_policy_assignment_report(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1427,6 +1437,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_os_policy_assignment_reports(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -1560,7 +1572,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
                 # Make the request
                 response = client.get_inventory(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1667,6 +1679,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_inventories(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -1776,7 +1790,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
                 # Make the request
                 response = client.get_vulnerability_report(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1879,6 +1893,8 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
                 # Make the request
                 page_result = client.list_vulnerability_reports(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 

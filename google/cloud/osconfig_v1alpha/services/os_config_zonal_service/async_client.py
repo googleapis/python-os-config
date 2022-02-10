@@ -292,6 +292,8 @@ class OsConfigZonalServiceAsyncClient:
                 print("Waiting for operation to complete...")
 
                 response = operation.result()
+
+                # Handle the response
                 print(response)
 
         Args:
@@ -453,6 +455,8 @@ class OsConfigZonalServiceAsyncClient:
                 print("Waiting for operation to complete...")
 
                 response = operation.result()
+
+                # Handle the response
                 print(response)
 
         Args:
@@ -579,7 +583,7 @@ class OsConfigZonalServiceAsyncClient:
                 # Make the request
                 response = client.get_os_policy_assignment(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -686,6 +690,8 @@ class OsConfigZonalServiceAsyncClient:
 
                 # Make the request
                 page_result = client.list_os_policy_assignments(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -786,6 +792,8 @@ class OsConfigZonalServiceAsyncClient:
 
                 # Make the request
                 page_result = client.list_os_policy_assignment_revisions(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -903,6 +911,8 @@ class OsConfigZonalServiceAsyncClient:
                 print("Waiting for operation to complete...")
 
                 response = operation.result()
+
+                # Handle the response
                 print(response)
 
         Args:
@@ -1017,7 +1027,7 @@ class OsConfigZonalServiceAsyncClient:
                 # Make the request
                 response = client.get_instance_os_policies_compliance(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1135,6 +1145,8 @@ class OsConfigZonalServiceAsyncClient:
 
                 # Make the request
                 page_result = client.list_instance_os_policies_compliances(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -1244,7 +1256,7 @@ class OsConfigZonalServiceAsyncClient:
                 # Make the request
                 response = client.get_inventory(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1350,6 +1362,8 @@ class OsConfigZonalServiceAsyncClient:
 
                 # Make the request
                 page_result = client.list_inventories(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
@@ -1460,7 +1474,7 @@ class OsConfigZonalServiceAsyncClient:
                 # Make the request
                 response = client.get_vulnerability_report(request=request)
 
-                # Handle response
+                # Handle the response
                 print(response)
 
         Args:
@@ -1562,6 +1576,8 @@ class OsConfigZonalServiceAsyncClient:
 
                 # Make the request
                 page_result = client.list_vulnerability_reports(request=request)
+
+                # Handle the response
                 for response in page_result:
                     print(response)
 
