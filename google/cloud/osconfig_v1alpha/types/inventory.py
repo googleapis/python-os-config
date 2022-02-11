@@ -423,12 +423,10 @@ class Inventory(proto.Message):
         )
 
     class WindowsApplication(proto.Message):
-        r"""Contains information about a Windows application as retrieved from
-        the Windows Registry. For more information about these fields, see
-
-        `Windows Installer Properties for the Uninstall
-        Registry <https://docs.microsoft.com/en-us/windows/win32/msi/uninstall-registry-key>`__\ {:
-        class="external" }
+        r"""Contains information about a Windows application that is
+        retrieved from the Windows Registry. For more information about
+        these fields, see:
+        https://docs.microsoft.com/en-us/windows/win32/msi/uninstall-registry-key
 
         Attributes:
             display_name (str):
@@ -495,12 +493,10 @@ class ListInventoriesRequest(proto.Message):
             Required. The parent resource name.
 
             Format:
-            ``projects/{project}/locations/{location}/instances/{instance}``
+            ``projects/{project}/locations/{location}/instances/-``
 
             For ``{project}``, either ``project-number`` or
-            ``project-id`` can be provided. For ``{instance}``, only
-            hyphen or dash character is supported to list inventories
-            across VMs.
+            ``project-id`` can be provided.
         view (google.cloud.osconfig_v1alpha.types.InventoryView):
             Inventory view indicating what information
             should be included in the inventory resource. If

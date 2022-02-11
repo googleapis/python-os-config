@@ -32,6 +32,12 @@ from .inventory import (
     InventoryView,
 )
 from .os_policy import OSPolicy
+from .os_policy_assignment_reports import (
+    GetOSPolicyAssignmentReportRequest,
+    ListOSPolicyAssignmentReportsRequest,
+    ListOSPolicyAssignmentReportsResponse,
+    OSPolicyAssignmentReport,
+)
 from .os_policy_assignments import (
     CreateOSPolicyAssignmentRequest,
     DeleteOSPolicyAssignmentRequest,
@@ -67,6 +73,10 @@ __all__ = (
     "ListInventoriesResponse",
     "InventoryView",
     "OSPolicy",
+    "GetOSPolicyAssignmentReportRequest",
+    "ListOSPolicyAssignmentReportsRequest",
+    "ListOSPolicyAssignmentReportsResponse",
+    "OSPolicyAssignmentReport",
     "CreateOSPolicyAssignmentRequest",
     "DeleteOSPolicyAssignmentRequest",
     "GetOSPolicyAssignmentRequest",
