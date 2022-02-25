@@ -10,8 +10,8 @@
           "shortName": "CreateOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_create_os_policy_assignment_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_CreateOSPolicyAssignment_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_create_os_policy_assignment_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_CreateOSPolicyAssignment_async",
       "segments": [
         {
           "end": 58,
@@ -54,8 +54,8 @@
           "shortName": "CreateOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_create_os_policy_assignment_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_CreateOSPolicyAssignment_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_create_os_policy_assignment_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_CreateOSPolicyAssignment_sync",
       "segments": [
         {
           "end": 58,
@@ -99,8 +99,8 @@
           "shortName": "DeleteOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_delete_os_policy_assignment_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_DeleteOSPolicyAssignment_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_delete_os_policy_assignment_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_DeleteOSPolicyAssignment_async",
       "segments": [
         {
           "end": 48,
@@ -143,8 +143,8 @@
           "shortName": "DeleteOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_delete_os_policy_assignment_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_DeleteOSPolicyAssignment_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_delete_os_policy_assignment_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_DeleteOSPolicyAssignment_sync",
       "segments": [
         {
           "end": 48,
@@ -188,8 +188,8 @@
           "shortName": "GetInstanceOSPoliciesCompliance"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_instance_os_policies_compliance_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetInstanceOSPoliciesCompliance_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_instance_os_policies_compliance_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetInstanceOSPoliciesCompliance_async",
       "segments": [
         {
           "end": 44,
@@ -232,8 +232,8 @@
           "shortName": "GetInstanceOSPoliciesCompliance"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_instance_os_policies_compliance_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetInstanceOSPoliciesCompliance_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_instance_os_policies_compliance_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetInstanceOSPoliciesCompliance_sync",
       "segments": [
         {
           "end": 44,
@@ -277,8 +277,8 @@
           "shortName": "GetInventory"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_inventory_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetInventory_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_inventory_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetInventory_async",
       "segments": [
         {
           "end": 44,
@@ -321,8 +321,8 @@
           "shortName": "GetInventory"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_inventory_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetInventory_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_inventory_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetInventory_sync",
       "segments": [
         {
           "end": 44,
@@ -366,8 +366,8 @@
           "shortName": "GetOSPolicyAssignmentReport"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_os_policy_assignment_report_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetOSPolicyAssignmentReport_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_os_policy_assignment_report_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetOSPolicyAssignmentReport_async",
       "segments": [
         {
           "end": 44,
@@ -410,8 +410,8 @@
           "shortName": "GetOSPolicyAssignmentReport"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_os_policy_assignment_report_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetOSPolicyAssignmentReport_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_os_policy_assignment_report_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetOSPolicyAssignmentReport_sync",
       "segments": [
         {
           "end": 44,
@@ -455,8 +455,8 @@
           "shortName": "GetOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_os_policy_assignment_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetOSPolicyAssignment_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_os_policy_assignment_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetOSPolicyAssignment_async",
       "segments": [
         {
           "end": 44,
@@ -499,8 +499,8 @@
           "shortName": "GetOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_os_policy_assignment_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetOSPolicyAssignment_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_os_policy_assignment_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetOSPolicyAssignment_sync",
       "segments": [
         {
           "end": 44,
@@ -544,8 +544,8 @@
           "shortName": "GetVulnerabilityReport"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_vulnerability_report_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetVulnerabilityReport_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_vulnerability_report_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetVulnerabilityReport_async",
       "segments": [
         {
           "end": 44,
@@ -588,8 +588,8 @@
           "shortName": "GetVulnerabilityReport"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_get_vulnerability_report_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_GetVulnerabilityReport_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_get_vulnerability_report_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_GetVulnerabilityReport_sync",
       "segments": [
         {
           "end": 44,
@@ -633,8 +633,8 @@
           "shortName": "ListInstanceOSPoliciesCompliances"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_instance_os_policies_compliances_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListInstanceOSPoliciesCompliances_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_instance_os_policies_compliances_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListInstanceOSPoliciesCompliances_async",
       "segments": [
         {
           "end": 45,
@@ -677,8 +677,8 @@
           "shortName": "ListInstanceOSPoliciesCompliances"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_instance_os_policies_compliances_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListInstanceOSPoliciesCompliances_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_instance_os_policies_compliances_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListInstanceOSPoliciesCompliances_sync",
       "segments": [
         {
           "end": 45,
@@ -722,8 +722,8 @@
           "shortName": "ListInventories"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_inventories_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListInventories_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_inventories_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListInventories_async",
       "segments": [
         {
           "end": 45,
@@ -766,8 +766,8 @@
           "shortName": "ListInventories"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_inventories_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListInventories_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_inventories_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListInventories_sync",
       "segments": [
         {
           "end": 45,
@@ -811,8 +811,8 @@
           "shortName": "ListOSPolicyAssignmentReports"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_os_policy_assignment_reports_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListOSPolicyAssignmentReports_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_os_policy_assignment_reports_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListOSPolicyAssignmentReports_async",
       "segments": [
         {
           "end": 45,
@@ -855,8 +855,8 @@
           "shortName": "ListOSPolicyAssignmentReports"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_os_policy_assignment_reports_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListOSPolicyAssignmentReports_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_os_policy_assignment_reports_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListOSPolicyAssignmentReports_sync",
       "segments": [
         {
           "end": 45,
@@ -900,8 +900,8 @@
           "shortName": "ListOSPolicyAssignmentRevisions"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_os_policy_assignment_revisions_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListOSPolicyAssignmentRevisions_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_os_policy_assignment_revisions_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListOSPolicyAssignmentRevisions_async",
       "segments": [
         {
           "end": 45,
@@ -944,8 +944,8 @@
           "shortName": "ListOSPolicyAssignmentRevisions"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_os_policy_assignment_revisions_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListOSPolicyAssignmentRevisions_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_os_policy_assignment_revisions_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListOSPolicyAssignmentRevisions_sync",
       "segments": [
         {
           "end": 45,
@@ -989,8 +989,8 @@
           "shortName": "ListOSPolicyAssignments"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_os_policy_assignments_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListOSPolicyAssignments_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_os_policy_assignments_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListOSPolicyAssignments_async",
       "segments": [
         {
           "end": 45,
@@ -1033,8 +1033,8 @@
           "shortName": "ListOSPolicyAssignments"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_os_policy_assignments_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListOSPolicyAssignments_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_os_policy_assignments_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListOSPolicyAssignments_sync",
       "segments": [
         {
           "end": 45,
@@ -1078,8 +1078,8 @@
           "shortName": "ListVulnerabilityReports"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_vulnerability_reports_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListVulnerabilityReports_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_vulnerability_reports_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListVulnerabilityReports_async",
       "segments": [
         {
           "end": 45,
@@ -1122,8 +1122,8 @@
           "shortName": "ListVulnerabilityReports"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_list_vulnerability_reports_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_ListVulnerabilityReports_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_list_vulnerability_reports_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_ListVulnerabilityReports_sync",
       "segments": [
         {
           "end": 45,
@@ -1167,8 +1167,8 @@
           "shortName": "UpdateOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_update_os_policy_assignment_async.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_UpdateOSPolicyAssignment_async",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_update_os_policy_assignment_async.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_UpdateOSPolicyAssignment_async",
       "segments": [
         {
           "end": 56,
@@ -1211,8 +1211,8 @@
           "shortName": "UpdateOSPolicyAssignment"
         }
       },
-      "file": "osconfig_generated_osconfig_v1alpha_os_config_zonal_service_update_os_policy_assignment_sync.py",
-      "regionTag": "osconfig_generated_osconfig_v1alpha_OsConfigZonalService_UpdateOSPolicyAssignment_sync",
+      "file": "osconfig_v1alpha_generated_os_config_zonal_service_update_os_policy_assignment_sync.py",
+      "regionTag": "osconfig_v1alpha_generated_OsConfigZonalService_UpdateOSPolicyAssignment_sync",
       "segments": [
         {
           "end": 56,

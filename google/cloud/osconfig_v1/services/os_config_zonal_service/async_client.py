@@ -268,7 +268,7 @@ class OsConfigZonalServiceAsyncClient:
         projects.locations.osPolicyAssignments.operations.cancel <https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel>`__.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -433,7 +433,7 @@ class OsConfigZonalServiceAsyncClient:
         projects.locations.osPolicyAssignments.operations.cancel <https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel>`__.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -572,7 +572,7 @@ class OsConfigZonalServiceAsyncClient:
         revision ID in the ``name`` parameter.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -680,7 +680,7 @@ class OsConfigZonalServiceAsyncClient:
         returned.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -782,7 +782,7 @@ class OsConfigZonalServiceAsyncClient:
         OS policy assignment.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -897,7 +897,7 @@ class OsConfigZonalServiceAsyncClient:
         projects.locations.osPolicyAssignments.operations.cancel <https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel>`__.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1016,7 +1016,7 @@ class OsConfigZonalServiceAsyncClient:
         specified Compute Engine VM instance.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1122,7 +1122,7 @@ class OsConfigZonalServiceAsyncClient:
         Engine VM instances in the specified zone.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1251,7 +1251,7 @@ class OsConfigZonalServiceAsyncClient:
         no associated inventory, the message ``NOT_FOUND`` is returned.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1358,7 +1358,7 @@ class OsConfigZonalServiceAsyncClient:
         specified zone.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1467,7 +1467,7 @@ class OsConfigZonalServiceAsyncClient:
         vulnerability reports associated with them.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1570,7 +1570,7 @@ class OsConfigZonalServiceAsyncClient:
         the specified zone.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
