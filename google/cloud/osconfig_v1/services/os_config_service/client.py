@@ -448,8 +448,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         job.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -530,8 +529,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         of completed jobs.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -630,8 +628,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         Canceled patch jobs cannot be restarted.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -708,8 +705,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> pagers.ListPatchJobsPager:
         r"""Get a list of patch jobs.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -807,8 +803,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> pagers.ListPatchJobInstanceDetailsPager:
         r"""Get a list of instance details for a given patch job.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -912,8 +907,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> patch_deployments.PatchDeployment:
         r"""Create an OS Config patch deployment.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1033,8 +1027,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> patch_deployments.PatchDeployment:
         r"""Get an OS Config patch deployment.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1128,8 +1121,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> pagers.ListPatchDeploymentsPager:
         r"""Get a page of OS Config patch deployments.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1229,8 +1221,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> None:
         r"""Delete an OS Config patch deployment.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1311,8 +1302,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
     ) -> patch_deployments.PatchDeployment:
         r"""Update an OS Config patch deployment.
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1420,8 +1410,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         jobs.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1518,8 +1507,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         patch jobs.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 

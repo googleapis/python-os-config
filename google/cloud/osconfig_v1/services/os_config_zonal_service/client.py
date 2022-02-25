@@ -534,8 +534,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         projects.locations.osPolicyAssignments.operations.cancel <https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel>`__.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -704,8 +703,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         projects.locations.osPolicyAssignments.operations.cancel <https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel>`__.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -848,8 +846,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         revision ID in the ``name`` parameter.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -957,8 +954,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         returned.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1064,8 +1060,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         OS policy assignment.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1186,8 +1181,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         projects.locations.osPolicyAssignments.operations.cancel <https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel>`__.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1310,8 +1304,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         specified Compute Engine VM instance.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1421,8 +1414,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         Engine VM instances in the specified zone.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1555,8 +1547,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         no associated inventory, the message ``NOT_FOUND`` is returned.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1663,8 +1654,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         specified zone.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1773,8 +1763,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         vulnerability reports associated with them.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1877,8 +1866,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
         the specified zone.
 
 
-
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 

@@ -228,7 +228,7 @@ class OsConfigServiceAsyncClient:
         job.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -308,7 +308,7 @@ class OsConfigServiceAsyncClient:
         of completed jobs.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -407,7 +407,7 @@ class OsConfigServiceAsyncClient:
         Canceled patch jobs cannot be restarted.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -483,7 +483,7 @@ class OsConfigServiceAsyncClient:
     ) -> pagers.ListPatchJobsAsyncPager:
         r"""Get a list of patch jobs.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -581,7 +581,7 @@ class OsConfigServiceAsyncClient:
     ) -> pagers.ListPatchJobInstanceDetailsAsyncPager:
         r"""Get a list of instance details for a given patch job.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -683,7 +683,7 @@ class OsConfigServiceAsyncClient:
     ) -> patch_deployments.PatchDeployment:
         r"""Create an OS Config patch deployment.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -803,7 +803,7 @@ class OsConfigServiceAsyncClient:
     ) -> patch_deployments.PatchDeployment:
         r"""Get an OS Config patch deployment.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -897,7 +897,7 @@ class OsConfigServiceAsyncClient:
     ) -> pagers.ListPatchDeploymentsAsyncPager:
         r"""Get a page of OS Config patch deployments.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -997,7 +997,7 @@ class OsConfigServiceAsyncClient:
     ) -> None:
         r"""Delete an OS Config patch deployment.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1078,7 +1078,7 @@ class OsConfigServiceAsyncClient:
     ) -> patch_deployments.PatchDeployment:
         r"""Update an OS Config patch deployment.
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1186,7 +1186,7 @@ class OsConfigServiceAsyncClient:
         jobs.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
@@ -1283,7 +1283,7 @@ class OsConfigServiceAsyncClient:
         patch jobs.
 
 
-        .. code-block::
+        .. code-block:: python
 
             from google.cloud import osconfig_v1
 
