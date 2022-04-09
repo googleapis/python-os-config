@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -581,7 +581,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_create_os_policy_assignment():
                 # Create a client
@@ -755,7 +755,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_update_os_policy_assignment():
                 # Create a client
@@ -903,7 +903,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_get_os_policy_assignment():
                 # Create a client
@@ -1016,7 +1016,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_list_os_policy_assignments():
                 # Create a client
@@ -1130,7 +1130,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_list_os_policy_assignment_revisions():
                 # Create a client
@@ -1259,7 +1259,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_delete_os_policy_assignment():
                 # Create a client
@@ -1387,7 +1387,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_get_os_policy_assignment_report():
                 # Create a client
@@ -1502,7 +1502,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_list_os_policy_assignment_reports():
                 # Create a client
@@ -1643,7 +1643,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_get_inventory():
                 # Create a client
@@ -1755,7 +1755,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_list_inventories():
                 # Create a client
@@ -1872,7 +1872,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_get_vulnerability_report():
                 # Create a client
@@ -1980,7 +1980,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1
+                    from google.cloud import osconfig_v1
 
             def sample_list_vulnerability_reports():
                 # Create a client

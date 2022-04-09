@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 import warnings
 
@@ -606,7 +606,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_create_os_policy_assignment():
                 # Create a client
@@ -780,7 +780,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_update_os_policy_assignment():
                 # Create a client
@@ -928,7 +928,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_get_os_policy_assignment():
                 # Create a client
@@ -1041,7 +1041,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_list_os_policy_assignments():
                 # Create a client
@@ -1155,7 +1155,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_list_os_policy_assignment_revisions():
                 # Create a client
@@ -1284,7 +1284,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_delete_os_policy_assignment():
                 # Create a client
@@ -1412,7 +1412,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_get_instance_os_policies_compliance():
                 # Create a client
@@ -1548,7 +1548,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_list_instance_os_policies_compliances():
                 # Create a client
@@ -1678,7 +1678,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_get_os_policy_assignment_report():
                 # Create a client
@@ -1793,7 +1793,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_list_os_policy_assignment_reports():
                 # Create a client
@@ -1934,7 +1934,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_get_inventory():
                 # Create a client
@@ -2046,7 +2046,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_list_inventories():
                 # Create a client
@@ -2163,7 +2163,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_get_vulnerability_report():
                 # Create a client
@@ -2271,7 +2271,7 @@ class OsConfigZonalServiceClient(metaclass=OsConfigZonalServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import osconfig_v1alpha
+                    from google.cloud import osconfig_v1alpha
 
             def sample_list_vulnerability_reports():
                 # Create a client
