@@ -4417,7 +4417,6 @@ def test_os_config_service_transport_auth_adc(transport_class):
     [
         transports.OsConfigServiceGrpcTransport,
         transports.OsConfigServiceGrpcAsyncIOTransport,
-        transports.OsConfigServiceRestTransport,
     ],
 )
 def test_os_config_service_transport_auth_gdch_credentials(transport_class):

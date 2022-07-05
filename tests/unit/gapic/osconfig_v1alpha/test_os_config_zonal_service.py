@@ -5745,7 +5745,6 @@ def test_os_config_zonal_service_transport_auth_adc(transport_class):
     [
         transports.OsConfigZonalServiceGrpcTransport,
         transports.OsConfigZonalServiceGrpcAsyncIOTransport,
-        transports.OsConfigZonalServiceRestTransport,
     ],
 )
 def test_os_config_zonal_service_transport_auth_gdch_credentials(transport_class):
