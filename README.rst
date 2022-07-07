@@ -3,7 +3,7 @@ Python Client for OS Config API
 
 |stable| |pypi| |versions|
 
-`OS Config API`_: 
+`OS Config API`_: provides OS management tools that can be used for patch management, patch compliance, and configuration management on VM instances.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
