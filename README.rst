@@ -14,9 +14,9 @@ Python Client for OS Config API
    :target: https://pypi.org/project/google-cloud-os-config/
 .. |versions| image:: https://img.shields.io/pypi/pyversions/google-cloud-os-config.svg
    :target: https://pypi.org/project/google-cloud-os-config/
-.. _OS Config API: https://cloud.google.com/compute/docs/osconfig/
+.. _OS Config API: https://cloud.google.com/compute/docs/manage-os
 .. _Client Library Documentation: https://cloud.google.com/python/docs/reference/osconfig/latest
-.. _Product Documentation:  https://cloud.google.com/compute/docs/osconfig/
+.. _Product Documentation:  https://cloud.google.com/compute/docs/manage-os
 
 Quick Start
 -----------
@@ -30,7 +30,7 @@ In order to use this library, you first need to go through the following steps:
 
 .. _Select or create a Cloud Platform project.: https://console.cloud.google.com/project
 .. _Enable billing for your project.: https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project
-.. _Enable the OS Config API.:  https://cloud.google.com/compute/docs/osconfig/
+.. _Enable the OS Config API.:  https://cloud.google.com/compute/docs/manage-os
 .. _Setup Authentication.: https://googleapis.dev/python/google-api-core/latest/auth.html
 
 Installation
@@ -99,5 +99,5 @@ Next Steps
 -  View this `README`_ to see the full list of Cloud
    APIs that we cover.
 
-.. _OS Config API Product documentation:  https://cloud.google.com/compute/docs/osconfig/
+.. _OS Config API Product documentation:  https://cloud.google.com/compute/docs/manage-os
 .. _README: https://github.com/googleapis/google-cloud-python/blob/main/README.rst
