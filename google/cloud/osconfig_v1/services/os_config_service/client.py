@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -62,7 +73,7 @@ class OsConfigServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[OsConfigServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -378,7 +389,7 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, OsConfigServiceTransport, None] = None,
+        transport: Optional[Union[str, OsConfigServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -476,10 +487,10 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def execute_patch_job(
         self,
-        request: Union[patch_jobs.ExecutePatchJobRequest, dict] = None,
+        request: Optional[Union[patch_jobs.ExecutePatchJobRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_jobs.PatchJob:
         r"""Patch VM instances by creating and running a patch
@@ -566,11 +577,11 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def get_patch_job(
         self,
-        request: Union[patch_jobs.GetPatchJobRequest, dict] = None,
+        request: Optional[Union[patch_jobs.GetPatchJobRequest, dict]] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_jobs.PatchJob:
         r"""Get the patch job. This can be used to track the
@@ -678,10 +689,10 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def cancel_patch_job(
         self,
-        request: Union[patch_jobs.CancelPatchJobRequest, dict] = None,
+        request: Optional[Union[patch_jobs.CancelPatchJobRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_jobs.PatchJob:
         r"""Cancel a patch job. The patch job must be active.
@@ -767,11 +778,11 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def list_patch_jobs(
         self,
-        request: Union[patch_jobs.ListPatchJobsRequest, dict] = None,
+        request: Optional[Union[patch_jobs.ListPatchJobsRequest, dict]] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPatchJobsPager:
         r"""Get a list of patch jobs.
@@ -880,11 +891,13 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def list_patch_job_instance_details(
         self,
-        request: Union[patch_jobs.ListPatchJobInstanceDetailsRequest, dict] = None,
+        request: Optional[
+            Union[patch_jobs.ListPatchJobInstanceDetailsRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPatchJobInstanceDetailsPager:
         r"""Get a list of instance details for a given patch job.
@@ -997,13 +1010,15 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def create_patch_deployment(
         self,
-        request: Union[patch_deployments.CreatePatchDeploymentRequest, dict] = None,
+        request: Optional[
+            Union[patch_deployments.CreatePatchDeploymentRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
-        patch_deployment: patch_deployments.PatchDeployment = None,
-        patch_deployment_id: str = None,
+        parent: Optional[str] = None,
+        patch_deployment: Optional[patch_deployments.PatchDeployment] = None,
+        patch_deployment_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_deployments.PatchDeployment:
         r"""Create an OS Config patch deployment.
@@ -1131,11 +1146,13 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def get_patch_deployment(
         self,
-        request: Union[patch_deployments.GetPatchDeploymentRequest, dict] = None,
+        request: Optional[
+            Union[patch_deployments.GetPatchDeploymentRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_deployments.PatchDeployment:
         r"""Get an OS Config patch deployment.
@@ -1237,11 +1254,13 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def list_patch_deployments(
         self,
-        request: Union[patch_deployments.ListPatchDeploymentsRequest, dict] = None,
+        request: Optional[
+            Union[patch_deployments.ListPatchDeploymentsRequest, dict]
+        ] = None,
         *,
-        parent: str = None,
+        parent: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListPatchDeploymentsPager:
         r"""Get a page of OS Config patch deployments.
@@ -1352,11 +1371,13 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def delete_patch_deployment(
         self,
-        request: Union[patch_deployments.DeletePatchDeploymentRequest, dict] = None,
+        request: Optional[
+            Union[patch_deployments.DeletePatchDeploymentRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Delete an OS Config patch deployment.
@@ -1442,12 +1463,14 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def update_patch_deployment(
         self,
-        request: Union[patch_deployments.UpdatePatchDeploymentRequest, dict] = None,
+        request: Optional[
+            Union[patch_deployments.UpdatePatchDeploymentRequest, dict]
+        ] = None,
         *,
-        patch_deployment: patch_deployments.PatchDeployment = None,
-        update_mask: field_mask_pb2.FieldMask = None,
+        patch_deployment: Optional[patch_deployments.PatchDeployment] = None,
+        update_mask: Optional[field_mask_pb2.FieldMask] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_deployments.PatchDeployment:
         r"""Update an OS Config patch deployment.
@@ -1560,11 +1583,13 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def pause_patch_deployment(
         self,
-        request: Union[patch_deployments.PausePatchDeploymentRequest, dict] = None,
+        request: Optional[
+            Union[patch_deployments.PausePatchDeploymentRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_deployments.PatchDeployment:
         r"""Change state of patch deployment to "PAUSED".
@@ -1668,11 +1693,13 @@ class OsConfigServiceClient(metaclass=OsConfigServiceClientMeta):
 
     def resume_patch_deployment(
         self,
-        request: Union[patch_deployments.ResumePatchDeploymentRequest, dict] = None,
+        request: Optional[
+            Union[patch_deployments.ResumePatchDeploymentRequest, dict]
+        ] = None,
         *,
-        name: str = None,
+        name: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> patch_deployments.PatchDeployment:
         r"""Change state of patch deployment back to "ACTIVE".
