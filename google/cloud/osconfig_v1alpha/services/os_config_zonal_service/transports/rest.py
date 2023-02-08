@@ -14,25 +14,27 @@
 # limitations under the License.
 #
 
-from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
-import grpc  # type: ignore
-from google.auth.transport.grpc import SslCredentials  # type: ignore
-from google.auth import credentials as ga_credentials  # type: ignore
-from google.api_core import exceptions as core_exceptions
-from google.api_core import retry as retries
-from google.api_core import rest_helpers
-from google.api_core import rest_streaming
-from google.api_core import path_template
-from google.api_core import gapic_v1
-
-from google.protobuf import json_format
-from google.api_core import operations_v1
-from requests import __version__ as requests_version
 import dataclasses
+import json  # type: ignore
 import re
 from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
+
+from google.api_core import (
+    gapic_v1,
+    operations_v1,
+    path_template,
+    rest_helpers,
+    rest_streaming,
+)
+from google.api_core import exceptions as core_exceptions
+from google.api_core import retry as retries
+from google.auth import credentials as ga_credentials  # type: ignore
+from google.auth.transport.grpc import SslCredentials  # type: ignore
+from google.auth.transport.requests import AuthorizedSession  # type: ignore
+from google.protobuf import json_format
+import grpc  # type: ignore
+from requests import __version__ as requests_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -40,15 +42,18 @@ except AttributeError:  # pragma: NO COVER
     OptionalRetry = Union[retries.Retry, object]  # type: ignore
 
 
-from google.cloud.osconfig_v1alpha.types import instance_os_policies_compliance
-from google.cloud.osconfig_v1alpha.types import inventory
-from google.cloud.osconfig_v1alpha.types import os_policy_assignment_reports
-from google.cloud.osconfig_v1alpha.types import os_policy_assignments
-from google.cloud.osconfig_v1alpha.types import vulnerability
 from google.longrunning import operations_pb2  # type: ignore
 
-from .base import OsConfigZonalServiceTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from google.cloud.osconfig_v1alpha.types import (
+    instance_os_policies_compliance,
+    inventory,
+    os_policy_assignment_reports,
+    os_policy_assignments,
+    vulnerability,
+)
 
+from .base import DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import OsConfigZonalServiceTransport
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -189,7 +194,14 @@ class OsConfigZonalServiceRestInterceptor:
 
 
     """
-    def pre_create_os_policy_assignment(self, request: os_policy_assignments.CreateOSPolicyAssignmentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignments.CreateOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_create_os_policy_assignment(
+        self,
+        request: os_policy_assignments.CreateOSPolicyAssignmentRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignments.CreateOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for create_os_policy_assignment
 
         Override in a subclass to manipulate the request or metadata
@@ -197,7 +209,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_create_os_policy_assignment(self, response: operations_pb2.Operation) -> operations_pb2.Operation:
+    def post_create_os_policy_assignment(
+        self, response: operations_pb2.Operation
+    ) -> operations_pb2.Operation:
         """Post-rpc interceptor for create_os_policy_assignment
 
         Override in a subclass to manipulate the response
@@ -205,7 +219,14 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_delete_os_policy_assignment(self, request: os_policy_assignments.DeleteOSPolicyAssignmentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignments.DeleteOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_delete_os_policy_assignment(
+        self,
+        request: os_policy_assignments.DeleteOSPolicyAssignmentRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignments.DeleteOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for delete_os_policy_assignment
 
         Override in a subclass to manipulate the request or metadata
@@ -213,7 +234,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_delete_os_policy_assignment(self, response: operations_pb2.Operation) -> operations_pb2.Operation:
+    def post_delete_os_policy_assignment(
+        self, response: operations_pb2.Operation
+    ) -> operations_pb2.Operation:
         """Post-rpc interceptor for delete_os_policy_assignment
 
         Override in a subclass to manipulate the response
@@ -221,7 +244,15 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_instance_os_policies_compliance(self, request: instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_instance_os_policies_compliance(
+        self,
+        request: instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest,
+        Sequence[Tuple[str, str]],
+    ]:
         """Pre-rpc interceptor for get_instance_os_policies_compliance
 
         Override in a subclass to manipulate the request or metadata
@@ -229,7 +260,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_instance_os_policies_compliance(self, response: instance_os_policies_compliance.InstanceOSPoliciesCompliance) -> instance_os_policies_compliance.InstanceOSPoliciesCompliance:
+    def post_get_instance_os_policies_compliance(
+        self, response: instance_os_policies_compliance.InstanceOSPoliciesCompliance
+    ) -> instance_os_policies_compliance.InstanceOSPoliciesCompliance:
         """Post-rpc interceptor for get_instance_os_policies_compliance
 
         Override in a subclass to manipulate the response
@@ -237,7 +270,12 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_inventory(self, request: inventory.GetInventoryRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[inventory.GetInventoryRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_inventory(
+        self,
+        request: inventory.GetInventoryRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[inventory.GetInventoryRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_inventory
 
         Override in a subclass to manipulate the request or metadata
@@ -253,7 +291,14 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_os_policy_assignment(self, request: os_policy_assignments.GetOSPolicyAssignmentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignments.GetOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_os_policy_assignment(
+        self,
+        request: os_policy_assignments.GetOSPolicyAssignmentRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignments.GetOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for get_os_policy_assignment
 
         Override in a subclass to manipulate the request or metadata
@@ -261,7 +306,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_os_policy_assignment(self, response: os_policy_assignments.OSPolicyAssignment) -> os_policy_assignments.OSPolicyAssignment:
+    def post_get_os_policy_assignment(
+        self, response: os_policy_assignments.OSPolicyAssignment
+    ) -> os_policy_assignments.OSPolicyAssignment:
         """Post-rpc interceptor for get_os_policy_assignment
 
         Override in a subclass to manipulate the response
@@ -269,7 +316,15 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_os_policy_assignment_report(self, request: os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_os_policy_assignment_report(
+        self,
+        request: os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest,
+        Sequence[Tuple[str, str]],
+    ]:
         """Pre-rpc interceptor for get_os_policy_assignment_report
 
         Override in a subclass to manipulate the request or metadata
@@ -277,7 +332,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_os_policy_assignment_report(self, response: os_policy_assignment_reports.OSPolicyAssignmentReport) -> os_policy_assignment_reports.OSPolicyAssignmentReport:
+    def post_get_os_policy_assignment_report(
+        self, response: os_policy_assignment_reports.OSPolicyAssignmentReport
+    ) -> os_policy_assignment_reports.OSPolicyAssignmentReport:
         """Post-rpc interceptor for get_os_policy_assignment_report
 
         Override in a subclass to manipulate the response
@@ -285,7 +342,12 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_get_vulnerability_report(self, request: vulnerability.GetVulnerabilityReportRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[vulnerability.GetVulnerabilityReportRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_vulnerability_report(
+        self,
+        request: vulnerability.GetVulnerabilityReportRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[vulnerability.GetVulnerabilityReportRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_vulnerability_report
 
         Override in a subclass to manipulate the request or metadata
@@ -293,7 +355,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_get_vulnerability_report(self, response: vulnerability.VulnerabilityReport) -> vulnerability.VulnerabilityReport:
+    def post_get_vulnerability_report(
+        self, response: vulnerability.VulnerabilityReport
+    ) -> vulnerability.VulnerabilityReport:
         """Post-rpc interceptor for get_vulnerability_report
 
         Override in a subclass to manipulate the response
@@ -301,7 +365,15 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_instance_os_policies_compliances(self, request: instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_instance_os_policies_compliances(
+        self,
+        request: instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest,
+        Sequence[Tuple[str, str]],
+    ]:
         """Pre-rpc interceptor for list_instance_os_policies_compliances
 
         Override in a subclass to manipulate the request or metadata
@@ -309,7 +381,10 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_instance_os_policies_compliances(self, response: instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse) -> instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse:
+    def post_list_instance_os_policies_compliances(
+        self,
+        response: instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse,
+    ) -> instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse:
         """Post-rpc interceptor for list_instance_os_policies_compliances
 
         Override in a subclass to manipulate the response
@@ -317,7 +392,12 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_inventories(self, request: inventory.ListInventoriesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[inventory.ListInventoriesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_inventories(
+        self,
+        request: inventory.ListInventoriesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[inventory.ListInventoriesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_inventories
 
         Override in a subclass to manipulate the request or metadata
@@ -325,7 +405,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_inventories(self, response: inventory.ListInventoriesResponse) -> inventory.ListInventoriesResponse:
+    def post_list_inventories(
+        self, response: inventory.ListInventoriesResponse
+    ) -> inventory.ListInventoriesResponse:
         """Post-rpc interceptor for list_inventories
 
         Override in a subclass to manipulate the response
@@ -333,7 +415,15 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_os_policy_assignment_reports(self, request: os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_os_policy_assignment_reports(
+        self,
+        request: os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest,
+        Sequence[Tuple[str, str]],
+    ]:
         """Pre-rpc interceptor for list_os_policy_assignment_reports
 
         Override in a subclass to manipulate the request or metadata
@@ -341,7 +431,10 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_os_policy_assignment_reports(self, response: os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse) -> os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse:
+    def post_list_os_policy_assignment_reports(
+        self,
+        response: os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse,
+    ) -> os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse:
         """Post-rpc interceptor for list_os_policy_assignment_reports
 
         Override in a subclass to manipulate the response
@@ -349,7 +442,15 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_os_policy_assignment_revisions(self, request: os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_os_policy_assignment_revisions(
+        self,
+        request: os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest,
+        Sequence[Tuple[str, str]],
+    ]:
         """Pre-rpc interceptor for list_os_policy_assignment_revisions
 
         Override in a subclass to manipulate the request or metadata
@@ -357,7 +458,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_os_policy_assignment_revisions(self, response: os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse) -> os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse:
+    def post_list_os_policy_assignment_revisions(
+        self, response: os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse
+    ) -> os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse:
         """Post-rpc interceptor for list_os_policy_assignment_revisions
 
         Override in a subclass to manipulate the response
@@ -365,7 +468,14 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_os_policy_assignments(self, request: os_policy_assignments.ListOSPolicyAssignmentsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignments.ListOSPolicyAssignmentsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_os_policy_assignments(
+        self,
+        request: os_policy_assignments.ListOSPolicyAssignmentsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignments.ListOSPolicyAssignmentsRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for list_os_policy_assignments
 
         Override in a subclass to manipulate the request or metadata
@@ -373,7 +483,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_os_policy_assignments(self, response: os_policy_assignments.ListOSPolicyAssignmentsResponse) -> os_policy_assignments.ListOSPolicyAssignmentsResponse:
+    def post_list_os_policy_assignments(
+        self, response: os_policy_assignments.ListOSPolicyAssignmentsResponse
+    ) -> os_policy_assignments.ListOSPolicyAssignmentsResponse:
         """Post-rpc interceptor for list_os_policy_assignments
 
         Override in a subclass to manipulate the response
@@ -381,7 +493,14 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_vulnerability_reports(self, request: vulnerability.ListVulnerabilityReportsRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[vulnerability.ListVulnerabilityReportsRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_vulnerability_reports(
+        self,
+        request: vulnerability.ListVulnerabilityReportsRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        vulnerability.ListVulnerabilityReportsRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for list_vulnerability_reports
 
         Override in a subclass to manipulate the request or metadata
@@ -389,7 +508,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_vulnerability_reports(self, response: vulnerability.ListVulnerabilityReportsResponse) -> vulnerability.ListVulnerabilityReportsResponse:
+    def post_list_vulnerability_reports(
+        self, response: vulnerability.ListVulnerabilityReportsResponse
+    ) -> vulnerability.ListVulnerabilityReportsResponse:
         """Post-rpc interceptor for list_vulnerability_reports
 
         Override in a subclass to manipulate the response
@@ -397,7 +518,14 @@ class OsConfigZonalServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_update_os_policy_assignment(self, request: os_policy_assignments.UpdateOSPolicyAssignmentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[os_policy_assignments.UpdateOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_update_os_policy_assignment(
+        self,
+        request: os_policy_assignments.UpdateOSPolicyAssignmentRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        os_policy_assignments.UpdateOSPolicyAssignmentRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for update_os_policy_assignment
 
         Override in a subclass to manipulate the request or metadata
@@ -405,7 +533,9 @@ class OsConfigZonalServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_update_os_policy_assignment(self, response: operations_pb2.Operation) -> operations_pb2.Operation:
+    def post_update_os_policy_assignment(
+        self, response: operations_pb2.Operation
+    ) -> operations_pb2.Operation:
         """Post-rpc interceptor for update_os_policy_assignment
 
         Override in a subclass to manipulate the response
@@ -438,20 +568,21 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'osconfig.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[OsConfigZonalServiceRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "osconfig.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[OsConfigZonalServiceRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -490,7 +621,9 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -501,10 +634,11 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         self._operations_client: Optional[operations_v1.AbstractOperationsClient] = None
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
@@ -520,18 +654,20 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         """
         # Only create a new client if we do not already have one.
         if self._operations_client is None:
-            http_options: Dict[str, List[Dict[str, str]]] = {
-            }
+            http_options: Dict[str, List[Dict[str, str]]] = {}
 
             rest_transport = operations_v1.OperationsRestTransport(
-                    host=self._host,
-                    # use the credentials which are saved
-                    credentials=self._credentials,
-                    scopes=self._scopes,
-                    http_options=http_options,
-                    path_prefix="v1alpha")
+                host=self._host,
+                # use the credentials which are saved
+                credentials=self._credentials,
+                scopes=self._scopes,
+                http_options=http_options,
+                path_prefix="v1alpha",
+            )
 
-            self._operations_client = operations_v1.AbstractOperationsClient(transport=rest_transport)
+            self._operations_client = operations_v1.AbstractOperationsClient(
+                transport=rest_transport
+            )
 
         # Return the client from cache.
         return self._operations_client
@@ -540,81 +676,95 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("CreateOSPolicyAssignment")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-            "osPolicyAssignmentId" : "",        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {
+            "osPolicyAssignmentId": "",
+        }
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignments.CreateOSPolicyAssignmentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> operations_pb2.Operation:
+        def __call__(
+            self,
+            request: os_policy_assignments.CreateOSPolicyAssignmentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> operations_pb2.Operation:
             r"""Call the create os policy
-        assignment method over HTTP.
+            assignment method over HTTP.
 
-            Args:
-                request (~.os_policy_assignments.CreateOSPolicyAssignmentRequest):
-                    The request object. A request message to create an OS
-                policy assignment
+                Args:
+                    request (~.os_policy_assignments.CreateOSPolicyAssignmentRequest):
+                        The request object. A request message to create an OS
+                    policy assignment
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.operations_pb2.Operation:
-                    This resource represents a
-                long-running operation that is the
-                result of a network API call.
+                Returns:
+                    ~.operations_pb2.Operation:
+                        This resource represents a
+                    long-running operation that is the
+                    result of a network API call.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1alpha/{parent=projects/*/locations/*}/osPolicyAssignments',
-                'body': 'os_policy_assignment',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1alpha/{parent=projects/*/locations/*}/osPolicyAssignments",
+                    "body": "os_policy_assignment",
+                },
             ]
-            request, metadata = self._interceptor.pre_create_os_policy_assignment(request, metadata)
-            pb_request = os_policy_assignments.CreateOSPolicyAssignmentRequest.pb(request)
+            request, metadata = self._interceptor.pre_create_os_policy_assignment(
+                request, metadata
+            )
+            pb_request = os_policy_assignments.CreateOSPolicyAssignmentRequest.pb(
+                request
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -631,72 +781,84 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("DeleteOSPolicyAssignment")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignments.DeleteOSPolicyAssignmentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> operations_pb2.Operation:
+        def __call__(
+            self,
+            request: os_policy_assignments.DeleteOSPolicyAssignmentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> operations_pb2.Operation:
             r"""Call the delete os policy
-        assignment method over HTTP.
+            assignment method over HTTP.
 
-            Args:
-                request (~.os_policy_assignments.DeleteOSPolicyAssignmentRequest):
-                    The request object. A request message for deleting a OS
-                policy assignment.
+                Args:
+                    request (~.os_policy_assignments.DeleteOSPolicyAssignmentRequest):
+                        The request object. A request message for deleting a OS
+                    policy assignment.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.operations_pb2.Operation:
-                    This resource represents a
-                long-running operation that is the
-                result of a network API call.
+                Returns:
+                    ~.operations_pb2.Operation:
+                        This resource represents a
+                    long-running operation that is the
+                    result of a network API call.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'delete',
-                'uri': '/v1alpha/{name=projects/*/locations/*/osPolicyAssignments/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "delete",
+                    "uri": "/v1alpha/{name=projects/*/locations/*/osPolicyAssignments/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_delete_os_policy_assignment(request, metadata)
-            pb_request = os_policy_assignments.DeleteOSPolicyAssignmentRequest.pb(request)
+            request, metadata = self._interceptor.pre_delete_os_policy_assignment(
+                request, metadata
+            )
+            pb_request = os_policy_assignments.DeleteOSPolicyAssignmentRequest.pb(
+                request
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -713,85 +875,100 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("GetInstanceOSPoliciesCompliance")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> instance_os_policies_compliance.InstanceOSPoliciesCompliance:
+        def __call__(
+            self,
+            request: instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> instance_os_policies_compliance.InstanceOSPoliciesCompliance:
             r"""Call the get instance os policies
-        compliance method over HTTP.
+            compliance method over HTTP.
 
-            Args:
-                request (~.instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest):
-                    The request object. A request message for getting OS
-                policies compliance data for the given
-                Compute Engine VM instance.
+                Args:
+                    request (~.instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest):
+                        The request object. A request message for getting OS
+                    policies compliance data for the given
+                    Compute Engine VM instance.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.instance_os_policies_compliance.InstanceOSPoliciesCompliance:
-                    This API resource represents the OS policies compliance
-                data for a Compute Engine virtual machine (VM) instance
-                at a given point in time.
+                Returns:
+                    ~.instance_os_policies_compliance.InstanceOSPoliciesCompliance:
+                        This API resource represents the OS policies compliance
+                    data for a Compute Engine virtual machine (VM) instance
+                    at a given point in time.
 
-                A Compute Engine VM can have multiple OS policy
-                assignments, and each assignment can have multiple OS
-                policies. As a result, multiple OS policies could be
-                applied to a single VM.
+                    A Compute Engine VM can have multiple OS policy
+                    assignments, and each assignment can have multiple OS
+                    policies. As a result, multiple OS policies could be
+                    applied to a single VM.
 
-                You can use this API resource to determine both the
-                compliance state of your VM as well as the compliance
-                state of an individual OS policy.
+                    You can use this API resource to determine both the
+                    compliance state of your VM as well as the compliance
+                    state of an individual OS policy.
 
-                For more information, see `View
-                compliance <https://cloud.google.com/compute/docs/os-configuration-management/view-compliance>`__.
+                    For more information, see `View
+                    compliance <https://cloud.google.com/compute/docs/os-configuration-management/view-compliance>`__.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{name=projects/*/locations/*/instanceOSPoliciesCompliances/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{name=projects/*/locations/*/instanceOSPoliciesCompliances/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_instance_os_policies_compliance(request, metadata)
-            pb_request = instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest.pb(request)
+            (
+                request,
+                metadata,
+            ) = self._interceptor.pre_get_instance_os_policies_compliance(
+                request, metadata
+            )
+            pb_request = instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest.pb(
+                request
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -800,7 +977,9 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
             # Return the response
             resp = instance_os_policies_compliance.InstanceOSPoliciesCompliance()
-            pb_resp = instance_os_policies_compliance.InstanceOSPoliciesCompliance.pb(resp)
+            pb_resp = instance_os_policies_compliance.InstanceOSPoliciesCompliance.pb(
+                resp
+            )
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
             resp = self._interceptor.post_get_instance_os_policies_compliance(resp)
@@ -810,19 +989,24 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("GetInventory")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: inventory.GetInventoryRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> inventory.Inventory:
+        def __call__(
+            self,
+            request: inventory.GetInventoryRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> inventory.Inventory:
             r"""Call the get inventory method over HTTP.
 
             Args:
@@ -851,37 +1035,40 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{name=projects/*/locations/*/instances/*/inventory}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{name=projects/*/locations/*/instances/*/inventory}",
+                },
             ]
             request, metadata = self._interceptor.pre_get_inventory(request, metadata)
             pb_request = inventory.GetInventoryRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -900,19 +1087,24 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("GetOSPolicyAssignment")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignments.GetOSPolicyAssignmentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> os_policy_assignments.OSPolicyAssignment:
+        def __call__(
+            self,
+            request: os_policy_assignments.GetOSPolicyAssignmentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> os_policy_assignments.OSPolicyAssignment:
             r"""Call the get os policy assignment method over HTTP.
 
             Args:
@@ -943,37 +1135,42 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{name=projects/*/locations/*/osPolicyAssignments/*}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{name=projects/*/locations/*/osPolicyAssignments/*}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_os_policy_assignment(request, metadata)
+            request, metadata = self._interceptor.pre_get_os_policy_assignment(
+                request, metadata
+            )
             pb_request = os_policy_assignments.GetOSPolicyAssignmentRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -992,71 +1189,85 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("GetOSPolicyAssignmentReport")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> os_policy_assignment_reports.OSPolicyAssignmentReport:
+        def __call__(
+            self,
+            request: os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> os_policy_assignment_reports.OSPolicyAssignmentReport:
             r"""Call the get os policy assignment
-        report method over HTTP.
+            report method over HTTP.
 
-            Args:
-                request (~.os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest):
-                    The request object. Get a report of the OS policy
-                assignment for a VM instance.
+                Args:
+                    request (~.os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest):
+                        The request object. Get a report of the OS policy
+                    assignment for a VM instance.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.os_policy_assignment_reports.OSPolicyAssignmentReport:
-                    A report of the OS policy assignment
-                status for a given instance.
+                Returns:
+                    ~.os_policy_assignment_reports.OSPolicyAssignmentReport:
+                        A report of the OS policy assignment
+                    status for a given instance.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{name=projects/*/locations/*/instances/*/osPolicyAssignments/*/report}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{name=projects/*/locations/*/instances/*/osPolicyAssignments/*/report}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_os_policy_assignment_report(request, metadata)
-            pb_request = os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest.pb(request)
+            request, metadata = self._interceptor.pre_get_os_policy_assignment_report(
+                request, metadata
+            )
+            pb_request = (
+                os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest.pb(
+                    request
+                )
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1075,19 +1286,24 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("GetVulnerabilityReport")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: vulnerability.GetVulnerabilityReportRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> vulnerability.VulnerabilityReport:
+        def __call__(
+            self,
+            request: vulnerability.GetVulnerabilityReportRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> vulnerability.VulnerabilityReport:
             r"""Call the get vulnerability report method over HTTP.
 
             Args:
@@ -1113,37 +1329,42 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{name=projects/*/locations/*/instances/*/vulnerabilityReport}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{name=projects/*/locations/*/instances/*/vulnerabilityReport}",
+                },
             ]
-            request, metadata = self._interceptor.pre_get_vulnerability_report(request, metadata)
+            request, metadata = self._interceptor.pre_get_vulnerability_report(
+                request, metadata
+            )
             pb_request = vulnerability.GetVulnerabilityReportRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1162,73 +1383,88 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("ListInstanceOSPoliciesCompliances")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse:
+        def __call__(
+            self,
+            request: instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse:
             r"""Call the list instance os policies
-        compliances method over HTTP.
+            compliances method over HTTP.
 
-            Args:
-                request (~.instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest):
-                    The request object. A request message for listing OS
-                policies compliance data for all Compute
-                Engine VMs in the given location.
+                Args:
+                    request (~.instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest):
+                        The request object. A request message for listing OS
+                    policies compliance data for all Compute
+                    Engine VMs in the given location.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse:
-                    A response message for listing OS
-                policies compliance data for all Compute
-                Engine VMs in the given location.
+                Returns:
+                    ~.instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse:
+                        A response message for listing OS
+                    policies compliance data for all Compute
+                    Engine VMs in the given location.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{parent=projects/*/locations/*}/instanceOSPoliciesCompliances',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{parent=projects/*/locations/*}/instanceOSPoliciesCompliances",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_instance_os_policies_compliances(request, metadata)
-            pb_request = instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest.pb(request)
+            (
+                request,
+                metadata,
+            ) = self._interceptor.pre_list_instance_os_policies_compliances(
+                request, metadata
+            )
+            pb_request = instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest.pb(
+                request
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1236,8 +1472,12 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
                 raise core_exceptions.from_http_response(response)
 
             # Return the response
-            resp = instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse()
-            pb_resp = instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse.pb(resp)
+            resp = (
+                instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse()
+            )
+            pb_resp = instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse.pb(
+                resp
+            )
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
             resp = self._interceptor.post_list_instance_os_policies_compliances(resp)
@@ -1247,19 +1487,24 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("ListInventories")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: inventory.ListInventoriesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> inventory.ListInventoriesResponse:
+        def __call__(
+            self,
+            request: inventory.ListInventoriesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> inventory.ListInventoriesResponse:
             r"""Call the list inventories method over HTTP.
 
             Args:
@@ -1282,37 +1527,42 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{parent=projects/*/locations/*/instances/*}/inventories',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{parent=projects/*/locations/*/instances/*}/inventories",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_inventories(request, metadata)
+            request, metadata = self._interceptor.pre_list_inventories(
+                request, metadata
+            )
             pb_request = inventory.ListInventoriesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1331,72 +1581,86 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("ListOSPolicyAssignmentReports")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse:
+        def __call__(
+            self,
+            request: os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse:
             r"""Call the list os policy assignment
-        reports method over HTTP.
+            reports method over HTTP.
 
-            Args:
-                request (~.os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest):
-                    The request object. List the OS policy assignment reports
-                for VM instances.
+                Args:
+                    request (~.os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest):
+                        The request object. List the OS policy assignment reports
+                    for VM instances.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse:
-                    A response message for listing OS
-                Policy assignment reports including the
-                page of results and page token.
+                Returns:
+                    ~.os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse:
+                        A response message for listing OS
+                    Policy assignment reports including the
+                    page of results and page token.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{parent=projects/*/locations/*/instances/*/osPolicyAssignments/*}/reports',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{parent=projects/*/locations/*/instances/*/osPolicyAssignments/*}/reports",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_os_policy_assignment_reports(request, metadata)
-            pb_request = os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest.pb(request)
+            request, metadata = self._interceptor.pre_list_os_policy_assignment_reports(
+                request, metadata
+            )
+            pb_request = (
+                os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest.pb(
+                    request
+                )
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1405,7 +1669,11 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
             # Return the response
             resp = os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse()
-            pb_resp = os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse.pb(resp)
+            pb_resp = (
+                os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse.pb(
+                    resp
+                )
+            )
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
             resp = self._interceptor.post_list_os_policy_assignment_reports(resp)
@@ -1415,71 +1683,86 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("ListOSPolicyAssignmentRevisions")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse:
+        def __call__(
+            self,
+            request: os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse:
             r"""Call the list os policy assignment
-        revisions method over HTTP.
+            revisions method over HTTP.
 
-            Args:
-                request (~.os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest):
-                    The request object. A request message to list revisions
-                for a OS policy assignment
+                Args:
+                    request (~.os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest):
+                        The request object. A request message to list revisions
+                    for a OS policy assignment
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse:
-                    A response message for listing all
-                revisions for a OS policy assignment.
+                Returns:
+                    ~.os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse:
+                        A response message for listing all
+                    revisions for a OS policy assignment.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{name=projects/*/locations/*/osPolicyAssignments/*}:listRevisions',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{name=projects/*/locations/*/osPolicyAssignments/*}:listRevisions",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_os_policy_assignment_revisions(request, metadata)
-            pb_request = os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest.pb(request)
+            (
+                request,
+                metadata,
+            ) = self._interceptor.pre_list_os_policy_assignment_revisions(
+                request, metadata
+            )
+            pb_request = (
+                os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest.pb(request)
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1488,7 +1771,9 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
 
             # Return the response
             resp = os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse()
-            pb_resp = os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse.pb(resp)
+            pb_resp = os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse.pb(
+                resp
+            )
 
             json_format.Parse(response.content, pb_resp, ignore_unknown_fields=True)
             resp = self._interceptor.post_list_os_policy_assignment_revisions(resp)
@@ -1498,71 +1783,83 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("ListOSPolicyAssignments")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignments.ListOSPolicyAssignmentsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> os_policy_assignments.ListOSPolicyAssignmentsResponse:
+        def __call__(
+            self,
+            request: os_policy_assignments.ListOSPolicyAssignmentsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> os_policy_assignments.ListOSPolicyAssignmentsResponse:
             r"""Call the list os policy
-        assignments method over HTTP.
+            assignments method over HTTP.
 
-            Args:
-                request (~.os_policy_assignments.ListOSPolicyAssignmentsRequest):
-                    The request object. A request message to list OS policy
-                assignments for a parent resource
+                Args:
+                    request (~.os_policy_assignments.ListOSPolicyAssignmentsRequest):
+                        The request object. A request message to list OS policy
+                    assignments for a parent resource
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.os_policy_assignments.ListOSPolicyAssignmentsResponse:
-                    A response message for listing all
-                assignments under given parent.
+                Returns:
+                    ~.os_policy_assignments.ListOSPolicyAssignmentsResponse:
+                        A response message for listing all
+                    assignments under given parent.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{parent=projects/*/locations/*}/osPolicyAssignments',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{parent=projects/*/locations/*}/osPolicyAssignments",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_os_policy_assignments(request, metadata)
-            pb_request = os_policy_assignments.ListOSPolicyAssignmentsRequest.pb(request)
+            request, metadata = self._interceptor.pre_list_os_policy_assignments(
+                request, metadata
+            )
+            pb_request = os_policy_assignments.ListOSPolicyAssignmentsRequest.pb(
+                request
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1581,73 +1878,83 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("ListVulnerabilityReports")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: vulnerability.ListVulnerabilityReportsRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> vulnerability.ListVulnerabilityReportsResponse:
+        def __call__(
+            self,
+            request: vulnerability.ListVulnerabilityReportsRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> vulnerability.ListVulnerabilityReportsResponse:
             r"""Call the list vulnerability
-        reports method over HTTP.
+            reports method over HTTP.
 
-            Args:
-                request (~.vulnerability.ListVulnerabilityReportsRequest):
-                    The request object. A request message for listing
-                vulnerability reports for all VM
-                instances in the specified location.
+                Args:
+                    request (~.vulnerability.ListVulnerabilityReportsRequest):
+                        The request object. A request message for listing
+                    vulnerability reports for all VM
+                    instances in the specified location.
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.vulnerability.ListVulnerabilityReportsResponse:
-                    A response message for listing
-                vulnerability reports for all VM
-                instances in the specified location.
+                Returns:
+                    ~.vulnerability.ListVulnerabilityReportsResponse:
+                        A response message for listing
+                    vulnerability reports for all VM
+                    instances in the specified location.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1alpha/{parent=projects/*/locations/*/instances/*}/vulnerabilityReports',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1alpha/{parent=projects/*/locations/*/instances/*}/vulnerabilityReports",
+                },
             ]
-            request, metadata = self._interceptor.pre_list_vulnerability_reports(request, metadata)
+            request, metadata = self._interceptor.pre_list_vulnerability_reports(
+                request, metadata
+            )
             pb_request = vulnerability.ListVulnerabilityReportsRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1666,81 +1973,93 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         def __hash__(self):
             return hash("UpdateOSPolicyAssignment")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: os_policy_assignments.UpdateOSPolicyAssignmentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> operations_pb2.Operation:
+        def __call__(
+            self,
+            request: os_policy_assignments.UpdateOSPolicyAssignmentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> operations_pb2.Operation:
             r"""Call the update os policy
-        assignment method over HTTP.
+            assignment method over HTTP.
 
-            Args:
-                request (~.os_policy_assignments.UpdateOSPolicyAssignmentRequest):
-                    The request object. A request message to update an OS
-                policy assignment
+                Args:
+                    request (~.os_policy_assignments.UpdateOSPolicyAssignmentRequest):
+                        The request object. A request message to update an OS
+                    policy assignment
 
-                retry (google.api_core.retry.Retry): Designation of what errors, if any,
-                    should be retried.
-                timeout (float): The timeout for this request.
-                metadata (Sequence[Tuple[str, str]]): Strings which should be
-                    sent along with the request as metadata.
+                    retry (google.api_core.retry.Retry): Designation of what errors, if any,
+                        should be retried.
+                    timeout (float): The timeout for this request.
+                    metadata (Sequence[Tuple[str, str]]): Strings which should be
+                        sent along with the request as metadata.
 
-            Returns:
-                ~.operations_pb2.Operation:
-                    This resource represents a
-                long-running operation that is the
-                result of a network API call.
+                Returns:
+                    ~.operations_pb2.Operation:
+                        This resource represents a
+                    long-running operation that is the
+                    result of a network API call.
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'patch',
-                'uri': '/v1alpha/{os_policy_assignment.name=projects/*/locations/*/osPolicyAssignments/*}',
-                'body': 'os_policy_assignment',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "patch",
+                    "uri": "/v1alpha/{os_policy_assignment.name=projects/*/locations/*/osPolicyAssignments/*}",
+                    "body": "os_policy_assignment",
+                },
             ]
-            request, metadata = self._interceptor.pre_update_os_policy_assignment(request, metadata)
-            pb_request = os_policy_assignments.UpdateOSPolicyAssignmentRequest.pb(request)
+            request, metadata = self._interceptor.pre_update_os_policy_assignment(
+                request, metadata
+            )
+            pb_request = os_policy_assignments.UpdateOSPolicyAssignmentRequest.pb(
+                request
+            )
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -1754,116 +2073,153 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
             return resp
 
     @property
-    def create_os_policy_assignment(self) -> Callable[
-            [os_policy_assignments.CreateOSPolicyAssignmentRequest],
-            operations_pb2.Operation]:
+    def create_os_policy_assignment(
+        self,
+    ) -> Callable[
+        [os_policy_assignments.CreateOSPolicyAssignmentRequest],
+        operations_pb2.Operation,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._CreateOSPolicyAssignment(self._session, self._host, self._interceptor) # type: ignore
+        return self._CreateOSPolicyAssignment(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def delete_os_policy_assignment(self) -> Callable[
-            [os_policy_assignments.DeleteOSPolicyAssignmentRequest],
-            operations_pb2.Operation]:
+    def delete_os_policy_assignment(
+        self,
+    ) -> Callable[
+        [os_policy_assignments.DeleteOSPolicyAssignmentRequest],
+        operations_pb2.Operation,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._DeleteOSPolicyAssignment(self._session, self._host, self._interceptor) # type: ignore
+        return self._DeleteOSPolicyAssignment(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_instance_os_policies_compliance(self) -> Callable[
-            [instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest],
-            instance_os_policies_compliance.InstanceOSPoliciesCompliance]:
+    def get_instance_os_policies_compliance(
+        self,
+    ) -> Callable[
+        [instance_os_policies_compliance.GetInstanceOSPoliciesComplianceRequest],
+        instance_os_policies_compliance.InstanceOSPoliciesCompliance,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetInstanceOSPoliciesCompliance(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetInstanceOSPoliciesCompliance(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_inventory(self) -> Callable[
-            [inventory.GetInventoryRequest],
-            inventory.Inventory]:
+    def get_inventory(
+        self,
+    ) -> Callable[[inventory.GetInventoryRequest], inventory.Inventory]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetInventory(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetInventory(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_os_policy_assignment(self) -> Callable[
-            [os_policy_assignments.GetOSPolicyAssignmentRequest],
-            os_policy_assignments.OSPolicyAssignment]:
+    def get_os_policy_assignment(
+        self,
+    ) -> Callable[
+        [os_policy_assignments.GetOSPolicyAssignmentRequest],
+        os_policy_assignments.OSPolicyAssignment,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetOSPolicyAssignment(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetOSPolicyAssignment(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_os_policy_assignment_report(self) -> Callable[
-            [os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest],
-            os_policy_assignment_reports.OSPolicyAssignmentReport]:
+    def get_os_policy_assignment_report(
+        self,
+    ) -> Callable[
+        [os_policy_assignment_reports.GetOSPolicyAssignmentReportRequest],
+        os_policy_assignment_reports.OSPolicyAssignmentReport,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetOSPolicyAssignmentReport(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetOSPolicyAssignmentReport(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def get_vulnerability_report(self) -> Callable[
-            [vulnerability.GetVulnerabilityReportRequest],
-            vulnerability.VulnerabilityReport]:
+    def get_vulnerability_report(
+        self,
+    ) -> Callable[
+        [vulnerability.GetVulnerabilityReportRequest], vulnerability.VulnerabilityReport
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetVulnerabilityReport(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetVulnerabilityReport(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_instance_os_policies_compliances(self) -> Callable[
-            [instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest],
-            instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse]:
+    def list_instance_os_policies_compliances(
+        self,
+    ) -> Callable[
+        [instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesRequest],
+        instance_os_policies_compliance.ListInstanceOSPoliciesCompliancesResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListInstanceOSPoliciesCompliances(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListInstanceOSPoliciesCompliances(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_inventories(self) -> Callable[
-            [inventory.ListInventoriesRequest],
-            inventory.ListInventoriesResponse]:
+    def list_inventories(
+        self,
+    ) -> Callable[
+        [inventory.ListInventoriesRequest], inventory.ListInventoriesResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListInventories(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListInventories(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_os_policy_assignment_reports(self) -> Callable[
-            [os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest],
-            os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse]:
+    def list_os_policy_assignment_reports(
+        self,
+    ) -> Callable[
+        [os_policy_assignment_reports.ListOSPolicyAssignmentReportsRequest],
+        os_policy_assignment_reports.ListOSPolicyAssignmentReportsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListOSPolicyAssignmentReports(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListOSPolicyAssignmentReports(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_os_policy_assignment_revisions(self) -> Callable[
-            [os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest],
-            os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse]:
+    def list_os_policy_assignment_revisions(
+        self,
+    ) -> Callable[
+        [os_policy_assignments.ListOSPolicyAssignmentRevisionsRequest],
+        os_policy_assignments.ListOSPolicyAssignmentRevisionsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListOSPolicyAssignmentRevisions(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListOSPolicyAssignmentRevisions(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_os_policy_assignments(self) -> Callable[
-            [os_policy_assignments.ListOSPolicyAssignmentsRequest],
-            os_policy_assignments.ListOSPolicyAssignmentsResponse]:
+    def list_os_policy_assignments(
+        self,
+    ) -> Callable[
+        [os_policy_assignments.ListOSPolicyAssignmentsRequest],
+        os_policy_assignments.ListOSPolicyAssignmentsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListOSPolicyAssignments(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListOSPolicyAssignments(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_vulnerability_reports(self) -> Callable[
-            [vulnerability.ListVulnerabilityReportsRequest],
-            vulnerability.ListVulnerabilityReportsResponse]:
+    def list_vulnerability_reports(
+        self,
+    ) -> Callable[
+        [vulnerability.ListVulnerabilityReportsRequest],
+        vulnerability.ListVulnerabilityReportsResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListVulnerabilityReports(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListVulnerabilityReports(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def update_os_policy_assignment(self) -> Callable[
-            [os_policy_assignments.UpdateOSPolicyAssignmentRequest],
-            operations_pb2.Operation]:
+    def update_os_policy_assignment(
+        self,
+    ) -> Callable[
+        [os_policy_assignments.UpdateOSPolicyAssignmentRequest],
+        operations_pb2.Operation,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._UpdateOSPolicyAssignment(self._session, self._host, self._interceptor) # type: ignore
+        return self._UpdateOSPolicyAssignment(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -1873,6 +2229,4 @@ class OsConfigZonalServiceRestTransport(OsConfigZonalServiceTransport):
         self._session.close()
 
 
-__all__=(
-    'OsConfigZonalServiceRestTransport',
-)
+__all__ = ("OsConfigZonalServiceRestTransport",)
