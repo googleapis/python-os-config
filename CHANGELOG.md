@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.3](https://github.com/googleapis/python-os-config/compare/v1.15.2...v1.15.3) (2023-09-13)
+
+
+### Documentation
+
+* Minor formatting ([1cebf49](https://github.com/googleapis/python-os-config/commit/1cebf49aa81cd0bf6994ce3ddc0eeccc2a50b65a))
+
 ## [1.15.2](https://github.com/googleapis/python-os-config/compare/v1.15.1...v1.15.2) (2023-07-04)
 
 
